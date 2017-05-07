@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Extension, ResultItem } from '../typings';
 import Input from './Input';
 import Results from './Results';
-import { flatten } from './utils';
+import search from './search';
 import { KEYS } from './constants';
 
 interface Props {
@@ -35,16 +35,8 @@ export default class Omnibar extends React.Component<Props, State> {
 
     query(value: string) {
         if (this.props.extensions.length) {
-            const results = [];
-            for (let extension of this.props.extensions) {
-                if (typeof extension === 'function') {
-                    results.push(extension.call(null, value));
-                }
-            }
-
-            Promise.resolve(results)
-                .then(groups => {
-                    const results = flatten<ResultItem>(groups);
+            search(value, this.props.extensions)
+                .then(results => {
                     this.setState({ results });
                 });
         }
