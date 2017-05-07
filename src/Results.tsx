@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { ResultItem } from '../typings';
-import ResultRenderer from './renderers/ResultRenderer';
+import ResultsItem from './ResultsItem';
 
 interface Props {
+    // the currently selected index
+    selectedIndex: number;
     // list of result items
     items: Array<ResultItem>;
     // item row height
@@ -22,6 +24,11 @@ const LIST_STYLE: React.CSSProperties = {
 };
 
 export default class Results extends React.Component<Props, State> {
+    static defaultProps: Props = {
+        selectedIndex: -1,
+        items: [],
+    }
+
     render() {
         const style = { ...LIST_STYLE, ...this.props.style };
 
@@ -31,7 +38,13 @@ export default class Results extends React.Component<Props, State> {
 
         return (
             <ul style={LIST_STYLE}>
-                {this.props.items.map((item, key) => <ResultRenderer key={key} item={item} style={this.props.rowStyle} />)}
+                {this.props.items.map((item, key) =>
+                    <ResultsItem
+                        key={key}
+                        highlighted={this.props.selectedIndex === key}
+                        item={item}
+                        style={this.props.rowStyle} />
+                )}
             </ul>
         );
     }

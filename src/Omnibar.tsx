@@ -3,6 +3,7 @@ import { Extension, ResultItem } from '../typings';
 import Input from './Input';
 import Results from './Results';
 import { flatten } from './utils';
+import { KEYS } from './constants';
 
 interface Props {
     // list of extensions
@@ -20,12 +21,16 @@ interface Props {
 }
 
 interface State {
+    // list of matching results
     results: Array<ResultItem>;
+    // current selected index
+    selectedIndex: number;
 }
 
 export default class Omnibar extends React.Component<Props, State> {
     state: State = {
         results: [],
+        selectedIndex: -1,
     }
 
     query(value: string) {
@@ -49,11 +54,40 @@ export default class Omnibar extends React.Component<Props, State> {
         this.setState({ results: [] });
     }
 
+    prev = () => {
+        this.setState((prevState: State) => {
+            const selectedIndex = prevState.selectedIndex - 1;
+            if (selectedIndex >= 0) {
+                return { selectedIndex };
+            }
+        });
+    }
+
+    next = () => {
+        this.setState((prevState: State) => {
+            const selectedIndex = prevState.selectedIndex + 1;
+            if (selectedIndex < prevState.results.length) {
+                return { selectedIndex };
+            }
+        });
+    }
+
     handleChange = (value: string) => {
         if (value) {
             this.query(value);
         } else {
             this.reset();
+        }
+    }
+
+    handleKeyDown = (evt: any /* Event */) => {
+        switch (evt.keyCode) {
+            case KEYS.UP:
+                this.prev();
+                break;
+            case KEYS.DOWN:
+                this.next();
+                break;
         }
     }
 
@@ -72,9 +106,11 @@ export default class Omnibar extends React.Component<Props, State> {
                     width={width}
                     height={height}
                     style={inputStyle}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    onKeyDown={this.handleKeyDown} />
                 {this.state.results.length > 0 && (
                     <Results
+                        selectedIndex={this.state.selectedIndex}
                         items={this.state.results}
                         rowHeight={rowHeight}
                         rowStyle={rowStyle} />

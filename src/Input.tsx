@@ -4,6 +4,8 @@ import { COLORS } from './constants';
 interface Props {
     // callback method when the input value has changed
     onChange: (value: string) => void;
+    // callback method when a key is pressed
+    onKeyDown: (evt: any /* Event */) => void;
     // optional input width
     width?: number;
     // optional input height
@@ -41,6 +43,10 @@ export default class Input extends React.Component<Props, State> {
         this.props.onChange(value);
     }
 
+    handleKeyDown = (evt: any /* Event */) => {
+        this.props.onKeyDown(evt);
+    }
+
     render() {
         const style = { ...INPUT_STYLE, ...this.props.style };
 
@@ -57,7 +63,8 @@ export default class Input extends React.Component<Props, State> {
                 type="text"
                 value={this.state.value}
                 style={style}
-                onChange={this.handleChange} />
+                onChange={this.handleChange}
+                onKeyDown={this.handleKeyDown} />
         );
     }
 }
