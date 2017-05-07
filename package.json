@@ -4,9 +4,51 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "NODE_ENV=development webpack-dev-server --config example/webpack.config.js --inline",
+    "prod": "NODE_ENV=production webpack-dev-server --config example/webpack.config.js --optimize-minimize",
+    "jest": "jest --coverage --verbose",
+    "test": "npm run jest",
+    "start": "npm run dev"
   },
-  "keywords": [],
+  "keywords": [
+    "omnibar",
+    "search",
+    "navigator"
+  ],
   "author": "Vu Tran <vu@vu-tran.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "@types/node": "^7.0.18",
+    "@types/react": "^15.0.24",
+    "@types/react-dom": "^15.5.0",
+    "babel-jest": "^20.0.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "jest": "^20.0.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "rollup-plugin-typescript": "^0.8.1",
+    "ts-jest": "^20.0.0",
+    "ts-loader": "^2.0.3",
+    "typescript": "^2.3.2",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
+  }
 }
