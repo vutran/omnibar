@@ -1,4 +1,4 @@
-import { ResultItem } from '../../../typings';
+import { Results } from '../../../typings';
 
 /**
  * At the very basic level, an extension can just be a regular function
@@ -7,7 +7,7 @@ import { ResultItem } from '../../../typings';
  * @param {string} query
  * @param {Array<ResultItem>}
  */
-export default function(query: string): Array<ResultItem> {
+export default function(query: string): Results {
     return [
         { title: 'GitHub', url: 'https://github.com' },
         { title: 'Google', url: 'https://google.com' },

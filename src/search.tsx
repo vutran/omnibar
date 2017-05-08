@@ -1,4 +1,4 @@
-import { Extension, ResultItem } from '../typings';
+import { Extension, Results, ResultItem } from '../typings';
 import { flatten } from './utils';
 
 const REGEX_CACHE: { [query: string]: RegExp } = {};
@@ -12,7 +12,7 @@ const REGEX_CACHE: { [query: string]: RegExp } = {};
  * @return {Promise<Array<ResultItem>>}
  */
 export default function search(query: string, extensions: Array<Extension>): Promise<Array<ResultItem>> {
-    const results: Array<Array<ResultItem>> = [];
+    const results: Array<Results> = [];
 
     // lookup for the cached regex instance
     // or create a new one

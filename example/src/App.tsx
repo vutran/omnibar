@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Omnibar from '../../src';
 import BasicDemoExtension from './extensions/BasicDemoExtension';
+import GitHubSearchExtension from './extensions/GitHubSearchExtension';
 
 interface Props {}
 interface State {}
@@ -28,6 +29,7 @@ export default class App extends React.Component<Props, State> {
                     <Omnibar
                         extensions={[
                             BasicDemoExtension,
+                            GitHubSearchExtension,
                         ]} />
                 </div>
             </div>
