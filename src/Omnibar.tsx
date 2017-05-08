@@ -8,6 +8,8 @@ import { KEYS } from './constants';
 interface Props {
     // list of extensions
     extensions: Array<Extension>;
+    // max items
+    maxResults?: number;
     // optional input placeholder text
     placeholder?: string;
     // optional input bar width
@@ -38,8 +40,14 @@ export default class Omnibar extends React.Component<Props, State> {
     query(value: string) {
         if (this.props.extensions.length) {
             search(value, this.props.extensions)
-                .then(results => {
-                    this.setState({ results });
+                .then(items => {
+                    if (items.length) {
+                        let results = items;
+                        if (this.props.maxResults) {
+                            results = results.slice(0, this.props.maxResults);
+                        }
+                        this.setState({ results });
+                    }
                 });
         }
     }

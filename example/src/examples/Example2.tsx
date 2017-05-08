@@ -22,6 +22,7 @@ export default function GitHubSearchExtension(query) {
 const USAGE_CODE = `
 <Omnibar
     placeholder="Search GitHub repositories"
+    maxResults={5}
     extensions={[GitHubSearchExtension]} />
 `
 
@@ -38,6 +39,7 @@ export default class App extends React.Component<Props, State> {
                         <CodeBlock style={{ marginBottom: 30 }}>{USAGE_CODE}</CodeBlock>
                         <Omnibar
                             placeholder="Search GitHub repositories"
+                            maxResults={5}
                             extensions={[GitHubSearchExtension]} />
                     </div>
                 </div>
