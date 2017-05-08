@@ -6,6 +6,8 @@ interface Props {
     onChange: (value: string) => void;
     // callback method when a key is pressed
     onKeyDown: (evt: any /* Event */) => void;
+    // optional input placeholder text
+    placeholder?: string;
     // optional input width
     width?: number;
     // optional input height
@@ -62,6 +64,7 @@ export default class Input extends React.Component<Props, State> {
             <input
                 type="text"
                 value={this.state.value}
+                placeholder={this.props.placeholder}
                 style={style}
                 onChange={this.handleChange}
                 onKeyDown={this.handleKeyDown} />

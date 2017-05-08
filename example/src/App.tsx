@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Omnibar from '../../src';
 import BasicDemoExtension from './extensions/BasicDemoExtension';
+import MathExtension from './extensions/MathExtension';
 import GitHubSearchExtension from './extensions/GitHubSearchExtension';
 
 interface Props {}
@@ -27,9 +28,10 @@ export default class App extends React.Component<Props, State> {
             <div style={OUTER}>
                 <div style={INNER}>
                     <Omnibar
+                        placeholder="Enter a keyword"
                         extensions={[
                             BasicDemoExtension,
-                            GitHubSearchExtension,
+                            MathExtension,
                         ]} />
                 </div>
             </div>

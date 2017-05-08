@@ -1,6 +1,6 @@
 export interface ResultItem {
     title: string;
-    url: string;
+    url?: string;
 }
 
 // Result set

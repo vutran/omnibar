@@ -8,6 +8,8 @@ import { KEYS } from './constants';
 interface Props {
     // list of extensions
     extensions: Array<Extension>;
+    // optional input placeholder text
+    placeholder?: string;
     // optional input bar width
     width?: number;
     // optional input bar height
@@ -85,6 +87,7 @@ export default class Omnibar extends React.Component<Props, State> {
 
     render() {
         const {
+            placeholder,
             width,
             height,
             inputStyle,
@@ -98,6 +101,7 @@ export default class Omnibar extends React.Component<Props, State> {
                     width={width}
                     height={height}
                     style={inputStyle}
+                    placeholder={placeholder}
                     onChange={this.handleChange}
                     onKeyDown={this.handleKeyDown} />
                 {this.state.results.length > 0 && (

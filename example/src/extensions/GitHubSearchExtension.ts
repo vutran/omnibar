@@ -24,7 +24,7 @@ const FETCH_CACHE: { [id: string]: Promise<GitHubResponse> } = {};
  * @param {string} query
  * @param {Results}
  */
-export default function(query: string): Results {
+export default function GitHubSearchExtension(query: string): Results {
     const options = {
         headers: {
             Accept: 'application/vnd.github.vutran-omnibar+json',
