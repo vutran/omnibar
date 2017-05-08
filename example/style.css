@@ -1,0 +1,74 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+pre {
+    font-size: 14px;
+    margin: 0px;
+}
+
+#app {
+    height: 100vh;
+}
+
+.wrapper {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.outer {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 100px;
+}
+
+.header {
+    background-color: #eee;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 48px;
+}
+
+.header h2 {
+    font-size: 20px;
+}
+
+.header .search {
+    margin-top: 60px;
+}
+
+.base {
+    width: 100%;
+}
+
+.example {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.example-left {
+    width: 50%;
+    margin-right: 15px;
+}
+
+.example-right {
+    width: 50%;
+    margin-left: 15px;
+}

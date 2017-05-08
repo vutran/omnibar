@@ -1,38 +1,32 @@
 import * as React from 'react';
 import Omnibar from '../../src';
-import BasicDemoExtension from './extensions/BasicDemoExtension';
+import Example1 from './examples/Example1';
+import Example2 from './examples/Example2';
 import MathExtension from './extensions/MathExtension';
-import GitHubSearchExtension from './extensions/GitHubSearchExtension';
 
 interface Props {}
 interface State {}
 
-const OUTER: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    height: '100%',
-    marginTop: 100,
-};
-
-const INNER: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    width: '100%',
-};
-
 export default class App extends React.Component<Props, State> {
     render() {
         return (
-            <div style={OUTER}>
-                <div style={INNER}>
-                    <Omnibar
-                        placeholder="Enter a keyword"
-                        extensions={[
-                            BasicDemoExtension,
-                            MathExtension,
-                        ]} />
+            <div>
+                <header className="header">
+                    <div className="wrapper">
+                        <h1>Omnibar</h1>
+                        <h2>Extensible search component for React.</h2>
+                        <div className="search">
+                            <Omnibar
+                                placeholder="Type something..."
+                                extensions={[
+                                    MathExtension,
+                                ]} />
+                        </div>
+                    </div>
+                </header>
+                <div className="outer wrapper">
+                    <Example1 />
+                    <Example2 />
                 </div>
             </div>
         );

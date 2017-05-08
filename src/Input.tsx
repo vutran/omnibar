@@ -21,7 +21,7 @@ interface State {
 }
 
 const INPUT_STYLE: React.CSSProperties = {
-    width: 600,
+    width: '100%',
     height: 50,
     fontSize: 24,
     lineHeight: '24px',
