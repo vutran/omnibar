@@ -22,7 +22,7 @@ const ITEM_STYLE: React.CSSProperties = {
     lineHeight: '50px',
     fontSize: 24,
     borderStyle: 'solid',
-    borderColor: COLORS.GRAY,
+    borderColor: COLORS.DARKGRAY,
     borderTopWidth: 0,
     borderLeftWidth: 1,
     borderRightWidth: 1,

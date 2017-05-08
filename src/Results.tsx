@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ResultItem } from '../typings';
 import ResultsItem from './ResultsItem';
+import { COLORS } from './constants';
 
 interface Props {
     // the currently selected index
@@ -21,6 +22,7 @@ const LIST_STYLE: React.CSSProperties = {
     listStyleType: 'none',
     margin: 0,
     padding: 0,
+    backgroundColor: COLORS.WHITE,
 };
 
 export default class Results extends React.Component<Props, State> {

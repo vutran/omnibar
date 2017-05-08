@@ -29,7 +29,7 @@ const INPUT_STYLE: React.CSSProperties = {
     outline: 0,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: COLORS.GRAY,
+    borderColor: COLORS.DARKGRAY,
     paddingLeft: 15,
     paddingRight: 15,
 };
