@@ -1,16 +1,16 @@
 import querystring from 'querystring';
 
 interface FetchParams {
-    [key: string]: string;
+    [key: string]: any;
 }
 
 interface FetchHeaders {
-    [key: string]: string;
+    [key: string]: any;
 }
 
 interface FetchOptions {
-    headers: FetchHeaders;
-    params: FetchParams;
+    headers?: FetchHeaders;
+    params?: FetchParams;
 }
 
 /**
@@ -20,17 +20,19 @@ interface FetchOptions {
  * @param {string} url - Request URL
  * @return {Promise} - A Promise that resolves to the response object, rejects on error
  */
-export function fetch<T>(url: string, options: FetchOptions): Promise<T> {
+export function fetch<T>(url: string, options?: FetchOptions): Promise<T> {
     return new Promise(
         (resolve: (val: T) => void, reject: (msg: string) => void) => {
             const xhr = new XMLHttpRequest();
-            const qs = querystring.stringify(options.params) || '';
+            const qs = (options && options.params) ? `?${querystring.stringify(options.params)}` : '';
 
-            xhr.open('GET', `${url}?${qs}`, true);
+            xhr.open('GET', `${url}${qs}`, true);
 
             // set headers
-            for (let header in options.headers) {
-                xhr.setRequestHeader(header, options.headers[header]);
+            if (options && options.headers) {
+                for (let header in options.headers) {
+                    xhr.setRequestHeader(header, options.headers[header]);
+                }
             }
 
             xhr.onreadystatechange = () => {

@@ -10,6 +10,8 @@ interface Props {
     highlighted: boolean;
     // optional style override
     style?: React.CSSProperties;
+    // optional result renderering function
+    resultRenderer?: <T>(item: T) => React.ReactChild;
 }
 
 interface State {
@@ -59,9 +61,13 @@ export default class ResultRenderer extends React.PureComponent<Props, State> {
             style = { ...style, ...ITEM_HOVER_STYLE };
         }
 
+        const renderer = this.props.resultRenderer
+            ? this.props.resultRenderer
+            : AnchorRenderer;
+
         return (
             <li style={style} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-                {AnchorRenderer({ item })}
+                {renderer({ item })}
             </li>
         );
     }

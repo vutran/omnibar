@@ -2,6 +2,7 @@ import * as React from 'react';
 import Omnibar from '../../src';
 import Example1 from './examples/Example1';
 import Example2 from './examples/Example2';
+import Example3 from './examples/Example3';
 import MathExtension from './extensions/MathExtension';
 
 interface Props {}
@@ -27,6 +28,7 @@ export default class App extends React.Component<Props, State> {
                 <div className="outer wrapper">
                     <Example1 />
                     <Example2 />
+                    <Example3 />
                 </div>
             </div>
         );

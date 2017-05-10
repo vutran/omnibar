@@ -24,28 +24,20 @@ const FETCH_CACHE: { [id: string]: Promise<GitHubResponse> } = {};
  * @param {string} query
  * @param {Results}
  */
-export default function GitHubSearchExtension(query: string): Results {
+export default function GitHubSearchExtension(query: string): Promise<Array<GitHubItem>> {
     const options = {
         headers: {
             Accept: 'application/vnd.github.vutran-omnibar+json',
-        },
-        params: {
-            q: query,
         },
     };
 
     // retrieves from cache makes a new fetch request (and cache)
     const prom = FETCH_CACHE[query] || (
         FETCH_CACHE[query] = fetch<GitHubResponse>(
-            'https://api.github.com/search/repositories',
+            `https://api.github.com/search/repositories?q=${query}`,
             options,
         )
-    );
+    )
 
-    return prom
-        .then(resp => resp.items)
-        .then(items => items.map(item => ({
-            title: item.full_name,
-            url: item.html_url,
-        })));
+    return prom.then(resp => resp.items);
 }

@@ -14,6 +14,8 @@ interface Props {
     style?: React.CSSProperties;
     // optional row override style
     rowStyle?: React.CSSProperties;
+    // optional result renderering function
+    resultRenderer?: <T>(item: T) => React.ReactChild;
 }
 
 interface State {}
@@ -45,7 +47,8 @@ export default class Results extends React.Component<Props, State> {
                         key={key}
                         highlighted={this.props.selectedIndex === key}
                         item={item}
-                        style={this.props.rowStyle} />
+                        style={this.props.rowStyle}
+                        resultRenderer={this.props.resultRenderer} />
                 )}
             </ul>
         );

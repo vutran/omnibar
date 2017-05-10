@@ -36,6 +36,10 @@ export default function Example1(props: Props) {
     return (
         <div className="base">
             <h2>Simple Extension</h2>
+            <div className="example-left">
+                <p>The most simplest extension should return a list of items.</p>
+                <p>Default shape: <code>{`{ title, url }`}</code></p>
+            </div>
             <div className="example">
                 <div className="example-left">
                     <CodeBlock>{EXTENSION_CODE}</CodeBlock>

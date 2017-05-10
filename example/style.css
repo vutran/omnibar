@@ -64,11 +64,11 @@ pre {
 }
 
 .example-left {
-    width: 50%;
+    width:60%;
     margin-right: 15px;
 }
 
 .example-right {
-    width: 50%;
+    width: 40%;
     margin-left: 15px;
 }

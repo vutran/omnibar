@@ -22,11 +22,13 @@ interface Props {
     rowHeight?: number;
     // optional result item style override
     rowStyle?: React.CSSProperties;
+    // optional result renderering function
+    resultRenderer?: <T>(item: T) => React.ReactChild;
 }
 
 interface State {
     // list of matching results
-    results: Array<ResultItem>;
+    results: Array<ResultItem | any>;
     // current selected index
     selectedIndex: number;
 }
@@ -101,6 +103,7 @@ export default class Omnibar extends React.Component<Props, State> {
             inputStyle,
             rowHeight,
             rowStyle,
+            resultRenderer,
         } = this.props;
 
         return (
@@ -117,7 +120,8 @@ export default class Omnibar extends React.Component<Props, State> {
                         selectedIndex={this.state.selectedIndex}
                         items={this.state.results}
                         rowHeight={rowHeight}
-                        rowStyle={rowStyle} />
+                        rowStyle={rowStyle}
+                        resultRenderer={resultRenderer} />
                 )}
             </div>
         );

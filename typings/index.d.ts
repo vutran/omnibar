@@ -4,8 +4,8 @@ export interface ResultItem {
 }
 
 // Result set
-type ListResult = Array<ResultItem>;
-type ResolvedResult = Promise<ListResult>;
+type ListResult = Array<ResultItem | any>;
+type ResolvedResult = Promise<ListResult | any>;
 type Results = ListResult | ResolvedResult;
 
 // Extensions
