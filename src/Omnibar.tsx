@@ -107,7 +107,7 @@ export default class Omnibar extends React.Component<Props, State> {
         } = this.props;
 
         return (
-            <div>
+            <div style={{ position: 'relative' }}>
                 <Input
                     width={width}
                     height={height}

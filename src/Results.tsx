@@ -21,6 +21,9 @@ interface Props {
 interface State {}
 
 const LIST_STYLE: React.CSSProperties = {
+    position: 'absolute',
+    width: '100%',
+    zIndex: 2,
     listStyleType: 'none',
     margin: 0,
     padding: 0,
@@ -41,7 +44,7 @@ export default class Results extends React.Component<Props, State> {
         }
 
         return (
-            <ul style={LIST_STYLE}>
+            <ul style={style}>
                 {this.props.items.map((item, key) =>
                     <ResultsItem
                         key={key}
