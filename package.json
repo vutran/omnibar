@@ -7,6 +7,7 @@
     "build": "rollup -c",
     "dev": "NODE_ENV=development webpack-dev-server --config example/webpack.config.js --inline",
     "prod": "NODE_ENV=production webpack-dev-server --config example/webpack.config.js --optimize-minimize",
+    "prepublish": "npm run build",
     "jest": "jest --coverage --verbose",
     "test": "npm run jest",
     "start": "npm run dev"
