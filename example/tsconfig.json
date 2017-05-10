@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "es6",
+        "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "jsx": "react",
         "moduleResolution": "node",

@@ -38,6 +38,7 @@
     "mathjs": "^3.12.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "rollup": "^0.41.6",
     "rollup-plugin-typescript": "^0.8.1",
     "style-loader": "^0.17.0",
     "ts-jest": "^20.0.0",
