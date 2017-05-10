@@ -13,6 +13,7 @@ export default function MathExtension(query: string): Results {
         return [
             {
                 title: answer.toString(),
+                subtitle: 'Calculate: ' + query,
             },
         ];
     } catch (err) {

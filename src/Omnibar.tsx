@@ -10,6 +10,8 @@ interface Props {
     extensions: Array<Extension>;
     // max items
     maxResults?: number;
+    // max items to display in view
+    maxViewableResults?: number;
     // optional input placeholder text
     placeholder?: string;
     // optional input bar width
@@ -22,6 +24,8 @@ interface Props {
     rowHeight?: number;
     // optional result item style override
     rowStyle?: React.CSSProperties;
+    // optional result list style override
+    resultStyle?: React.CSSProperties;
     // optional result renderering function
     resultRenderer?: <T>(item: T) => React.ReactChild;
 }
@@ -34,6 +38,13 @@ interface State {
 }
 
 export default class Omnibar extends React.Component<Props, State> {
+    static defaultProps: Props = {
+        extensions: [],
+        maxViewableResults: null,
+        rowHeight: 50,
+        resultStyle: {},
+    }
+
     state: State = {
         results: [],
         selectedIndex: -1,
@@ -97,14 +108,18 @@ export default class Omnibar extends React.Component<Props, State> {
 
     render() {
         const {
+            maxViewableResults,
             placeholder,
             width,
             height,
             inputStyle,
             rowHeight,
             rowStyle,
+            resultStyle,
             resultRenderer,
         } = this.props;
+
+        const maxHeight = maxViewableResults ? maxViewableResults * rowHeight : null;
 
         return (
             <div style={{ position: 'relative' }}>
@@ -120,6 +135,8 @@ export default class Omnibar extends React.Component<Props, State> {
                         selectedIndex={this.state.selectedIndex}
                         items={this.state.results}
                         rowHeight={rowHeight}
+                        maxHeight={maxHeight}
+                        style={resultStyle}
                         rowStyle={rowStyle}
                         resultRenderer={resultRenderer} />
                 )}

@@ -33,42 +33,25 @@ pre {
 }
 
 .header {
-    background-color: #eee;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    background-color: #007AF5;
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 100px;
     text-align: center;
 }
 
 .header h1 {
-    font-size: 48px;
+    font-size: 60px;
 }
 
 .header h2 {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: lighter;
 }
 
 .header .search {
     margin-top: 60px;
-}
-
-.base {
-    width: 100%;
-}
-
-.example {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-.example-left {
-    width:60%;
-    margin-right: 15px;
-}
-
-.example-right {
-    width: 40%;
-    margin-left: 15px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -29,6 +29,7 @@ const ITEM_STYLE: React.CSSProperties = {
     borderLeftWidth: 1,
     borderRightWidth: 1,
     borderBottomWidth: 1,
+    boxSizing: 'border-box',
 };
 
 const ITEM_HOVER_STYLE: React.CSSProperties = {

@@ -8,6 +8,8 @@ interface Props {
     selectedIndex: number;
     // list of result items
     items: Array<ResultItem>;
+    // max container height
+    maxHeight?: React.CSSLength;
     // item row height
     rowHeight?: React.CSSLength;
     // optional override container style
@@ -39,8 +41,12 @@ export default class Results extends React.Component<Props, State> {
     render() {
         const style = { ...LIST_STYLE, ...this.props.style };
 
-        if (this.props.rowHeight) {
-            style.height = this.props.rowHeight;
+        if (this.props.maxHeight) {
+            style.maxHeight = this.props.maxHeight;
+            style.borderBottomWidth = 1;
+            style.borderBottomColor = COLORS.GRAY;
+            style.borderBottomStyle = 'solid';
+            style.overflow = 'auto';
         }
 
         return (

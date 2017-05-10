@@ -6,6 +6,9 @@ interface GitHubItem {
     full_name: string;
     html_url: string;
     description: string;
+    owner: {
+        avatar_url: string;
+    };
 }
 
 interface GitHubResponse {
@@ -24,7 +27,7 @@ const FETCH_CACHE: { [id: string]: Promise<GitHubResponse> } = {};
  * @param {string} query
  * @param {Results}
  */
-export default function GitHubSearchExtension(query: string): Promise<Array<GitHubItem>> {
+export default function GitHubSearchExtension(query: string): Results {
     const options = {
         headers: {
             Accept: 'application/vnd.github.vutran-omnibar+json',
@@ -39,5 +42,12 @@ export default function GitHubSearchExtension(query: string): Promise<Array<GitH
         )
     )
 
-    return prom.then(resp => resp.items);
+    return prom
+        .then(resp => resp.items.map(
+            item => ({
+                title: item.full_name,
+                subtitle: item.html_url,
+                image: item.owner.avatar_url,
+            }),
+        ));
 }
