@@ -11,6 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 
 pre {
     font-size: 14px;
+    line-height: 16px;
     margin: 0px;
 }
 
@@ -30,7 +31,7 @@ pre {
     align-items: flex-start;
     flex-direction: column;
     height: 100%;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .header {
@@ -58,12 +59,12 @@ pre {
 .header .search {
     min-width: 320px;
     max-width: 400px;
-    margin: 40px;
+    margin: 50px;
 }
 
 .body {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -90,6 +91,35 @@ pre {
 .block-img {
     max-width: 100px;
     max-height: 100px;
+}
+
+.tab-nav button {
+    background-color: #fff;
+    border-color: #eee;
+    border-style: solid;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    padding: 15px;
+    outline: 0px;
+    position: relative;
+    top: 1px;
+}
+
+.tab-nav button:last-child {
+    border-right-width: 1px;
+}
+
+.tab-nav button.active {
+    font-weight: 700;
+    font-style: italic;
+    background-color: #f8f8f8;
+    border-bottom-color: #f8f8f8;
+}
+
+.editor {
+    border: 1px solid #eee;
 }
 
 .get-started {
@@ -125,11 +155,11 @@ pre {
 }
 
 .footer {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    border-top: 1px solid #ccc;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-top: 1px solid #eee;
     text-align: center;
-    background-color: #eee;
+    background-color: #f8f8f8;
 }
 
 .footer a {

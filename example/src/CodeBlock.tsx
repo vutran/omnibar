@@ -3,7 +3,7 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 
 interface Props {
-    style?: React.CSSProperties;
+    className?: string;
     children?: React.ReactText;
 }
 
@@ -18,7 +18,7 @@ export default function CodeBlock(props: Props) {
     const text = children.toString().replace(/^(\s+|\s+$)/g, '');
     const highlighted = hljs.highlightAuto(text);
     return (
-        <pre {...rest} style={{ margin: 50 }}>
+        <pre {...rest}>
             <code style={{ padding: 30 }} className="hljs js" dangerouslySetInnerHTML={{ __html: highlighted.value }} />
         </pre>
     );

@@ -4,28 +4,28 @@ import CodeBlock from './CodeBlock';
 import MathExtension from './extensions/MathExtension';
 import NpmSearchExtension from './extensions/NpmSearchExtension';
 import GitHubSearchExtension from './extensions/GitHubSearchExtension';
+import files from './files';
 
-const CODE = `
-import React from 'react';
-import MathExtension from './extensions/MathExtension';
-import GitHubSearchExtension from './extensions/GitHubSearchExtension';
-import NpmSearchExtension from './extensions/NpmSearchExtension';
-
-export default function App() {
-    return (
-        <Omnibar
-            placeholder="Search npm package..."
-            maxResults={20}
-            maxViewableResults={5}
-            extensions={[
-                MathExtension,
-                NpmSearchExtension,
-            ]} />
-    );
+interface Props {}
+interface State {
+    tab: string;
 }
-`;
 
-export default class App extends React.Component<{}, {}> {
+function active(compare: boolean, className: string): string {
+    if (compare) {
+        return className;
+    }
+}
+
+export default class App extends React.Component<Props, State> {
+    state: State ={
+        tab: 'main.jsx',
+    };
+
+    switchTab = (evt: any) => {
+        this.setState({ tab: evt.target.id });
+    }
+
     resultRenderer = ({ item }: { item: any }) => {
         return (
             <div style={{ display: 'flex', paddingLeft: 15, paddingRight: 15, color: '#000', textAlign: 'left' }}>
@@ -87,7 +87,32 @@ export default class App extends React.Component<{}, {}> {
                     </div>
 
                     <div className="block full">
-                        <CodeBlock>{CODE}</CodeBlock>
+                        <div className="tab-nav">
+                            <button
+                                type="button"
+                                id="main.jsx"
+                                className={active(this.state.tab === 'main.jsx', 'active')}
+                                onClick={this.switchTab}>
+                                main.jsx
+                            </button>
+                            <button
+                                type="button"
+                                id="MathExtension.jsx"
+                                className={active(this.state.tab === 'MathExtension.jsx', 'active')}
+                                onClick={this.switchTab}>
+                                MathExtension.jsx
+                            </button>
+                            <button
+                                type="button"
+                                id="NpmSearchExtension.jsx"
+                                className={active(this.state.tab === 'NpmSearchExtension.jsx', 'active')}
+                                onClick={this.switchTab}>
+                                NpmSearchExtension.jsx
+                            </button>
+                        </div>
+                        { this.state.tab === 'main.jsx' && <CodeBlock className="editor">{files.main}</CodeBlock> }
+                        { this.state.tab === 'MathExtension.jsx' && <CodeBlock className="editor">{files.MathExtension}</CodeBlock> }
+                        { this.state.tab === 'NpmSearchExtension.jsx' && <CodeBlock className="editor">{files.NpmSearchExtension}</CodeBlock> }
                     </div>
 
                     <div className="block full center">
