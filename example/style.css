@@ -144,16 +144,6 @@ pre {
     border-bottom-width: 0px;
 }
 
-@media screen and (max-width: 960px) {
-    .body {
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-    .block {
-        max-width: none;
-    }
-}
-
 .footer {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -166,4 +156,22 @@ pre {
     text-decoration: none;
     color: #555;
     font-weight: bold;
+}
+
+@media screen and (max-width: 960px) {
+    .body {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .block {
+        max-width: none;
+    }
+    .tab-nav button {
+        max-width: 75px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .tab-nav button.active {
+        max-width: none;
+    }
 }
