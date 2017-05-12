@@ -4,9 +4,10 @@
   "description": "",
   "main": "dist/lib.js",
   "scripts": {
-    "build": "rollup -c",
+    "build-lib": "rollup -c",
+    "build-example": "NODE_ENV=development webpack --config example/webpack.config.js",
+    "build": "npm run build-lib && npm run build-example",
     "dev": "NODE_ENV=development webpack-dev-server --config example/webpack.config.js --inline",
-    "prod": "NODE_ENV=production webpack-dev-server --config example/webpack.config.js --optimize-minimize",
     "prepublish": "npm run build",
     "jest": "jest --coverage --verbose",
     "test": "npm run jest",
