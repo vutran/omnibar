@@ -144,8 +144,9 @@ class MyComponent extends React.Component {
 | `inputStyle` | `object` | | Style object override for the input element |
 | `rowHeight` | `number` | | The height for each result row item |
 | `rowStyle` | `object` | | Style object override for each result row item |
-| `resultStyle` | `object | | Style object override for the result container |
-| `resultRenderer` | `Function` | | Rendering function for each result item. Arguments: `item` |
+| `resultStyle` | `object` | | Style object override for the result container |
+| `resultRenderer` | `Function` | | Rendering function for each result item. Arguments: `{ item }` |
+| `onAction` | `Function` | Override the defaut action callback when an item is executed. Arguments: `item` |
 
 ## Contributing
 

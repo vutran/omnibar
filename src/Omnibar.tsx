@@ -4,6 +4,7 @@ import Input from './Input';
 import Results from './Results';
 import search from './search';
 import { KEYS } from './constants';
+import AnchorAction from './actions/AnchorAction';
 
 interface Props {
     // list of extensions
@@ -28,6 +29,8 @@ interface Props {
     resultStyle?: React.CSSProperties;
     // optional result renderering function
     resultRenderer?: <T>(item: T) => React.ReactChild;
+    // optional action override
+    onAction?: <T>(item: T) => void;
 }
 
 interface State {
@@ -47,7 +50,7 @@ export default class Omnibar extends React.Component<Props, State> {
 
     state: State = {
         results: [],
-        selectedIndex: -1,
+        selectedIndex: 0,
     }
 
     query(value: string) {
@@ -87,6 +90,12 @@ export default class Omnibar extends React.Component<Props, State> {
         });
     }
 
+    action = () => {
+        const item = this.state.results[this.state.selectedIndex];
+        const action = this.props.onAction || AnchorAction;
+        action.call(null, item);
+    }
+
     handleChange = (value: string) => {
         if (value) {
             this.query(value);
@@ -103,6 +112,9 @@ export default class Omnibar extends React.Component<Props, State> {
             case KEYS.DOWN:
                 this.next();
                 break;
+            case KEYS.ENTER:
+                this.action();
+                break;
         }
     }
 
@@ -117,6 +129,7 @@ export default class Omnibar extends React.Component<Props, State> {
             rowStyle,
             resultStyle,
             resultRenderer,
+            onAction,
         } = this.props;
 
         const maxHeight = maxViewableResults ? maxViewableResults * rowHeight : null;

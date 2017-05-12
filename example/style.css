@@ -93,6 +93,10 @@ pre {
     max-height: 100px;
 }
 
+.block-header {
+    margin-bottom: 30px;
+}
+
 .tab-nav button {
     background-color: #fff;
     border-color: #eee;
