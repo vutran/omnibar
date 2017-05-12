@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    color: #333;
     font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
@@ -40,7 +41,7 @@ pre {
     padding-top: 100px;
     padding-bottom: 100px;
     text-align: center;
-    min-height: 100vh;
+    height: 360px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -71,14 +72,16 @@ pre {
 
 .block {
     flex-grow: 1;
-    max-width: 320px;
+    width: 33%;
+    padding-left: 30px;
+    padding-right: 30px;
     margin-top: 50px;
     margin-bottom: 50px;
     align-self: flex-start;
+    box-sizing: border-box;
 }
 
 .block.full {
-    max-width: none;
     width: 100%;
 }
 
@@ -162,7 +165,7 @@ pre {
         margin-right: 30px;
     }
     .block {
-        max-width: none;
+        width: 100%;
     }
     .tab-nav button {
         max-width: 75px;

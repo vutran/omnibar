@@ -52,7 +52,7 @@ export default function NpmSearchExtension(query: string): Results {
         .then(packages => packages.map(
             item => ({
                 title: item.package.name,
-                subtitle: item.package.links.npm,
+                url: item.package.links.npm,
             }),
         ));
 }

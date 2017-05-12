@@ -6,11 +6,13 @@ import NpmSearchExtension from './extensions/NpmSearchExtension';
 import GitHubSearchExtension from './extensions/GitHubSearchExtension';
 import math from './examples/math';
 import npmSearch from './examples/npm-search';
+import githubSearch from './examples/github-search';
 
 interface Props {}
 interface State {
     tab1: string;
     tab2: string;
+    tab3: string;
 }
 
 function active(compare: boolean, className: string): string {
@@ -19,10 +21,27 @@ function active(compare: boolean, className: string): string {
     }
 }
 
+function ResultItem(props: { item: any }) {
+    return (
+        <div style={{ display: 'flex', paddingLeft: 15, paddingRight: 15, color: '#000', textAlign: 'left' }}>
+            <a href={props.item.url} style={{ display: 'flex', width: '100%', textDecoration: 'none', color: 'inherit' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: 30, marginRight: 15 }}>
+                    <img src={props.item.image} width={30} height={30} />
+                </div>
+                <div style={{ flexGrow: 1 }}>
+                    <h2 style={{ fontSize: 16, fontWeight: 'bold', lineHeight: 2, marginTop: 0, marginBottom: 0 }}>{props.item.title}</h2>
+                    <h3 style={{ color: '#bbb', fontSize: 11, lineHeight: 1, marginTop: 0, marginBottom: 0 }}>{props.item.subtitle}</h3>
+                </div>
+            </a>
+        </div>
+    );
+}
+
 export default class App extends React.Component<Props, State> {
     state: State ={
         tab1: 'main.jsx',
         tab2: 'main.jsx',
+        tab3: 'main.jsx',
     };
 
     switchTab1 = (evt: any) => {
@@ -33,18 +52,8 @@ export default class App extends React.Component<Props, State> {
         this.setState({ tab2: evt.target.id });
     }
 
-    resultRenderer = ({ item }: { item: any }) => {
-        return (
-            <div style={{ display: 'flex', paddingLeft: 15, paddingRight: 15, color: '#000', textAlign: 'left' }}>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: 30, marginRight: 15 }}>
-                    <img src={item.image} width={30} height={30} />
-                </div>
-                <div style={{ flexGrow: 1 }}>
-                    <h2 style={{ fontSize: 16, fontWeight: 'bold', lineHeight: 2, marginTop: 0, marginBottom: 0 }}>{item.title}</h2>
-                    <h3 style={{ color: '#bbb', fontSize: 11, lineHeight: 1, marginTop: 0, marginBottom: 0 }}>{item.subtitle}</h3>
-                </div>
-            </div>
-        );
+    switchTab3 = (evt: any) => {
+        this.setState({ tab3: evt.target.id });
     }
 
     render() {
@@ -61,7 +70,7 @@ export default class App extends React.Component<Props, State> {
                         <img className="block-img" src="./assets/binocular.svg" alt="Search" />
                         <h2>Search</h2>
                         <p>
-                            A powerful search bar for your React application.
+                            A simple and powerful search bar for your React application.
                         </p>
                     </div>
 
@@ -69,7 +78,7 @@ export default class App extends React.Component<Props, State> {
                         <img className="block-img" src="./assets/package.svg" alt="Search" />
                         <h2>Extensions</h2>
                         <p>
-                            Extend the capabilities of your omnibar with custom extensions with a dead simple API.
+                            Extend the capabilities of your Omnibar with custom extensions with a simple API.
                         </p>
                     </div>
 
@@ -137,6 +146,43 @@ export default class App extends React.Component<Props, State> {
                         { this.state.tab2 === 'NpmSearchExtension.jsx' && <CodeBlock className="editor">{npmSearch.NpmSearchExtension}</CodeBlock> }
                     </div>
 
+                    <div className="block full">
+                        <header className="block-header">
+                            <h2>Example 3 - GitHub Search</h2>
+                            <Omnibar
+                                placeholder="Search GitHub repositories"
+                                maxResults={10}
+                                maxViewableResults={5}
+                                extensions={[GitHubSearchExtension]}
+                                resultRenderer={ResultItem} />
+                        </header>
+                        <div className="tab-nav">
+                            <button
+                                type="button"
+                                id="main.jsx"
+                                className={active(this.state.tab3 === 'main.jsx', 'active')}
+                                onClick={this.switchTab3}>
+                                main.jsx
+                            </button>
+                            <button
+                                type="button"
+                                id="GitHubSearchExtension.jsx"
+                                className={active(this.state.tab3 === 'GitHubSearchExtension.jsx', 'active')}
+                                onClick={this.switchTab3}>
+                                GitHubSearchExtension.jsx
+                            </button>
+                            <button
+                                type="button"
+                                id="ResultItem.jsx"
+                                className={active(this.state.tab3 === 'ResultItem.jsx', 'active')}
+                                onClick={this.switchTab3}>
+                                ResultItem.jsx
+                            </button>
+                        </div>
+                        { this.state.tab3 === 'main.jsx' && <CodeBlock className="editor">{githubSearch.main}</CodeBlock> }
+                        { this.state.tab3 === 'GitHubSearchExtension.jsx' && <CodeBlock className="editor">{githubSearch.GitHubSearchExtension}</CodeBlock> }
+                        { this.state.tab3 === 'ResultItem.jsx' && <CodeBlock className="editor">{githubSearch.ResultItem}</CodeBlock> }
+                    </div>
                     <div className="block full center">
                         <a className="get-started" href="https://github.com/vutran/omnibar/">Get Started</a>
                     </div>

@@ -48,6 +48,7 @@ export default function GitHubSearchExtension(query: string): Results {
                 title: item.full_name,
                 subtitle: item.html_url,
                 image: item.owner.avatar_url,
+                url: item.html_url,
             }),
         ));
 }
