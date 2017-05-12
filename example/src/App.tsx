@@ -54,14 +54,6 @@ export default class App extends React.Component<Props, State> {
                     <div className="wrapper">
                         <h1>Omnibar</h1>
                         <h2>Extensible search component for React.</h2>
-                        <div className="search">
-                            <Omnibar
-                                placeholder="Enter a math equation"
-                                maxResults={20}
-                                maxViewableResults={5}
-                                extensions={[MathExtension]}
-                                resultRenderer={this.resultRenderer} />
-                        </div>
                     </div>
                 </header>
                 <div className="body wrapper">

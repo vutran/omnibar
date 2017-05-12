@@ -56,12 +56,6 @@ pre {
     font-weight: lighter;
 }
 
-.header .search {
-    min-width: 320px;
-    max-width: 400px;
-    margin: 50px;
-}
-
 .body {
     padding-top: 50px;
     padding-bottom: 50px;
