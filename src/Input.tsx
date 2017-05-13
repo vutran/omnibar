@@ -34,7 +34,7 @@ const INPUT_STYLE: React.CSSProperties = {
     paddingRight: 15,
 };
 
-export default class Input extends React.Component<Props, State> {
+export default class Input extends React.PureComponent<Props, State> {
     state: State = {
         value: '',
     }

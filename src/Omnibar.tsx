@@ -5,6 +5,7 @@ import Results from './Results';
 import search from './search';
 import { KEYS } from './constants';
 import AnchorAction from './actions/AnchorAction';
+import { debounce } from './utils';
 
 interface Props {
     // list of extensions
@@ -31,6 +32,8 @@ interface Props {
     resultRenderer?: <T>(item: T) => React.ReactChild;
     // optional action override
     onAction?: <T>(item: T) => void;
+    // optional input delay override
+    inputDelay?: number;
 }
 
 interface State {
@@ -40,12 +43,13 @@ interface State {
     selectedIndex: number;
 }
 
-export default class Omnibar extends React.Component<Props, State> {
+export default class Omnibar extends React.PureComponent<Props, State> {
     static defaultProps: Props = {
         extensions: [],
         maxViewableResults: null,
         rowHeight: 50,
         resultStyle: {},
+        inputDelay: 100,
     }
 
     state: State = {
@@ -53,7 +57,12 @@ export default class Omnibar extends React.Component<Props, State> {
         selectedIndex: 0,
     }
 
-    query(value: string) {
+    constructor(props: Props) {
+        super(props);
+        this.query = debounce(this.query, this.props.inputDelay);
+    }
+
+    query = (value: string) => {
         if (this.props.extensions.length) {
             search(value, this.props.extensions)
                 .then(items => {

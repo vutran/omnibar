@@ -32,7 +32,7 @@ const LIST_STYLE: React.CSSProperties = {
     backgroundColor: COLORS.WHITE,
 };
 
-export default class Results extends React.Component<Props, State> {
+export default class Results extends React.PureComponent<Props, State> {
     static defaultProps: Props = {
         selectedIndex: -1,
         items: [],

@@ -53,3 +53,10 @@ export function fetch<T>(url: string, options?: FetchOptions): Promise<T> {
         }
     );
 }
+
+export function active(compare: boolean, className: string): string {
+    if (compare) {
+        return className;
+    }
+}
+

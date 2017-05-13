@@ -1,25 +1,15 @@
 import * as React from 'react';
 import Omnibar from '../../src';
-import CodeBlock from './CodeBlock';
 import MathExtension from './extensions/MathExtension';
 import NpmSearchExtension from './extensions/NpmSearchExtension';
 import GitHubSearchExtension from './extensions/GitHubSearchExtension';
 import math from './examples/math';
 import npmSearch from './examples/npm-search';
 import githubSearch from './examples/github-search';
+import Editor from './Editor';
 
 interface Props {}
-interface State {
-    tab1: string;
-    tab2: string;
-    tab3: string;
-}
-
-function active(compare: boolean, className: string): string {
-    if (compare) {
-        return className;
-    }
-}
+interface State {}
 
 function ResultItem(props: { item: any }) {
     return (
@@ -38,24 +28,6 @@ function ResultItem(props: { item: any }) {
 }
 
 export default class App extends React.Component<Props, State> {
-    state: State ={
-        tab1: 'main.jsx',
-        tab2: 'main.jsx',
-        tab3: 'main.jsx',
-    };
-
-    switchTab1 = (evt: any) => {
-        this.setState({ tab1: evt.target.id });
-    }
-
-    switchTab2 = (evt: any) => {
-        this.setState({ tab2: evt.target.id });
-    }
-
-    switchTab3 = (evt: any) => {
-        this.setState({ tab3: evt.target.id });
-    }
-
     render() {
         return (
             <div>
@@ -97,24 +69,11 @@ export default class App extends React.Component<Props, State> {
                                 placeholder="Enter an expression"
                                 extensions={[MathExtension]} />
                         </header>
-                        <div className="tab-nav">
-                            <button
-                                type="button"
-                                id="main.jsx"
-                                className={active(this.state.tab1 === 'main.jsx', 'active')}
-                                onClick={this.switchTab1}>
-                                main.jsx
-                            </button>
-                            <button
-                                type="button"
-                                id="MathExtension.jsx"
-                                className={active(this.state.tab1 === 'MathExtension.jsx', 'active')}
-                                onClick={this.switchTab1}>
-                                MathExtension.jsx
-                            </button>
-                        </div>
-                        { this.state.tab1 === 'main.jsx' && <CodeBlock className="editor">{math.main}</CodeBlock> }
-                        { this.state.tab1 === 'MathExtension.jsx' && <CodeBlock className="editor">{math.MathExtension}</CodeBlock> }
+                        <Editor
+                            tabs={[
+                                { filename: 'main.tsx', code: math.main },
+                                { filename: 'MathExtension.tsx', code: math.MathExtension },
+                            ]} />
                     </div>
 
                     <div className="block full">
@@ -126,24 +85,11 @@ export default class App extends React.Component<Props, State> {
                                 maxViewableResults={5}
                                 extensions={[NpmSearchExtension]} />
                         </header>
-                        <div className="tab-nav">
-                            <button
-                                type="button"
-                                id="main.jsx"
-                                className={active(this.state.tab2 === 'main.jsx', 'active')}
-                                onClick={this.switchTab2}>
-                                main.jsx
-                            </button>
-                            <button
-                                type="button"
-                                id="NpmSearchExtension.jsx"
-                                className={active(this.state.tab2 === 'NpmSearchExtension.jsx', 'active')}
-                                onClick={this.switchTab2}>
-                                NpmSearchExtension.jsx
-                            </button>
-                        </div>
-                        { this.state.tab2 === 'main.jsx' && <CodeBlock className="editor">{npmSearch.main}</CodeBlock> }
-                        { this.state.tab2 === 'NpmSearchExtension.jsx' && <CodeBlock className="editor">{npmSearch.NpmSearchExtension}</CodeBlock> }
+                        <Editor
+                            tabs={[
+                                { filename: 'main.tsx', code: npmSearch.main },
+                                { filename: 'NpmSearchExtension.tsx', code: npmSearch.NpmSearchExtension },
+                            ]} />
                     </div>
 
                     <div className="block full">
@@ -156,32 +102,12 @@ export default class App extends React.Component<Props, State> {
                                 extensions={[GitHubSearchExtension]}
                                 resultRenderer={ResultItem} />
                         </header>
-                        <div className="tab-nav">
-                            <button
-                                type="button"
-                                id="main.jsx"
-                                className={active(this.state.tab3 === 'main.jsx', 'active')}
-                                onClick={this.switchTab3}>
-                                main.jsx
-                            </button>
-                            <button
-                                type="button"
-                                id="GitHubSearchExtension.jsx"
-                                className={active(this.state.tab3 === 'GitHubSearchExtension.jsx', 'active')}
-                                onClick={this.switchTab3}>
-                                GitHubSearchExtension.jsx
-                            </button>
-                            <button
-                                type="button"
-                                id="ResultItem.jsx"
-                                className={active(this.state.tab3 === 'ResultItem.jsx', 'active')}
-                                onClick={this.switchTab3}>
-                                ResultItem.jsx
-                            </button>
-                        </div>
-                        { this.state.tab3 === 'main.jsx' && <CodeBlock className="editor">{githubSearch.main}</CodeBlock> }
-                        { this.state.tab3 === 'GitHubSearchExtension.jsx' && <CodeBlock className="editor">{githubSearch.GitHubSearchExtension}</CodeBlock> }
-                        { this.state.tab3 === 'ResultItem.jsx' && <CodeBlock className="editor">{githubSearch.ResultItem}</CodeBlock> }
+                        <Editor
+                            tabs={[
+                                { filename: 'main.tsx', code: githubSearch.main },
+                                { filename: 'GitHubSearchExtension.tsx', code: githubSearch.GitHubSearchExtension },
+                                { filename: 'ResultItem.tsx', code: githubSearch.ResultItem },
+                            ]} />
                     </div>
                     <div className="block full center">
                         <a className="get-started" href="https://github.com/vutran/omnibar/">Get Started</a>

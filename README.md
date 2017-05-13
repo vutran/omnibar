@@ -147,6 +147,7 @@ class MyComponent extends React.Component {
 | `resultStyle` | `object` | | Style object override for the result container |
 | `resultRenderer` | `Function` | | Rendering function for each result item. Arguments: `{ item }` |
 | `onAction` | `Function` | | Override the defaut action callback when an item is executed. Arguments: `item` |
+| `inputDelay` | `number` | | Override the default input delay used for querying extensions (Default: 100ms) |
 
 ## Contributing
 
