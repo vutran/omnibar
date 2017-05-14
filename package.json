@@ -3,6 +3,11 @@
   "version": "0.0.0",
   "description": "",
   "main": "dist/lib.js",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "build-lib": "rollup -c",
     "build-example": "NODE_ENV=development webpack --config docs/webpack.config.js",
