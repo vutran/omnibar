@@ -1,7 +1,7 @@
 {
   "name": "omnibar",
   "version": "0.0.0",
-  "description": "",
+  "description": "Extensible search component for React.",
   "main": "dist/lib.js",
   "files": [
     "dist",
