@@ -8,6 +8,10 @@
     "LICENSE",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vutran/omnibar.git"
+  },
   "scripts": {
     "build-lib": "rollup -c",
     "build-example": "NODE_ENV=development webpack --config docs/webpack.config.js",
