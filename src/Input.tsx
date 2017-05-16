@@ -6,6 +6,10 @@ interface Props {
     onChange: (value: string) => void;
     // callback method when a key is pressed
     onKeyDown: (evt: any /* Event */) => void;
+    // callback method when the input element is blurred
+    onBlur: (evt: any /* Event */) => void;
+    // callback method when the input element is focused
+    onFocus: (evt: any /* Event */) => void;
     // optional input placeholder text
     placeholder?: string;
     // optional input width
@@ -49,6 +53,14 @@ export default class Input extends React.PureComponent<Props, State> {
         this.props.onKeyDown(evt);
     }
 
+    handleBlur = (evt: any /* Event */) => {
+        this.props.onBlur(evt);
+    }
+
+    handleFocus = (evt: any /* Event */) => {
+        this.props.onFocus(evt);
+    }
+
     render() {
         const style = { ...INPUT_STYLE, ...this.props.style };
 
@@ -67,7 +79,9 @@ export default class Input extends React.PureComponent<Props, State> {
                 placeholder={this.props.placeholder}
                 style={style}
                 onChange={this.handleChange}
-                onKeyDown={this.handleKeyDown} />
+                onKeyDown={this.handleKeyDown}
+                onBlur={this.handleBlur}
+                onFocus={this.handleFocus} />
         );
     }
 }

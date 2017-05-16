@@ -26756,6 +26756,12 @@ var Input = function (_React$PureComponent) {
         _this.handleKeyDown = function (evt /* Event */) {
             _this.props.onKeyDown(evt);
         };
+        _this.handleBlur = function (evt /* Event */) {
+            _this.props.onBlur(evt);
+        };
+        _this.handleFocus = function (evt /* Event */) {
+            _this.props.onFocus(evt);
+        };
         return _this;
     }
 
@@ -26769,7 +26775,7 @@ var Input = function (_React$PureComponent) {
             if (this.props.height) {
                 style.height = this.props.height;
             }
-            return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: "text", value: this.state.value, placeholder: this.props.placeholder, style: style, onChange: this.handleChange, onKeyDown: this.handleKeyDown });
+            return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("input", { type: "text", value: this.state.value, placeholder: this.props.placeholder, style: style, onChange: this.handleChange, onKeyDown: this.handleKeyDown, onBlur: this.handleBlur, onFocus: this.handleFocus });
         }
     }]);
 
@@ -26817,7 +26823,8 @@ var Omnibar = function (_React$PureComponent) {
 
         _this.state = {
             results: [],
-            selectedIndex: 0
+            selectedIndex: 0,
+            displayResults: false
         };
         _this.query = function (value) {
             if (_this.props.extensions.length) {
@@ -26827,7 +26834,7 @@ var Omnibar = function (_React$PureComponent) {
                         if (_this.props.maxResults) {
                             results = results.slice(0, _this.props.maxResults);
                         }
-                        _this.setState({ results: results });
+                        _this.setState({ results: results, displayResults: true });
                     }
                 });
             }
@@ -26873,6 +26880,12 @@ var Omnibar = function (_React$PureComponent) {
                     break;
             }
         };
+        _this.handleBlur = function () {
+            _this.setState({ displayResults: false });
+        };
+        _this.handleFocus = function () {
+            _this.setState({ displayResults: true });
+        };
         _this.query = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__utils__["a" /* debounce */])(_this.query, _this.props.inputDelay);
         return _this;
     }
@@ -26880,7 +26893,7 @@ var Omnibar = function (_React$PureComponent) {
     _createClass(Omnibar, [{
         key: 'reset',
         value: function reset() {
-            this.setState({ results: [] });
+            this.setState({ results: [], displayResults: false });
         }
     }, {
         key: 'render',
@@ -26898,7 +26911,7 @@ var Omnibar = function (_React$PureComponent) {
                 onAction = _props.onAction;
 
             var maxHeight = maxViewableResults ? maxViewableResults * rowHeight : null;
-            return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: { position: 'relative' } }, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1__Input__["a" /* default */], { width: width, height: height, style: inputStyle, placeholder: placeholder, onChange: this.handleChange, onKeyDown: this.handleKeyDown }), this.state.results.length > 0 && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2__Results__["a" /* default */], { selectedIndex: this.state.selectedIndex, items: this.state.results, rowHeight: rowHeight, maxHeight: maxHeight, style: resultStyle, rowStyle: rowStyle, resultRenderer: resultRenderer }));
+            return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { style: { position: 'relative' } }, __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1__Input__["a" /* default */], { width: width, height: height, style: inputStyle, placeholder: placeholder, onChange: this.handleChange, onKeyDown: this.handleKeyDown, onBlur: this.handleBlur, onFocus: this.handleFocus }), this.state.displayResults && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2__Results__["a" /* default */], { selectedIndex: this.state.selectedIndex, items: this.state.results, rowHeight: rowHeight, maxHeight: maxHeight, style: resultStyle, rowStyle: rowStyle, resultRenderer: resultRenderer }));
         }
     }]);
 

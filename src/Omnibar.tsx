@@ -41,6 +41,8 @@ interface State {
     results: Array<ResultItem | any>;
     // current selected index
     selectedIndex: number;
+    // display results?
+    displayResults: boolean;
 }
 
 export default class Omnibar extends React.PureComponent<Props, State> {
@@ -55,6 +57,7 @@ export default class Omnibar extends React.PureComponent<Props, State> {
     state: State = {
         results: [],
         selectedIndex: 0,
+        displayResults: false,
     }
 
     constructor(props: Props) {
@@ -71,14 +74,14 @@ export default class Omnibar extends React.PureComponent<Props, State> {
                         if (this.props.maxResults) {
                             results = results.slice(0, this.props.maxResults);
                         }
-                        this.setState({ results });
+                        this.setState({ results, displayResults: true });
                     }
                 });
         }
     }
 
     reset() {
-        this.setState({ results: [] });
+        this.setState({ results: [], displayResults: false });
     }
 
     prev = () => {
@@ -127,6 +130,14 @@ export default class Omnibar extends React.PureComponent<Props, State> {
         }
     }
 
+    handleBlur = () => {
+        this.setState({ displayResults: false });
+    }
+
+    handleFocus = () => {
+        this.setState({ displayResults: true });
+    }
+
     render() {
         const {
             maxViewableResults,
@@ -151,8 +162,10 @@ export default class Omnibar extends React.PureComponent<Props, State> {
                     style={inputStyle}
                     placeholder={placeholder}
                     onChange={this.handleChange}
-                    onKeyDown={this.handleKeyDown} />
-                {this.state.results.length > 0 && (
+                    onKeyDown={this.handleKeyDown}
+                    onBlur={this.handleBlur}
+                    onFocus={this.handleFocus} />
+                {this.state.displayResults && (
                     <Results
                         selectedIndex={this.state.selectedIndex}
                         items={this.state.results}
