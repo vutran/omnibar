@@ -1,13 +1,12 @@
 import math from 'mathjs';
-import { Results } from '../../../typings';
 
 /**
  * Calculate and return anything.
  *
  * @param {string} query
- * @param {Array<ResultItem>}
+ * @param {Array<any>}
  */
-export default function MathExtension(query: string): Results {
+export default function MathExtension(query: string): Array<any> {
     try {
         const answer = math.eval(query);
         return [

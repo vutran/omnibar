@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { ResultItem } from '../typings';
 import ResultsItem from './ResultsItem';
 import { COLORS } from './constants';
 
-interface Props {
+interface Props<T> {
     // the currently selected index
     selectedIndex: number;
     // list of result items
-    items: Array<ResultItem>;
+    items: Array<T>;
     // max container height
     maxHeight?: React.CSSLength;
     // item row height
@@ -20,7 +19,7 @@ interface Props {
     resultRenderer?: <T>(item: T) => React.ReactChild;
 }
 
-interface State {}
+interface State { }
 
 const LIST_STYLE: React.CSSProperties = {
     position: 'absolute',
@@ -32,34 +31,31 @@ const LIST_STYLE: React.CSSProperties = {
     backgroundColor: COLORS.WHITE,
 };
 
-export default class Results extends React.PureComponent<Props, State> {
-    static defaultProps: Props = {
-        selectedIndex: -1,
-        items: [],
+export default function Results<T>(props: Props<T>) {
+    const style = { ...LIST_STYLE, ...props.style };
+
+    if (props.maxHeight) {
+        style.maxHeight = props.maxHeight;
+        style.borderBottomWidth = 1;
+        style.borderBottomColor = COLORS.GRAY;
+        style.borderBottomStyle = 'solid';
+        style.overflow = 'auto';
     }
 
-    render() {
-        const style = { ...LIST_STYLE, ...this.props.style };
-
-        if (this.props.maxHeight) {
-            style.maxHeight = this.props.maxHeight;
-            style.borderBottomWidth = 1;
-            style.borderBottomColor = COLORS.GRAY;
-            style.borderBottomStyle = 'solid';
-            style.overflow = 'auto';
-        }
-
-        return (
-            <ul style={style}>
-                {this.props.items.map((item, key) =>
-                    <ResultsItem
-                        key={key}
-                        highlighted={this.props.selectedIndex === key}
-                        item={item}
-                        style={this.props.rowStyle}
-                        resultRenderer={this.props.resultRenderer} />
-                )}
-            </ul>
-        );
-    }
+    return (
+        <ul style={style}>
+            {props.items.map((item, key) =>
+                React.createElement(
+                    ResultsItem,
+                    {
+                        key,
+                        highlighted: props.selectedIndex === key,
+                        item,
+                        style: props.rowStyle,
+                        resultRenderer: props.resultRenderer,
+                    },
+                )
+            )}
+        </ul>
+    );
 }

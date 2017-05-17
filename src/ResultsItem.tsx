@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { ResultItem } from '../typings';
 import { COLORS } from './constants';
-import AnchorRenderer from './renderers/AnchorRenderer';
+import AnchorRenderer from './modifiers/anchor/AnchorRenderer';
 
-interface Props {
+interface Props<T> {
     // the item
-    item: ResultItem;
+    item: T;
     // set to true to highlight the given item
     highlighted: boolean;
     // optional style override
@@ -36,10 +35,9 @@ const ITEM_HOVER_STYLE: React.CSSProperties = {
     backgroundColor: COLORS.GRAY,
 }
 
-export default class ResultRenderer extends React.PureComponent<Props, State> {
-    static defaultProps: Props = {
+export default class ResultRenderer<T> extends React.PureComponent<Props<T>, State> {
+    static defaultProps = {
         highlighted: false,
-        item: null,
     }
 
     state: State = {
@@ -73,4 +71,5 @@ export default class ResultRenderer extends React.PureComponent<Props, State> {
         );
     }
 }
+
 

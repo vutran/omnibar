@@ -1,4 +1,3 @@
-import { Results } from '../../../typings';
 import { fetch } from '../utils';
 
 interface NpmItem {
@@ -40,9 +39,9 @@ const URL = 'https://api.npms.io/v2/search/suggestions';
  * passed to the 3rd-party API.
  *
  * @param {string} query
- * @param {Results}
+ * @param {Promise}
  */
-export default function NpmSearchExtension(query: string): Results {
+export default function NpmSearchExtension(query: string): Promise<Array<any>> {
     // retrieves from cache makes a new fetch request (and cache)
     const prom = FETCH_CACHE[query] || (
         FETCH_CACHE[query] = fetch<NpmResponse>(`${URL}?q=${query}&size=10`)

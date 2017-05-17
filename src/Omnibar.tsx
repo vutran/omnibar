@@ -1,15 +1,14 @@
 import * as React from 'react';
-import { Extension, ResultItem } from '../typings';
 import Input from './Input';
 import Results from './Results';
 import search from './search';
 import { KEYS } from './constants';
-import AnchorAction from './actions/AnchorAction';
+import AnchorAction from './modifiers/anchor/AnchorAction';
 import { debounce } from './utils';
 
-interface Props {
+interface Props<T> {
     // list of extensions
-    extensions: Array<Extension>;
+    extensions: Array<Omnibar.Extension<T>>;
     // max items
     maxResults?: number;
     // max items to display in view
@@ -36,17 +35,18 @@ interface Props {
     inputDelay?: number;
 }
 
-interface State {
+interface State<T> {
     // list of matching results
-    results: Array<ResultItem | any>;
+    results: Array<T>;
     // current selected index
     selectedIndex: number;
     // display results?
     displayResults: boolean;
 }
 
-export default class Omnibar extends React.PureComponent<Props, State> {
-    static defaultProps: Props = {
+export default class Omnibar<T> extends React.PureComponent<Props<T>, State<T>> {
+    // TODO - fix generic container
+    static defaultProps: Props<any> = {
         extensions: [],
         maxViewableResults: null,
         rowHeight: 50,
@@ -54,20 +54,20 @@ export default class Omnibar extends React.PureComponent<Props, State> {
         inputDelay: 100,
     }
 
-    state: State = {
+    state: State<T> = {
         results: [],
         selectedIndex: 0,
         displayResults: false,
     }
 
-    constructor(props: Props) {
+    constructor(props: Props<T>) {
         super(props);
         this.query = debounce(this.query, this.props.inputDelay);
     }
 
     query = (value: string) => {
         if (this.props.extensions.length) {
-            search(value, this.props.extensions)
+            search<T>(value, this.props.extensions)
                 .then(items => {
                     if (items.length) {
                         let results = items;
@@ -81,11 +81,14 @@ export default class Omnibar extends React.PureComponent<Props, State> {
     }
 
     reset() {
-        this.setState({ results: [], displayResults: false });
+        this.setState({
+            results: [],
+            displayResults: false,
+        });
     }
 
     prev = () => {
-        this.setState((prevState: State) => {
+        this.setState((prevState: State<T>) => {
             const selectedIndex = prevState.selectedIndex - 1;
             if (selectedIndex >= 0) {
                 return { selectedIndex };
@@ -94,7 +97,7 @@ export default class Omnibar extends React.PureComponent<Props, State> {
     }
 
     next = () => {
-        this.setState((prevState: State) => {
+        this.setState((prevState: State<T>) => {
             const selectedIndex = prevState.selectedIndex + 1;
             if (selectedIndex < prevState.results.length) {
                 return { selectedIndex };
@@ -156,24 +159,32 @@ export default class Omnibar extends React.PureComponent<Props, State> {
 
         return (
             <div style={{ position: 'relative' }}>
-                <Input
-                    width={width}
-                    height={height}
-                    style={inputStyle}
-                    placeholder={placeholder}
-                    onChange={this.handleChange}
-                    onKeyDown={this.handleKeyDown}
-                    onBlur={this.handleBlur}
-                    onFocus={this.handleFocus} />
+                {React.createElement(
+                    Input,
+                    {
+                        width,
+                        height,
+                        style: inputStyle,
+                        placeholder,
+                        onChange: this.handleChange,
+                        onKeyDown: this.handleKeyDown,
+                        onBlur: this.handleBlur,
+                        onFocus: this.handleFocus,
+                    }
+                )}
                 {this.state.displayResults && (
-                    <Results
-                        selectedIndex={this.state.selectedIndex}
-                        items={this.state.results}
-                        rowHeight={rowHeight}
-                        maxHeight={maxHeight}
-                        style={resultStyle}
-                        rowStyle={rowStyle}
-                        resultRenderer={resultRenderer} />
+                    React.createElement(
+                        Results,
+                        {
+                            selectedIndex: this.state.selectedIndex,
+                            items: this.state.results,
+                            rowHeight: rowHeight,
+                            maxHeight: maxHeight,
+                            style: resultStyle,
+                            rowStyle: rowStyle,
+                            resultRenderer: resultRenderer,
+                        },
+                    )
                 )}
             </div>
         );

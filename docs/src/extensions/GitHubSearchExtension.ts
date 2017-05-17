@@ -1,4 +1,3 @@
-import { Results } from '../../../typings';
 import { fetch } from '../utils';
 
 interface GitHubItem {
@@ -25,9 +24,9 @@ const FETCH_CACHE: { [id: string]: Promise<GitHubResponse> } = {};
  * passed to the 3rd-party API.
  *
  * @param {string} query
- * @param {Results}
+ * @param {Promise}
  */
-export default function GitHubSearchExtension(query: string): Results {
+export default function GitHubSearchExtension(query: string): Promise<Array<any>> {
     const options = {
         headers: {
             Accept: 'application/vnd.github.vutran-omnibar+json',

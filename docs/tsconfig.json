@@ -13,6 +13,10 @@
             "es2015"
         ]
     },
+    "include": [
+        "../typings/**/*.ts",
+        "../node_modules/@types/**/*.ts"
+    ],
     "exclude": [
         "node_modules"
     ]

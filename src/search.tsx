@@ -1,4 +1,3 @@
-import { Extension, Results, ResultItem } from '../typings';
 import { flatten } from './utils';
 
 /**
@@ -7,10 +6,13 @@ import { flatten } from './utils';
  *
  * @param {string} query
  * @param {Array<Extension>} extension
- * @return {Promise<Array<ResultItem>>}
+ * @return {Promise<Array<T>>}
  */
-export default function search(query: string, extensions: Array<Extension>): Promise<Array<ResultItem>> {
-    const results: Array<Results> = [];
+export default function search<T>(
+    query: string,
+    extensions: Array<Omnibar.Extension<T>>,
+): Promise<Array<T>> {
+    const results: Array<Omnibar.Results<T>> = [];
 
     // iterate through all extensions and compile them into `results` list
     for (let extension of extensions) {
@@ -20,5 +22,5 @@ export default function search(query: string, extensions: Array<Extension>): Pro
     }
 
     return Promise.all(results)
-        .then(groups => flatten<ResultItem>(groups));
+        .then(groups => flatten<T>(groups));
 }

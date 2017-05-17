@@ -1,13 +1,10 @@
-export interface ResultItem {
-    title: string;
-    url?: string;
+declare namespace Omnibar {
+    // Result set
+    type ListResult<T> = Array<T>;
+    type ResolvedResults<T> = Promise<ListResult<T>>;
+    type Results<T> = ListResult<T> | ResolvedResults<T>;
+
+    // Extensions
+    type FunctionalExtension<T> = (query: string) => Results<T>;
+    type Extension<T> = FunctionalExtension<T>;
 }
-
-// Result set
-type ListResult = Array<ResultItem | any>;
-type ResolvedResult = Promise<ListResult | any>;
-type Results = ListResult | ResolvedResult;
-
-// Extensions
-export type FunctionalExtension = (query: string) => Results;
-export type Extension = FunctionalExtension;

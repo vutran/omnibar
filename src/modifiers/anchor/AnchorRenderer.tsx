@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { ResultItem } from '../../typings';
-import { COLORS } from '../constants';
+import { AnchorItem } from './';
+import { COLORS } from '../../constants';
 
 interface Props {
     // the item
-    item: ResultItem;
+    item: AnchorItem;
 }
 
 const ANCHOR_STYLE: React.CSSProperties = {
