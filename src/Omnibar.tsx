@@ -6,47 +6,9 @@ import { KEYS } from './constants';
 import AnchorAction from './modifiers/anchor/AnchorAction';
 import { debounce } from './utils';
 
-interface Props<T> {
-    // list of extensions
-    extensions: Array<Omnibar.Extension<T>>;
-    // max items
-    maxResults?: number;
-    // max items to display in view
-    maxViewableResults?: number;
-    // optional input placeholder text
-    placeholder?: string;
-    // optional input bar width
-    width?: number;
-    // optional input bar height
-    height?: number;
-    // optional input bar style override
-    inputStyle?: React.CSSProperties
-    // optional result item height
-    rowHeight?: number;
-    // optional result item style override
-    rowStyle?: React.CSSProperties;
-    // optional result list style override
-    resultStyle?: React.CSSProperties;
-    // optional result renderering function
-    resultRenderer?: <T>(item: T) => React.ReactChild;
-    // optional action override
-    onAction?: <T>(item: T) => void;
-    // optional input delay override
-    inputDelay?: number;
-}
-
-interface State<T> {
-    // list of matching results
-    results: Array<T>;
-    // current selected index
-    selectedIndex: number;
-    // display results?
-    displayResults: boolean;
-}
-
-export default class Omnibar<T> extends React.PureComponent<Props<T>, State<T>> {
+export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Omnibar.State<T>> {
     // TODO - fix generic container
-    static defaultProps: Props<any> = {
+    static defaultProps: Omnibar.Props<any> = {
         extensions: [],
         maxViewableResults: null,
         rowHeight: 50,
@@ -54,13 +16,13 @@ export default class Omnibar<T> extends React.PureComponent<Props<T>, State<T>> 
         inputDelay: 100,
     }
 
-    state: State<T> = {
+    state: Omnibar.State<T> = {
         results: [],
         selectedIndex: 0,
         displayResults: false,
     }
 
-    constructor(props: Props<T>) {
+    constructor(props: Omnibar.Props<T>) {
         super(props);
         this.query = debounce(this.query, this.props.inputDelay);
     }
@@ -88,7 +50,7 @@ export default class Omnibar<T> extends React.PureComponent<Props<T>, State<T>> 
     }
 
     prev = () => {
-        this.setState((prevState: State<T>) => {
+        this.setState((prevState: Omnibar.State<T>) => {
             const selectedIndex = prevState.selectedIndex - 1;
             if (selectedIndex >= 0) {
                 return { selectedIndex };
@@ -97,7 +59,7 @@ export default class Omnibar<T> extends React.PureComponent<Props<T>, State<T>> 
     }
 
     next = () => {
-        this.setState((prevState: State<T>) => {
+        this.setState((prevState: Omnibar.State<T>) => {
             const selectedIndex = prevState.selectedIndex + 1;
             if (selectedIndex < prevState.results.length) {
                 return { selectedIndex };
