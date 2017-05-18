@@ -6,7 +6,7 @@ interface Props<T> {
     // the item
     item: T;
     // set to true to highlight the given item
-    highlighted: boolean;
+    highlighted?: boolean;
     // optional style override
     style?: React.CSSProperties;
     // optional result renderering function

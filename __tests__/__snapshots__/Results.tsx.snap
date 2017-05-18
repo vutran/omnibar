@@ -1,0 +1,407 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Results should render a <Results /> 1`] = `
+<ul
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "listStyleType": "none",
+      "margin": 0,
+      "padding": 0,
+      "position": "absolute",
+      "width": "100%",
+      "zIndex": 2,
+    }
+  }
+>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <a
+      href="https://google.com"
+      style={
+        Object {
+          "color": "#000",
+          "display": "block",
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "textDecoration": "none",
+        }
+      }
+    >
+      Google
+    </a>
+  </li>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <a
+      href="https://dropbox.com"
+      style={
+        Object {
+          "color": "#000",
+          "display": "block",
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "textDecoration": "none",
+        }
+      }
+    >
+      Dropbox
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Results should render a <Results /> with a custom row renderer 1`] = `
+<ul
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "listStyleType": "none",
+      "margin": 0,
+      "padding": 0,
+      "position": "absolute",
+      "width": "100%",
+      "zIndex": 2,
+    }
+  }
+>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <div>
+      Title: 
+      Google
+    </div>
+  </li>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <div>
+      Title: 
+      Dropbox
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Results should render a <Results /> with a max height 1`] = `
+<ul
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "borderBottomColor": "#eee",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "listStyleType": "none",
+      "margin": 0,
+      "maxHeight": 200,
+      "overflow": "auto",
+      "padding": 0,
+      "position": "absolute",
+      "width": "100%",
+      "zIndex": 2,
+    }
+  }
+>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <a
+      href="https://google.com"
+      style={
+        Object {
+          "color": "#000",
+          "display": "block",
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "textDecoration": "none",
+        }
+      }
+    >
+      Google
+    </a>
+  </li>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <a
+      href="https://dropbox.com"
+      style={
+        Object {
+          "color": "#000",
+          "display": "block",
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "textDecoration": "none",
+        }
+      }
+    >
+      Dropbox
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Results should render a <Results /> with a row height 1`] = `
+<ul
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "borderBottomColor": "#eee",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "listStyleType": "none",
+      "margin": 0,
+      "maxHeight": 200,
+      "overflow": "auto",
+      "padding": 0,
+      "position": "absolute",
+      "width": "100%",
+      "zIndex": 2,
+    }
+  }
+>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <a
+      href="https://google.com"
+      style={
+        Object {
+          "color": "#000",
+          "display": "block",
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "textDecoration": "none",
+        }
+      }
+    >
+      Google
+    </a>
+  </li>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <a
+      href="https://dropbox.com"
+      style={
+        Object {
+          "color": "#000",
+          "display": "block",
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "textDecoration": "none",
+        }
+      }
+    >
+      Dropbox
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Results should render a <Results /> with a selected item 1`] = `
+<ul
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "listStyleType": "none",
+      "margin": 0,
+      "padding": 0,
+      "position": "absolute",
+      "width": "100%",
+      "zIndex": 2,
+    }
+  }
+>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#eee",
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <a
+      href="https://google.com"
+      style={
+        Object {
+          "color": "#000",
+          "display": "block",
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "textDecoration": "none",
+        }
+      }
+    >
+      Google
+    </a>
+  </li>
+  <li
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "borderLeftWidth": 1,
+        "borderRightWidth": 1,
+        "borderStyle": "solid",
+        "borderTopWidth": 0,
+        "boxSizing": "border-box",
+        "fontSize": 24,
+        "height": 50,
+        "lineHeight": "50px",
+      }
+    }
+  >
+    <a
+      href="https://dropbox.com"
+      style={
+        Object {
+          "color": "#000",
+          "display": "block",
+          "paddingLeft": 15,
+          "paddingRight": 15,
+          "textDecoration": "none",
+        }
+      }
+    >
+      Dropbox
+    </a>
+  </li>
+</ul>
+`;

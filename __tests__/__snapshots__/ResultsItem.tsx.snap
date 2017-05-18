@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsItem should render a <ResultsItem /> 1`] = `
+<li
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    Object {
+      "borderBottomWidth": 1,
+      "borderColor": "#ddd",
+      "borderLeftWidth": 1,
+      "borderRightWidth": 1,
+      "borderStyle": "solid",
+      "borderTopWidth": 0,
+      "boxSizing": "border-box",
+      "fontSize": 24,
+      "height": 50,
+      "lineHeight": "50px",
+    }
+  }
+>
+  <a
+    href="https://google.com"
+    style={
+      Object {
+        "color": "#000",
+        "display": "block",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
+      }
+    }
+  >
+    Google
+  </a>
+</li>
+`;
+
+exports[`ResultsItem should render a highlighted <ResultsItem /> 1`] = `
+<li
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#eee",
+      "borderBottomWidth": 1,
+      "borderColor": "#ddd",
+      "borderLeftWidth": 1,
+      "borderRightWidth": 1,
+      "borderStyle": "solid",
+      "borderTopWidth": 0,
+      "boxSizing": "border-box",
+      "fontSize": 24,
+      "height": 50,
+      "lineHeight": "50px",
+    }
+  }
+>
+  <a
+    href="https://google.com"
+    style={
+      Object {
+        "color": "#000",
+        "display": "block",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
+      }
+    }
+  >
+    Google
+  </a>
+</li>
+`;

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render an <Input /> 1`] = `
+<input
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  placeholder={undefined}
+  style={
+    Object {
+      "borderColor": "#ddd",
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "boxSizing": "border-box",
+      "fontSize": 24,
+      "height": 50,
+      "lineHeight": "24px",
+      "outline": 0,
+      "paddingLeft": 15,
+      "paddingRight": 15,
+      "width": "100%",
+    }
+  }
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input should render an <Input /> with a placeholder 1`] = `
+<input
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  placeholder="this is a test"
+  style={
+    Object {
+      "borderColor": "#ddd",
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "boxSizing": "border-box",
+      "fontSize": 24,
+      "height": 50,
+      "lineHeight": "24px",
+      "outline": 0,
+      "paddingLeft": 15,
+      "paddingRight": 15,
+      "width": "100%",
+    }
+  }
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input should render an <Input /> with a specified size 1`] = `
+<input
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  placeholder={undefined}
+  style={
+    Object {
+      "borderColor": "#ddd",
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "boxSizing": "border-box",
+      "fontSize": 24,
+      "height": 150,
+      "lineHeight": "24px",
+      "outline": 0,
+      "paddingLeft": 15,
+      "paddingRight": 15,
+      "width": 200,
+    }
+  }
+  type="text"
+  value=""
+/>
+`;
