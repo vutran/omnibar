@@ -19,8 +19,6 @@ interface Props<T> {
     resultRenderer?: <T>(item: T) => React.ReactChild;
 }
 
-interface State { }
-
 const LIST_STYLE: React.CSSProperties = {
     position: 'absolute',
     width: '100%',
