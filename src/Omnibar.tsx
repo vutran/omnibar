@@ -135,18 +135,15 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
                     }
                 )}
                 {this.state.displayResults && (
-                    React.createElement(
-                        Results,
-                        {
-                            selectedIndex: this.state.selectedIndex,
-                            items: this.state.results,
-                            rowHeight: rowHeight,
-                            maxHeight: maxHeight,
-                            style: resultStyle,
-                            rowStyle: rowStyle,
-                            resultRenderer: resultRenderer,
-                        },
-                    )
+                    Results({
+                        selectedIndex: this.state.selectedIndex,
+                        items: this.state.results,
+                        rowHeight: rowHeight,
+                        maxHeight: maxHeight,
+                        style: resultStyle,
+                        rowStyle: rowStyle,
+                        resultRenderer: resultRenderer,
+                    })
                 )}
             </div>
         );

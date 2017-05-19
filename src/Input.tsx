@@ -49,18 +49,6 @@ export default class Input extends React.PureComponent<Props, State> {
         this.props.onChange(value);
     }
 
-    handleKeyDown = (evt: any /* Event */) => {
-        this.props.onKeyDown(evt);
-    }
-
-    handleBlur = (evt: any /* Event */) => {
-        this.props.onBlur(evt);
-    }
-
-    handleFocus = (evt: any /* Event */) => {
-        this.props.onFocus(evt);
-    }
-
     render() {
         const style = { ...INPUT_STYLE, ...this.props.style };
 
@@ -79,9 +67,9 @@ export default class Input extends React.PureComponent<Props, State> {
                 placeholder={this.props.placeholder}
                 style={style}
                 onChange={this.handleChange}
-                onKeyDown={this.handleKeyDown}
-                onBlur={this.handleBlur}
-                onFocus={this.handleFocus} />
+                onKeyDown={this.props.onKeyDown}
+                onBlur={this.props.onBlur}
+                onFocus={this.props.onFocus} />
         );
     }
 }
