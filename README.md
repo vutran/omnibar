@@ -131,6 +131,34 @@ class MyComponent extends React.Component {
 }
 ```
 
+## Decorators
+
+### `command()`
+
+The `command()` helper will wrap your extension through a command prefix and will filter only those matching the command.
+
+**Example**:
+
+```
+import { command } from 'omnibar';
+
+function MyExtension() {
+    return [
+        // ...items
+    ];
+}
+
+export default function connect(MyExtension, 'foo');
+```
+
+In the above example, `MyExtension` will be queried only if the user starts their query with the keyword `foo`.
+
+```
+foo test -> queries for results extensions
+footest -> doesn't query extension
+test -> doesn't query extension
+```
+
 ## Props API
 
 | Prop | Type | Required? | Description |

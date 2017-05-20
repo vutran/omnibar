@@ -50,4 +50,5 @@ declare namespace Omnibar {
 
 declare module 'omnibar' {
     export default class Omnibar<T> extends React.Component<Omnibar.Props<T>, Omnibar.State<T>> { }
+    export function command<T>(extenson: Omnibar.Extension<T>, command: string): Omnibar.Extension<T>;
 }
