@@ -95,7 +95,7 @@ export default function SearchExtension(query) {
 ### Custom Renderers
 
 If you would like to display additional data in your result listings such as a thumbnail, you can
-create pass a rendering function to the `resultRenderer` prop in your `<Omnibar />` instance.
+pass a rendering function to the `resultRenderer` prop in your `<Omnibar />` instance.
 
 The example below changes our result item schema to be in the shape of:
 
