@@ -7,6 +7,16 @@ interface Props<T> {
     selectedIndex: number;
     // list of result items
     items: Array<T>;
+    // onMouseEnter callback
+    onMouseEnter?: (e: any /* Event */) => void;
+    // onMouseLeave callback
+    onMouseLeave?: (e: any /* Event */) => void;
+    // onMouseEnter item callback
+    onMouseEnterItem?: (e: any /* Event */) => void;
+    // onMouseLeave item callback
+    onMouseLeaveItem?: (e: any /* Event */) => void;
+    // onClick callback
+    onClickItem?: (e: any /* Event */) => void;
     // max container height
     maxHeight?: React.CSSLength;
     // item row height
@@ -40,8 +50,15 @@ export default function Results<T>(props: Props<T>) {
         style.overflow = 'auto';
     }
 
+    function createHandler(handler: any, key: number) {
+        return handler.bind(this, key);
+    }
+
     return (
-        <ul style={style}>
+        <ul
+            style={style}
+            onMouseEnter={props.onMouseEnter}
+            onMouseLeave={props.onMouseLeave}>
             {props.items.map((item, key) =>
                 React.createElement(
                     ResultsItem,
@@ -50,6 +67,8 @@ export default function Results<T>(props: Props<T>) {
                         highlighted: props.selectedIndex === key,
                         item,
                         style: props.rowStyle,
+                        onMouseEnter: props.onMouseEnterItem && createHandler(props.onMouseEnterItem, key),
+                        onClickItem: props.onClickItem,
                         resultRenderer: props.resultRenderer,
                     },
                 )

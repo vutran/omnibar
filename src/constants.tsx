@@ -17,3 +17,5 @@ export const KEYS = {
     RIGHT: 39,
     DOWN: 40,
 };
+
+export const BLUR_DELAY = 200;

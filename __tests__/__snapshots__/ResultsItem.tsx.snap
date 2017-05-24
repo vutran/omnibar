@@ -2,6 +2,7 @@
 
 exports[`ResultsItem should render a <ResultsItem /> 1`] = `
 <li
+  onClick={undefined}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   style={
@@ -38,6 +39,7 @@ exports[`ResultsItem should render a <ResultsItem /> 1`] = `
 
 exports[`ResultsItem should render a highlighted <ResultsItem /> 1`] = `
 <li
+  onClick={undefined}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   style={

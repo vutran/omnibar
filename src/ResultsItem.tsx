@@ -5,6 +5,12 @@ import AnchorRenderer from './modifiers/anchor/AnchorRenderer';
 interface Props<T> {
     // the item
     item: T;
+    // onMouseEnter item callback
+    onMouseEnter?: (e: any /* Event */) => void;
+    // onMouseLeave item callback
+    onMouseLeave?: (e: any /* Event */) => void;
+    // onClick callback
+    onClickItem: (e: any /* Event */) => void;
     // set to true to highlight the given item
     highlighted?: boolean;
     // optional style override
@@ -44,12 +50,14 @@ export default class ResultRenderer<T> extends React.PureComponent<Props<T>, Sta
         hover: false,
     }
 
-    handleMouseEnter = () => {
+    handleMouseEnter = (evt: any /* Event */) => {
         this.setState({ hover: true });
+        this.props.onMouseEnter && this.props.onMouseEnter(evt);
     }
 
-    handleMouseLeave = () => {
+    handleMouseLeave = (evt: any /* Event */) => {
         this.setState({ hover: false });
+        this.props.onMouseLeave && this.props.onMouseLeave(evt);
     }
 
     render() {
@@ -65,7 +73,11 @@ export default class ResultRenderer<T> extends React.PureComponent<Props<T>, Sta
             : AnchorRenderer;
 
         return (
-            <li style={style} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+            <li
+                style={style}
+                onMouseEnter={this.handleMouseEnter}
+                onMouseLeave={this.handleMouseLeave}
+                onClick={this.props.onClickItem}>
                 {renderer({ item })}
             </li>
         );

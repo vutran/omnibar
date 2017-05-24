@@ -2,7 +2,7 @@ import * as React from 'react';
 import Input from './Input';
 import Results from './Results';
 import search from './search';
-import { KEYS } from './constants';
+import { KEYS, BLUR_DELAY } from './constants';
 import AnchorAction from './modifiers/anchor/AnchorAction';
 import { debounce } from './utils';
 
@@ -19,6 +19,7 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
     state: Omnibar.State<T> = {
         results: [],
         selectedIndex: 0,
+        hoveredIndex: -1,
         displayResults: false,
     }
 
@@ -68,7 +69,13 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
     }
 
     action = () => {
-        const item = this.state.results[this.state.selectedIndex];
+        // uses the hovered index if the user is currently
+        // mousing over an item, falls back on the
+        // selected index
+        const idx = this.state.hoveredIndex > -1
+            ? this.state.hoveredIndex
+            : this.state.selectedIndex;
+        const item = this.state.results[idx];
         const action = this.props.onAction || AnchorAction;
         action.call(null, item);
     }
@@ -95,12 +102,27 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
         }
     }
 
+    handleMouseEnterItem = (hoveredIndex: number) => {
+        this.setState({ hoveredIndex });
+    }
+
+    handleMouseLeave = (e: any /* Event */) => {
+        this.setState({ hoveredIndex: -1 });
+    }
+
     handleBlur = () => {
-        this.setState({ displayResults: false });
+        setTimeout(() => this.setState({ displayResults: false }), BLUR_DELAY);
     }
 
     handleFocus = () => {
         this.setState({ displayResults: true });
+    }
+
+    handleClickItem = (e: any) => {
+        e.preventDefault();
+        if (this.state.hoveredIndex > -1) {
+            this.action();
+        }
     }
 
     render() {
@@ -142,6 +164,9 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
                         maxHeight: maxHeight,
                         style: resultStyle,
                         rowStyle: rowStyle,
+                        onMouseEnterItem: this.handleMouseEnterItem,
+                        onMouseLeave: this.handleMouseLeave,
+                        onClickItem: this.handleClickItem,
                         resultRenderer: resultRenderer,
                     })
                 )}

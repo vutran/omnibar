@@ -40,8 +40,10 @@ declare namespace Omnibar {
     interface State<T> {
         // list of matching results
         results: Array<T>;
-        // current selected index
+        // current selected index (applies action upon key event)
         selectedIndex: number;
+        // current mouse hovered index (applies action click event)
+        hoveredIndex: number;
         // display results?
         displayResults: boolean;
     }
