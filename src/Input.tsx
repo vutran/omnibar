@@ -65,7 +65,7 @@ export default class Input extends React.PureComponent<Props, State> {
         return (
             <input
                 type="text"
-                defaultValue={this.state.value || this.props.defaultValue}
+                value={this.state.value || this.props.defaultValue}
                 placeholder={this.props.placeholder}
                 style={style}
                 onChange={this.handleChange}
