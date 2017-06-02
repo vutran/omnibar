@@ -18,6 +18,8 @@ interface Props {
     height?: number;
     // optional style override
     style?: React.CSSProperties;
+    // optional default value
+    defaultValue?: string;
 }
 
 interface State {
@@ -63,7 +65,8 @@ export default class Input extends React.PureComponent<Props, State> {
         return (
             <input
                 type="text"
-                value={this.state.value}
+                defaultValue={this.props.defaultValue}
+                value={this.state.value || this.props.defaultValue}
                 placeholder={this.props.placeholder}
                 style={style}
                 onChange={this.handleChange}

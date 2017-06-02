@@ -125,10 +125,17 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
         }
     }
 
+    componentWillReceiveProps(nextProps: Omnibar.Props<T>) {
+        if (this.props.defaultValue !== nextProps.defaultValue) {
+            this.handleChange(nextProps.defaultValue);
+        }
+    }
+
     render() {
         const {
             maxViewableResults,
             placeholder,
+            defaultValue,
             width,
             height,
             inputStyle,
@@ -146,6 +153,7 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
                 {React.createElement(
                     Input,
                     {
+                        defaultValue,
                         width,
                         height,
                         style: inputStyle,

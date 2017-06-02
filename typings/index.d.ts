@@ -35,6 +35,8 @@ declare namespace Omnibar {
         onAction?: <T>(item: T) => void;
         // optional input delay override
         inputDelay?: number;
+        // optional default value
+        defaultValue?: string;
     }
 
     interface State<T> {
@@ -52,5 +54,6 @@ declare namespace Omnibar {
 
 declare module 'omnibar' {
     export default class Omnibar<T> extends React.Component<Omnibar.Props<T>, Omnibar.State<T>> { }
-    export function command<T>(extenson: Omnibar.Extension<T>, command: string): Omnibar.Extension<T>;
+    export function command<T>(extension: Omnibar.Extension<T>, command: string): Omnibar.Extension<T>;
+    export function withVoice<T>(Component: T): T;
 }
