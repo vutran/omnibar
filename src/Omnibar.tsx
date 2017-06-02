@@ -106,7 +106,7 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
         this.setState({ hoveredIndex });
     }
 
-    handleMouseLeave = (e: any /* Event */) => {
+    handleMouseLeave = () => {
         this.setState({ hoveredIndex: -1 });
     }
 

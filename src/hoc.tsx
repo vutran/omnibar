@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Microphone from './Microphone';
 
 /**
  * Adds voice commands to your Omnibar
@@ -80,7 +81,7 @@ export function withVoice(Component: any): React.ComponentClass<any> {
                         {...this.props}
                         defaultValue={this.state.value}
                         inputStyle={inputStyle} />
-                    <button onClick={this.speak} style={mic}>🎤</button>
+                    <button onClick={this.speak} style={mic}><Microphone width={24} height={24} active={this.state.isSpeaking} /></button>
                 </div>
             );
         }
