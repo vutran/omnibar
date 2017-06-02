@@ -159,6 +159,24 @@ footest -> doesn't query extension
 test -> doesn't query extension
 ```
 
+## Voice Commands HOC
+
+The `withVoice` is a HOC (higher-order component) factory method to create a voice-enabled Omnibar.
+
+**Example**
+
+```
+import Omnibar, { withVoice } from 'omnibar';
+
+const VoiceBar = withVoice(Omnibar);
+
+// voice-enhanced Omnibar
+// <VoiceBar />
+
+// regular Omnibar:
+// <Omnibar />
+```
+
 ## Props API
 
 | Prop | Type | Required? | Description |
@@ -176,6 +194,7 @@ test -> doesn't query extension
 | `resultRenderer` | `Function` | | Rendering function for each result item. Arguments: `{ item }` |
 | `onAction` | `Function` | | Override the defaut action callback when an item is executed. Arguments: `item` |
 | `inputDelay` | `number` | | Override the default input delay used for querying extensions (Default: 100ms) |
+| `defaultValue` | `string` | Optional value to send to the Omnibar. |
 
 ## Contributing
 
