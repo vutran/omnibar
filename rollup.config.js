@@ -11,5 +11,5 @@ export default {
             typescript: require('typescript'),
         }),
     ],
-    external: ['react']
+    external: ['react'],
 };

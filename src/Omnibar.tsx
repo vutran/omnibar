@@ -6,7 +6,10 @@ import { KEYS, BLUR_DELAY } from './constants';
 import AnchorAction from './modifiers/anchor/AnchorAction';
 import { debounce } from './utils';
 
-export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Omnibar.State<T>> {
+export default class Omnibar<T> extends React.PureComponent<
+    Omnibar.Props<T>,
+    Omnibar.State<T>
+> {
     // TODO - fix generic container
     static defaultProps: Omnibar.Props<any> = {
         extensions: [],
@@ -14,14 +17,14 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
         rowHeight: 50,
         resultStyle: {},
         inputDelay: 100,
-    }
+    };
 
     state: Omnibar.State<T> = {
         results: [],
         selectedIndex: 0,
         hoveredIndex: -1,
         displayResults: false,
-    }
+    };
 
     constructor(props: Omnibar.Props<T>) {
         super(props);
@@ -30,18 +33,17 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
 
     query = (value: string) => {
         if (this.props.extensions.length) {
-            search<T>(value, this.props.extensions)
-                .then(items => {
-                    if (items.length) {
-                        let results = items;
-                        if (this.props.maxResults) {
-                            results = results.slice(0, this.props.maxResults);
-                        }
-                        this.setState({ results, displayResults: true });
+            search<T>(value, this.props.extensions).then(items => {
+                if (items.length) {
+                    let results = items;
+                    if (this.props.maxResults) {
+                        results = results.slice(0, this.props.maxResults);
                     }
-                });
+                    this.setState({ results, displayResults: true });
+                }
+            });
         }
-    }
+    };
 
     reset() {
         this.setState({
@@ -57,7 +59,7 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
                 return { selectedIndex };
             }
         });
-    }
+    };
 
     next = () => {
         this.setState((prevState: Omnibar.State<T>) => {
@@ -66,7 +68,7 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
                 return { selectedIndex };
             }
         });
-    }
+    };
 
     action = () => {
         // uses the hovered index if the user is currently
@@ -78,7 +80,7 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
         const item = this.state.results[idx];
         const action = this.props.onAction || AnchorAction;
         action.call(null, item);
-    }
+    };
 
     handleChange = (value: string) => {
         if (value) {
@@ -86,7 +88,7 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
         } else {
             this.reset();
         }
-    }
+    };
 
     handleKeyDown = (evt: any /* Event */) => {
         switch (evt.keyCode) {
@@ -100,30 +102,30 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
                 this.action();
                 break;
         }
-    }
+    };
 
     handleMouseEnterItem = (hoveredIndex: number) => {
         this.setState({ hoveredIndex });
-    }
+    };
 
     handleMouseLeave = () => {
         this.setState({ hoveredIndex: -1 });
-    }
+    };
 
     handleBlur = () => {
         setTimeout(() => this.setState({ displayResults: false }), BLUR_DELAY);
-    }
+    };
 
     handleFocus = () => {
         this.setState({ displayResults: true });
-    }
+    };
 
     handleClickItem = (e: any) => {
         e.preventDefault();
         if (this.state.hoveredIndex > -1) {
             this.action();
         }
-    }
+    };
 
     componentWillReceiveProps(nextProps: Omnibar.Props<T>) {
         if (this.props.defaultValue !== nextProps.defaultValue) {
@@ -146,25 +148,24 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
             onAction,
         } = this.props;
 
-        const maxHeight = maxViewableResults ? maxViewableResults * rowHeight : null;
+        const maxHeight = maxViewableResults
+            ? maxViewableResults * rowHeight
+            : null;
 
         return (
             <div style={{ position: 'relative' }}>
-                {React.createElement(
-                    Input,
-                    {
-                        defaultValue,
-                        width,
-                        height,
-                        style: inputStyle,
-                        placeholder,
-                        onChange: this.handleChange,
-                        onKeyDown: this.handleKeyDown,
-                        onBlur: this.handleBlur,
-                        onFocus: this.handleFocus,
-                    }
-                )}
-                {this.state.displayResults && (
+                {React.createElement(Input, {
+                    defaultValue,
+                    width,
+                    height,
+                    style: inputStyle,
+                    placeholder,
+                    onChange: this.handleChange,
+                    onKeyDown: this.handleKeyDown,
+                    onBlur: this.handleBlur,
+                    onFocus: this.handleFocus,
+                })}
+                {this.state.displayResults &&
                     Results({
                         selectedIndex: this.state.selectedIndex,
                         items: this.state.results,
@@ -176,8 +177,7 @@ export default class Omnibar<T> extends React.PureComponent<Omnibar.Props<T>, Om
                         onMouseLeave: this.handleMouseLeave,
                         onClickItem: this.handleClickItem,
                         resultRenderer: resultRenderer,
-                    })
-                )}
+                    })}
             </div>
         );
     }

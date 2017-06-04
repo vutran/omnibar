@@ -10,7 +10,7 @@ import { flatten } from './utils';
  */
 export default function search<T>(
     query: string,
-    extensions: Array<Omnibar.Extension<T>>,
+    extensions: Array<Omnibar.Extension<T>>
 ): Promise<Array<T>> {
     const results: Array<Omnibar.Results<T>> = [];
 
@@ -21,6 +21,5 @@ export default function search<T>(
         }
     }
 
-    return Promise.all(results)
-        .then(groups => flatten<T>(groups));
+    return Promise.all(results).then(groups => flatten<T>(groups));
 }

@@ -43,13 +43,13 @@ const INPUT_STYLE: React.CSSProperties = {
 export default class Input extends React.PureComponent<Props, State> {
     state: State = {
         value: '',
-    }
+    };
 
     handleChange = (evt: any /* Event */) => {
         const value = evt.target.value;
         this.setState({ value });
         this.props.onChange(value);
-    }
+    };
 
     render() {
         const style = { ...INPUT_STYLE, ...this.props.style };
@@ -71,8 +71,8 @@ export default class Input extends React.PureComponent<Props, State> {
                 onChange={this.handleChange}
                 onKeyDown={this.props.onKeyDown}
                 onBlur={this.props.onBlur}
-                onFocus={this.props.onFocus} />
+                onFocus={this.props.onFocus}
+            />
         );
     }
 }
-

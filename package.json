@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "lint": "prettier --write --tab-width 4 --single-quote --trailing-comma es5 \"{*.js,src/**/*.ts{,x}}\"",
     "prepublish": "npm run build",
     "jest": "jest --coverage --verbose",
     "test": "npm run jest"
@@ -42,6 +43,7 @@
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "jest": "^20.0.1",
+    "prettier": "^1.4.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",

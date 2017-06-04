@@ -58,20 +58,20 @@ export default function Results<T>(props: Props<T>) {
         <ul
             style={style}
             onMouseEnter={props.onMouseEnter}
-            onMouseLeave={props.onMouseLeave}>
+            onMouseLeave={props.onMouseLeave}
+        >
             {props.items.map((item, key) =>
-                React.createElement(
-                    ResultsItem,
-                    {
-                        key,
-                        highlighted: props.selectedIndex === key,
-                        item,
-                        style: props.rowStyle,
-                        onMouseEnter: props.onMouseEnterItem && createHandler(props.onMouseEnterItem, key),
-                        onClickItem: props.onClickItem,
-                        resultRenderer: props.resultRenderer,
-                    },
-                )
+                React.createElement(ResultsItem, {
+                    key,
+                    highlighted: props.selectedIndex === key,
+                    item,
+                    style: props.rowStyle,
+                    onMouseEnter:
+                        props.onMouseEnterItem &&
+                            createHandler(props.onMouseEnterItem, key),
+                    onClickItem: props.onClickItem,
+                    resultRenderer: props.resultRenderer,
+                })
             )}
         </ul>
     );

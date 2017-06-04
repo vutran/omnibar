@@ -5,7 +5,10 @@
  * @param {string} command
  * @return {Omnibar.Results}
  */
-export function command<T>(extension: Omnibar.Extension<T>, command: string): Omnibar.Extension<T> {
+export function command<T>(
+    extension: Omnibar.Extension<T>,
+    command: string
+): Omnibar.Extension<T> {
     const prefix = new RegExp(`^${command}\\s`, 'i');
 
     return (query: string) => {

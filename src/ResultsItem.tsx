@@ -39,26 +39,29 @@ const ITEM_STYLE: React.CSSProperties = {
 
 const ITEM_HOVER_STYLE: React.CSSProperties = {
     backgroundColor: COLORS.GRAY,
-}
+};
 
-export default class ResultRenderer<T> extends React.PureComponent<Props<T>, State> {
+export default class ResultRenderer<T> extends React.PureComponent<
+    Props<T>,
+    State
+> {
     static defaultProps = {
         highlighted: false,
-    }
+    };
 
     state: State = {
         hover: false,
-    }
+    };
 
     handleMouseEnter = (evt: any /* Event */) => {
         this.setState({ hover: true });
         this.props.onMouseEnter && this.props.onMouseEnter(evt);
-    }
+    };
 
     handleMouseLeave = (evt: any /* Event */) => {
         this.setState({ hover: false });
         this.props.onMouseLeave && this.props.onMouseLeave(evt);
-    }
+    };
 
     render() {
         const item = this.props.item;
@@ -77,11 +80,10 @@ export default class ResultRenderer<T> extends React.PureComponent<Props<T>, Sta
                 style={style}
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}
-                onClick={this.props.onClickItem}>
+                onClick={this.props.onClickItem}
+            >
                 {renderer({ item })}
             </li>
         );
     }
 }
-
-

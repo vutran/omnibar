@@ -5,12 +5,9 @@
  * @return {Array<T>}
  */
 export function flatten<T>(list: Array<Array<T>>): Array<T> {
-    return list.reduce(
-        (prev: Array<T>, next: Array<T>): Array<T> => {
-            return prev.concat(next);
-        },
-        [],
-    );
+    return list.reduce((prev: Array<T>, next: Array<T>): Array<T> => {
+        return prev.concat(next);
+    }, []);
 }
 
 /**
@@ -22,14 +19,14 @@ export function flatten<T>(list: Array<Array<T>>): Array<T> {
  * @return {Function}
  */
 export function debounce(fn: any, wait: number): any {
-	let timeout: NodeJS.Timer = null;
-	return (...args: Array<any>) => {
-		const ctx = this;
-		const later = () => {
-			timeout = null;
-			fn.apply(ctx, args);
-		};
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-	};
+    let timeout: NodeJS.Timer = null;
+    return (...args: Array<any>) => {
+        const ctx = this;
+        const later = () => {
+            timeout = null;
+            fn.apply(ctx, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }

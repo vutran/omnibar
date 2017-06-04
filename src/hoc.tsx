@@ -17,7 +17,7 @@ export function withVoice(Component: any): React.ComponentClass<any> {
     return class VoiceOmnibar extends React.Component<VoiceProps, VoiceState> {
         static defaultProps = {
             height: 50,
-        }
+        };
 
         state: VoiceState = {
             value: '',
@@ -39,7 +39,7 @@ export function withVoice(Component: any): React.ComponentClass<any> {
                     for (let i = evt.resultIndex; i < evt.results.length; ++i) {
                         this.setState({ value: evt.results[i][0].transcript });
                     }
-                }
+                };
                 this.recognition = recognition;
             }
         }
@@ -48,7 +48,7 @@ export function withVoice(Component: any): React.ComponentClass<any> {
             this.recognition.lang = 'en-US';
             this.setState({ isSpeaking: true });
             this.recognition.start();
-        }
+        };
 
         render() {
             const base: React.CSSProperties = {
@@ -80,10 +80,17 @@ export function withVoice(Component: any): React.ComponentClass<any> {
                     <Component
                         {...this.props}
                         defaultValue={this.state.value}
-                        inputStyle={inputStyle} />
-                    <button onClick={this.speak} style={mic}><Microphone width={24} height={24} active={this.state.isSpeaking} /></button>
+                        inputStyle={inputStyle}
+                    />
+                    <button onClick={this.speak} style={mic}>
+                        <Microphone
+                            width={24}
+                            height={24}
+                            active={this.state.isSpeaking}
+                        />
+                    </button>
                 </div>
             );
         }
-    }
+    };
 }

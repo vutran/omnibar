@@ -16,7 +16,5 @@ const ANCHOR_STYLE: React.CSSProperties = {
 };
 
 export default function AnchorRenderer(props: Props) {
-    return (
-        <a href={props.item.url} style={ANCHOR_STYLE}>{props.item.title}</a>
-    );
+    return <a href={props.item.url} style={ANCHOR_STYLE}>{props.item.title}</a>;
 }
