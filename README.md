@@ -148,7 +148,7 @@ function MyExtension() {
     ];
 }
 
-export default function connect(MyExtension, 'foo');
+export default function command(MyExtension, 'foo');
 ```
 
 In the above example, `MyExtension` will be queried only if the user starts their query with the keyword `foo`.
@@ -194,7 +194,7 @@ const VoiceBar = withVoice(Omnibar);
 | `resultRenderer` | `Function` | | Rendering function for each result item. Arguments: `{ item }` |
 | `onAction` | `Function` | | Override the defaut action callback when an item is executed. Arguments: `item` |
 | `inputDelay` | `number` | | Override the default input delay used for querying extensions (Default: 100ms) |
-| `defaultValue` | `string` | Optional value to send to the Omnibar. |
+| `defaultValue` | `string` | | Optional value to send to the Omnibar. |
 
 ## Contributing
 
