@@ -1,6 +1,10 @@
 # Omnibar
 
-> Extensible React omnibar to perform actions based on a given query.
+[![Travis](https://img.shields.io/travis/vutran/omnibar/master.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/vutran/omnibar) [![Coveralls branch](https://img.shields.io/coveralls/vutran/omnibar/master.svg?maxAge=2592000&style=flat-square)](https://coveralls.io/github/vutran/omnibar) [![license](https://img.shields.io/github/license/vutran/omnibar.svg?maxAge=2592000&style=flat-square)](LICENSE)
+
+> Extensible search component for React.
+
+![](screenshot.png?raw=true)
 
 ## Install
 
