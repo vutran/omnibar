@@ -56,12 +56,12 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
-    "regenerator-runtime": "^0.10.5",
-    "rollup": "^0.41.6",
+    "regenerator-runtime": "^0.11.0",
+    "rollup": "^0.50.0",
     "rollup-plugin-typescript": "^0.8.1",
     "ts-jest": "^21.0.1",
-    "ts-loader": "^2.0.3",
-    "typescript": "^2.3.2"
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.3"
   },
   "jest": {
     "moduleFileExtensions": [
