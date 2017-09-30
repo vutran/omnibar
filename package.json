@@ -61,8 +61,7 @@
     "rollup-plugin-typescript": "^0.8.1",
     "ts-jest": "^21.0.1",
     "ts-loader": "^2.0.3",
-    "typescript": "^2.3.2",
-    "webpack": "^2.5.1"
+    "typescript": "^2.3.2"
   },
   "jest": {
     "moduleFileExtensions": [
