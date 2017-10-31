@@ -32,15 +32,15 @@ export default class Omnibar<T> extends React.PureComponent<
     }
 
     query = (value: string) => {
-        if (this.props.extensions.length) {
-            search<T>(value, this.props.extensions).then(items => {
-                if (items.length) {
-                    let results = items;
-                    if (this.props.maxResults) {
-                        results = results.slice(0, this.props.maxResults);
-                    }
-                    this.setState({ results, displayResults: true });
-                }
+        if (this.props.extensions.length > 0) {
+            search<T>(value, this.props.extensions).then(results => {
+                this.setState({
+                    results:
+                        this.props.maxResults > 0
+                            ? results.slice(0, this.props.maxResults)
+                            : results,
+                    displayResults: results.length > 0,
+                });
             });
         }
     };
@@ -74,9 +74,10 @@ export default class Omnibar<T> extends React.PureComponent<
         // uses the hovered index if the user is currently
         // mousing over an item, falls back on the
         // selected index
-        const idx = this.state.hoveredIndex > -1
-            ? this.state.hoveredIndex
-            : this.state.selectedIndex;
+        const idx =
+            this.state.hoveredIndex > -1
+                ? this.state.hoveredIndex
+                : this.state.selectedIndex;
         const item = this.state.results[idx];
         const action = this.props.onAction || AnchorAction;
         action.call(null, item);
