@@ -15,8 +15,11 @@ export default class Omnibar<T> extends React.PureComponent<
         extensions: [],
         maxViewableResults: null,
         rowHeight: 50,
-        resultStyle: {},
         inputDelay: 100,
+
+        // style props
+        resultStyle: {},
+        rootStyle: { position: 'relative' },
     };
 
     state: Omnibar.State<T> = {
@@ -74,9 +77,10 @@ export default class Omnibar<T> extends React.PureComponent<
         // uses the hovered index if the user is currently
         // mousing over an item, falls back on the
         // selected index
-        const idx = this.state.hoveredIndex > -1
-            ? this.state.hoveredIndex
-            : this.state.selectedIndex;
+        const idx =
+            this.state.hoveredIndex > -1
+                ? this.state.hoveredIndex
+                : this.state.selectedIndex;
         const item = this.state.results[idx];
         const action = this.props.onAction || AnchorAction;
         action.call(null, item);
@@ -140,12 +144,14 @@ export default class Omnibar<T> extends React.PureComponent<
             defaultValue,
             width,
             height,
-            inputStyle,
             rowHeight,
-            rowStyle,
-            resultStyle,
             resultRenderer,
             onAction,
+            // style props
+            inputStyle,
+            rootStyle,
+            rowStyle,
+            resultStyle,
         } = this.props;
 
         const maxHeight = maxViewableResults
@@ -153,7 +159,7 @@ export default class Omnibar<T> extends React.PureComponent<
             : null;
 
         return (
-            <div style={{ position: 'relative' }}>
+            <div style={rootStyle}>
                 {React.createElement(Input, {
                     defaultValue,
                     width,

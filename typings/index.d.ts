@@ -22,13 +22,15 @@ declare namespace Omnibar {
         // optional input bar height
         height?: number;
         // optional input bar style override
-        inputStyle?: React.CSSProperties
+        inputStyle?: React.CSSProperties;
         // optional result item height
         rowHeight?: number;
         // optional result item style override
         rowStyle?: React.CSSProperties;
         // optional result list style override
         resultStyle?: React.CSSProperties;
+        // options style on the root element
+        rootStyle?: React.CSSProperties;
         // optional result renderering function
         resultRenderer?: <T>(item: T) => React.ReactChild;
         // optional action override
