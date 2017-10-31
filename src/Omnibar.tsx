@@ -35,9 +35,10 @@ export default class Omnibar<T> extends React.PureComponent<
         if (this.props.extensions.length > 0) {
             search<T>(value, this.props.extensions).then(results => {
                 this.setState({
-                    results: this.props.maxResults
-                        ? results.slice(0, this.props.maxResults)
-                        : results,
+                    results:
+                        this.props.maxResults > 0
+                            ? results.slice(0, this.props.maxResults)
+                            : results,
                     displayResults: results.length > 0,
                 });
             });
