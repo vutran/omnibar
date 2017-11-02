@@ -143,7 +143,7 @@ export default class Omnibar<T> extends React.PureComponent<
             : null;
 
         return (
-            <div style={rootStyle}>
+            <div style={this.props.rootStyle}>
                 {React.createElement(Input, {
                     defaultValue: this.props.defaultValue,
                     width: this.props.width,
