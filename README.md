@@ -6,6 +6,10 @@
 
 ![](screenshot.png?raw=true)
 
+## Demo
+
+The demo can be found in [this repository](https://github.com/vutran/omnibar-www).
+
 ## Install
 
 ```bash
