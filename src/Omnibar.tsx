@@ -138,34 +138,18 @@ export default class Omnibar<T> extends React.PureComponent<
     }
 
     render() {
-        const {
-            maxViewableResults,
-            placeholder,
-            defaultValue,
-            width,
-            height,
-            rowHeight,
-            resultRenderer,
-            onAction,
-            // style props
-            inputStyle,
-            rootStyle,
-            rowStyle,
-            resultStyle,
-        } = this.props;
-
-        const maxHeight = maxViewableResults
-            ? maxViewableResults * rowHeight
+        const maxHeight = this.props.maxViewableResults
+            ? this.props.maxViewableResults * this.props.rowHeight
             : null;
 
         return (
             <div style={rootStyle}>
                 {React.createElement(Input, {
-                    defaultValue,
-                    width,
-                    height,
-                    style: inputStyle,
-                    placeholder,
+                    defaultValue: this.props.defaultValue,
+                    width: this.props.width,
+                    height: this.props.height,
+                    style: this.props.inputStyle,
+                    placeholder: this.props.placeholder,
                     onChange: this.handleChange,
                     onKeyDown: this.handleKeyDown,
                     onBlur: this.handleBlur,
@@ -175,14 +159,14 @@ export default class Omnibar<T> extends React.PureComponent<
                     Results({
                         selectedIndex: this.state.selectedIndex,
                         items: this.state.results,
-                        rowHeight: rowHeight,
+                        rowHeight: this.props.rowHeight,
                         maxHeight: maxHeight,
-                        style: resultStyle,
-                        rowStyle: rowStyle,
+                        style: this.props.resultStyle,
+                        rowStyle: this.props.rowStyle,
                         onMouseEnterItem: this.handleMouseEnterItem,
                         onMouseLeave: this.handleMouseLeave,
                         onClickItem: this.handleClickItem,
-                        resultRenderer: resultRenderer,
+                        resultRenderer: this.props.resultRenderer,
                     })}
             </div>
         );
