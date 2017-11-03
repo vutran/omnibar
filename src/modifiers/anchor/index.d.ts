@@ -1,4 +1,4 @@
 export interface AnchorItem {
-    title: string;
-    url?: string;
+  title: string;
+  url?: string;
 }

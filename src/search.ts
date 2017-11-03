@@ -9,17 +9,17 @@ import { flatten } from './utils';
  * @return {Promise<Array<T>>}
  */
 export default function search<T>(
-    query: string,
-    extensions: Array<Omnibar.Extension<T>>
+  query: string,
+  extensions: Array<Omnibar.Extension<T>>
 ): Promise<Array<T>> {
-    const results: Array<Omnibar.Results<T>> = [];
+  const results: Array<Omnibar.Results<T>> = [];
 
-    // iterate through all extensions and compile them into `results` list
-    for (let extension of extensions) {
-        if (typeof extension === 'function') {
-            results.push(extension.call(null, query));
-        }
+  // iterate through all extensions and compile them into `results` list
+  for (let extension of extensions) {
+    if (typeof extension === 'function') {
+      results.push(extension.call(null, query));
     }
+  }
 
-    return Promise.all(results).then(groups => flatten<T>(groups));
+  return Promise.all(results).then(groups => flatten<T>(groups));
 }
