@@ -16,14 +16,15 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "format": "prettier --write '{*.js,{src,__tests__,typings}/**/*.ts{,x}}'",
     "precommit": "lint-staged",
     "prepublish": "npm run build",
     "jest": "jest --coverage --verbose",
     "test": "npm run jest"
   },
   "lint-staged": {
-    "{*.js,src/**/*.ts{,x}}": [
-      "prettier --write --tab-width 4 --single-quote --trailing-comma es5",
+    "{*.js,{src,__tests__,typings}/**/*.ts{,x}}": [
+      "prettier --write",
       "git add"
     ]
   },
