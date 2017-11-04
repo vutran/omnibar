@@ -8,6 +8,9 @@ declare namespace Omnibar {
   type FunctionalExtension<T> = (query: string) => Results<T>;
   type Extension<T> = FunctionalExtension<T>;
 
+  // Renderers
+  type ResultRenderer = <T>({ item }: { item: T }) => JSX.Element;
+
   interface Props<T> {
     // list of extensions
     extensions: Array<Omnibar.Extension<T>>;
@@ -32,7 +35,7 @@ declare namespace Omnibar {
     // options style on the root element
     rootStyle?: React.CSSProperties;
     // optional result renderering function
-    resultRenderer?: <T>(item: T) => React.ReactChild;
+    resultRenderer?: ResultRenderer;
     // optional action override
     onAction?: <T>(item: T) => void;
     // optional input delay override

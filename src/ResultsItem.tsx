@@ -10,13 +10,13 @@ interface Props<T> {
   // onMouseLeave item callback
   onMouseLeave?: (e: any /* Event */) => void;
   // onClick callback
-  onClickItem: (e: any /* Event */) => void;
+  onClickItem?: (e: any /* Event */) => void;
   // set to true to highlight the given item
   highlighted?: boolean;
   // optional style override
   style?: React.CSSProperties;
   // optional result renderering function
-  resultRenderer?: <T>(item: T) => React.ReactChild;
+  resultRenderer?: Omnibar.ResultRenderer;
 }
 
 interface State {
@@ -73,7 +73,7 @@ export default class ResultRenderer<T> extends React.PureComponent<
 
     const renderer = this.props.resultRenderer
       ? this.props.resultRenderer
-      : AnchorRenderer;
+      : AnchorRenderer as Omnibar.ResultRenderer;
 
     return (
       <li

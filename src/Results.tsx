@@ -26,7 +26,7 @@ interface Props<T> {
   // optional row override style
   rowStyle?: React.CSSProperties;
   // optional result renderering function
-  resultRenderer?: <T>(item: T) => React.ReactChild;
+  resultRenderer?: Omnibar.ResultRenderer;
 }
 
 const LIST_STYLE: React.CSSProperties = {
