@@ -32,7 +32,7 @@ declare namespace Omnibar {
     // options style on the root element
     rootStyle?: React.CSSProperties;
     // optional result renderering function
-    resultRenderer?: <T>(item: T) => React.ReactChild;
+    resultRenderer?: <T>({ item }: { item: T }) => React.ReactChild;
     // optional action override
     onAction?: <T>(item: T) => void;
     // optional input delay override
