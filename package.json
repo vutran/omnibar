@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "lint": "prettier --write '{*.js,{src,__tests__,typings}/**/*.ts{,x}}'",
+    "fmt": "prettier --write '{*.js,{src,__tests__,typings}/**/*.ts{,x}}'",
     "precommit": "lint-staged",
     "prepublish": "npm run build",
     "jest": "jest --coverage --verbose",
