@@ -35,7 +35,7 @@ import BarExtension from './BarExtension';
 Render it in your component
 
 ```jsx
-export default MyComponent() {
+export default function MyComponent() {
     return (
         <Omnibar
             placeholder="Enter keyword"
