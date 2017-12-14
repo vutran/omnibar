@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Results from '../src/Results';
+import ResultsItem from '../src/ResultsItem';
 import renderer from 'react-test-renderer';
 
 describe('Results', () => {
@@ -65,9 +66,9 @@ describe('Results', () => {
     const tree = renderer
       .create(
         React.createElement(Results, {
+          children: rowRenderer,
           items,
           selectedIndex: -1,
-          resultRenderer: rowRenderer,
         })
       )
       .toJSON();

@@ -118,7 +118,7 @@ The example below changes our result item schema to be in the shape of:
 ```
 
 ```
-function resultRenderer({ item }) => {
+function ResultRenderer({ item }) => {
     return (
         <div>
             <img src={item.owner.avatar_url} width={30} height={30} />
@@ -133,7 +133,9 @@ class MyComponent extends React.Component {
             <Omnibar
                 placeholder="Search GitHub"
                 extensions={[GitHubExtension]}
-                resultRenderer={resultRenderer} />
+            >
+                {({ item }) => <ResultRenderer item={item} />}
+            </Omnibar>
         );
     }
 }
@@ -189,6 +191,7 @@ const VoiceBar = withVoice(Omnibar);
 
 | Prop | Type | Required? | Description |
 | :-- | :-- | :-- | :-- |
+| `children` | `Function` | | Optional rendering function for each result item. Arguments: `{ item }` |
 | `extensions` | `Array<Extension>` | * | An array of extensions to be loaded. |
 | `placeholder` | `string` | | Input placeholder |
 | `maxResults` | `number` | | The maximum amount of results to display overall. |
@@ -199,7 +202,6 @@ const VoiceBar = withVoice(Omnibar);
 | `rowHeight` | `number` | | The height for each result row item |
 | `rowStyle` | `object` | | Style object override for each result row item |
 | `resultStyle` | `object` | | Style object override for the result container |
-| `resultRenderer` | `Function` | | Rendering function for each result item. Arguments: `{ item }` |
 | `onAction` | `Function` | | Override the defaut action callback when an item is executed. Arguments: `item` |
 | `inputDelay` | `number` | | Override the default input delay used for querying extensions (Default: 100ms) |
 | `defaultValue` | `string` | | Optional value to send to the Omnibar. |

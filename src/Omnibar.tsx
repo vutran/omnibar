@@ -12,6 +12,7 @@ export default class Omnibar<T> extends React.PureComponent<
 > {
   // TODO - fix generic container
   static defaultProps: Omnibar.Props<any> = {
+    children: null,
     extensions: [],
     maxViewableResults: null,
     rowHeight: 50,
@@ -157,6 +158,7 @@ export default class Omnibar<T> extends React.PureComponent<
         })}
         {this.state.displayResults &&
           Results({
+            children: this.props.children,
             selectedIndex: this.state.selectedIndex,
             items: this.state.results,
             rowHeight: this.props.rowHeight,
@@ -166,7 +168,6 @@ export default class Omnibar<T> extends React.PureComponent<
             onMouseEnterItem: this.handleMouseEnterItem,
             onMouseLeave: this.handleMouseLeave,
             onClickItem: this.handleClickItem,
-            resultRenderer: this.props.resultRenderer,
           })}
       </div>
     );

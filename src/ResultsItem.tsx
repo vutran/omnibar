@@ -3,6 +3,8 @@ import { COLORS } from './constants';
 import AnchorRenderer from './modifiers/anchor/AnchorRenderer';
 
 interface Props<T> {
+  // results renderer function
+  children: Omnibar.ResultRenderer<T>;
   // the item
   item: T;
   // onMouseEnter item callback
@@ -15,8 +17,6 @@ interface Props<T> {
   highlighted?: boolean;
   // optional style override
   style?: React.CSSProperties;
-  // optional result renderering function
-  resultRenderer?: Omnibar.ResultRenderer;
 }
 
 interface State {
@@ -71,9 +71,9 @@ export default class ResultRenderer<T> extends React.PureComponent<
       style = { ...style, ...ITEM_HOVER_STYLE };
     }
 
-    const renderer = this.props.resultRenderer
-      ? this.props.resultRenderer
-      : AnchorRenderer as Omnibar.ResultRenderer;
+    const renderer = this.props.children
+      ? this.props.children
+      : AnchorRenderer as Omnibar.ResultRenderer<T>;
 
     return (
       <li
