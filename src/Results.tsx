@@ -4,7 +4,7 @@ import { COLORS } from './constants';
 
 interface Props<T> {
   // results renderer function
-  children: Omnibar.ResultRenderer<T>;
+  children?: Omnibar.ResultRenderer<T>;
   // the currently selected index
   selectedIndex: number;
   // list of result items
