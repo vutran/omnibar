@@ -3,6 +3,8 @@ import ResultsItem from './ResultsItem';
 import { COLORS } from './constants';
 
 interface Props<T> {
+  // results renderer function
+  children: Omnibar.ResultRenderer<T>;
   // the currently selected index
   selectedIndex: number;
   // list of result items
@@ -25,8 +27,6 @@ interface Props<T> {
   style?: React.CSSProperties;
   // optional row override style
   rowStyle?: React.CSSProperties;
-  // optional result renderering function
-  resultRenderer?: Omnibar.ResultRenderer;
 }
 
 const LIST_STYLE: React.CSSProperties = {
@@ -63,6 +63,7 @@ export default function Results<T>(props: Props<T>) {
       {props.items.map((item, key) =>
         React.createElement(ResultsItem, {
           key,
+          children: props.children,
           highlighted: props.selectedIndex === key,
           item,
           style: props.rowStyle,
@@ -70,7 +71,6 @@ export default function Results<T>(props: Props<T>) {
             props.onMouseEnterItem &&
             createHandler(props.onMouseEnterItem, key),
           onClickItem: props.onClickItem,
-          resultRenderer: props.resultRenderer,
         })
       )}
     </ul>
