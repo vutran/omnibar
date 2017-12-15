@@ -6,7 +6,6 @@ import Microphone from './Microphone';
  */
 export function withVoice(Component: any): React.ComponentClass<any> {
   interface VoiceProps {
-    height?: number;
     inputStyle?: React.CSSProperties;
   }
   interface VoiceState {
@@ -15,10 +14,6 @@ export function withVoice(Component: any): React.ComponentClass<any> {
   }
 
   return class VoiceOmnibar extends React.Component<VoiceProps, VoiceState> {
-    static defaultProps = {
-      height: 50,
-    };
-
     state: VoiceState = {
       value: '',
       isSpeaking: false,
@@ -61,7 +56,7 @@ export function withVoice(Component: any): React.ComponentClass<any> {
         top: 0,
         border: 0,
         backgroundColor: 'transparent',
-        lineHeight: `${this.props.height}px`,
+        lineHeight: '50px',
         fontSize: 24,
         paddingRight: 15,
         paddingTop: 0,

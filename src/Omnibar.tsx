@@ -147,9 +147,7 @@ export default class Omnibar<T> extends React.PureComponent<
       <div style={this.props.rootStyle}>
         {React.createElement(Input, {
           defaultValue: this.props.defaultValue,
-          width: this.props.width,
-          height: this.props.height,
-          style: this.props.inputStyle,
+          style: this.props.style,
           placeholder: this.props.placeholder,
           onChange: this.handleChange,
           onKeyDown: this.handleKeyDown,
