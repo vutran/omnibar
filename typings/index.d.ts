@@ -9,7 +9,13 @@ declare namespace Omnibar {
   type Extension<T> = FunctionalExtension<T>;
 
   // Renderers
-  type ResultRenderer<T> = ({ item }: { item: T }) => React.ReactNode;
+  type ResultRenderer<T> = (
+    {
+      item,
+    }: {
+      item: T;
+    }
+  ) => React.ReactNode;
 
   interface Props<T> {
     // results renderer function

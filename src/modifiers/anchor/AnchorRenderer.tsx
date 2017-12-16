@@ -2,9 +2,9 @@ import * as React from 'react';
 import { AnchorItem } from './';
 import { COLORS } from '../../constants';
 
-interface Props {
+interface Props<T> {
   // the item
-  item: AnchorItem;
+  item: AnchorItem & T;
 }
 
 const ANCHOR_STYLE: React.CSSProperties = {
@@ -15,7 +15,7 @@ const ANCHOR_STYLE: React.CSSProperties = {
   paddingRight: 15,
 };
 
-export default function AnchorRenderer(props: Props) {
+export default function AnchorRenderer<T>(props: Props<T>) {
   return (
     <a href={props.item.url} style={ANCHOR_STYLE}>
       {props.item.title}
