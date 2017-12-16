@@ -4,6 +4,7 @@ import typescript from 'rollup-plugin-typescript';
 export default {
   input: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
+    exports: 'named',
     file: path.resolve(__dirname, 'dist', 'index.js'),
     format: 'cjs',
   },
@@ -13,5 +14,4 @@ export default {
     }),
   ],
   external: ['react'],
-  exports: 'named',
 };
