@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { COLORS } from './constants';
-import { AnchorItem } from './modifiers/anchor';
 import AnchorRenderer from './modifiers/anchor/AnchorRenderer';
 
 interface Props<T> {
