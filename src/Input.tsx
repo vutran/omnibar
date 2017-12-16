@@ -12,10 +12,6 @@ interface Props {
   onFocus: (evt: any /* Event */) => void;
   // optional input placeholder text
   placeholder?: string;
-  // optional input width
-  width?: number;
-  // optional input height
-  height?: number;
   // optional style override
   style?: React.CSSProperties;
   // optional default value
@@ -53,14 +49,6 @@ export default class Input extends React.PureComponent<Props, State> {
 
   render() {
     const style = { ...INPUT_STYLE, ...this.props.style };
-
-    if (this.props.width) {
-      style.width = this.props.width;
-    }
-
-    if (this.props.height) {
-      style.height = this.props.height;
-    }
 
     return (
       <input

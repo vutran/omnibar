@@ -14,6 +14,8 @@ declare namespace Omnibar {
   interface Props<T> {
     // results renderer function
     children?: ResultRenderer<T> | React.ReactNode;
+    // optional input bar style override
+    style?: React.CSSProperties;
     // list of extensions
     extensions: Array<Omnibar.Extension<T>>;
     // max items
@@ -22,12 +24,6 @@ declare namespace Omnibar {
     maxViewableResults?: number;
     // optional input placeholder text
     placeholder?: string;
-    // optional input bar width
-    width?: number;
-    // optional input bar height
-    height?: number;
-    // optional input bar style override
-    inputStyle?: React.CSSProperties;
     // optional result item height
     rowHeight?: number;
     // optional result item style override

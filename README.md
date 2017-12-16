@@ -187,22 +187,20 @@ const VoiceBar = withVoice(Omnibar);
 
 ## Props API
 
-| Prop                 | Type               | Required? | Description                                                                            |
-| :------------------- | :----------------- | :-------- | :------------------------------------------------------------------------------------- |
-| `children`           | `Function`         |           | Optional rendering function for each result item. Arguments: `{ item }`                |
-| `extensions`         | `Array<Extension>` | \*        | An array of extensions to be loaded.                                                   |
-| `placeholder`        | `string`           |           | Input placeholder                                                                      |
-| `maxResults`         | `number`           |           | The maximum amount of results to display overall.                                      |
-| `maxViewableResults` | `number`           |           | The maximum amount of results to display in the viewable container (before scrolling). |
-| `width`              | `number`           |           | The width of the omnibar                                                               |
-| `height`             | `number`           |           | The height of the omnibar                                                              |
-| `inputStyle`         | `object`           |           | Style object override for the input element                                            |
-| `rowHeight`          | `number`           |           | The height for each result row item                                                    |
-| `rowStyle`           | `object`           |           | Style object override for each result row item                                         |
-| `resultStyle`        | `object`           |           | Style object override for the result container                                         |
-| `onAction`           | `Function`         |           | Override the defaut action callback when an item is executed. Arguments: `item`        |
-| `inputDelay`         | `number`           |           | Override the default input delay used for querying extensions (Default: 100ms)         |
-| `defaultValue`       | `string`           |           | Optional value to send to the Omnibar.                                                 |
+| Prop                 | Type                  | Required? | Description                                                                            |
+| :------------------- | :-------------------- | :-------- | :------------------------------------------------------------------------------------- |
+| `children`           | `Function`            |           | Optional rendering function for each result item. Arguments: `{ item }`                |
+| `style`              | `React.CSSProperties` |           | Style object override for the `<input />` element                                      |
+| `extensions`         | `Array<Extension>`    | \*        | An array of extensions to be loaded.                                                   |
+| `placeholder`        | `string`              |           | Input placeholder                                                                      |
+| `maxResults`         | `number`              |           | The maximum amount of results to display overall.                                      |
+| `maxViewableResults` | `number`              |           | The maximum amount of results to display in the viewable container (before scrolling). |
+| `rowHeight`          | `number`              |           | The height for each result row item                                                    |
+| `rowStyle`           | `object`              |           | Style object override for each result row item                                         |
+| `resultStyle`        | `object`              |           | Style object override for the result container                                         |
+| `onAction`           | `Function`            |           | Override the defaut action callback when an item is executed. Arguments: `item`        |
+| `inputDelay`         | `number`              |           | Override the default input delay used for querying extensions (Default: 100ms)         |
+| `defaultValue`       | `string`              |           | Optional value to send to the Omnibar.                                                 |
 
 ## Contributing
 

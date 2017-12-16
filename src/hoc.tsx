@@ -5,20 +5,13 @@ import Microphone from './Microphone';
  * Adds voice commands to your Omnibar
  */
 export function withVoice(Component: any): React.ComponentClass<any> {
-  interface VoiceProps {
-    height?: number;
-    inputStyle?: React.CSSProperties;
-  }
+  interface VoiceProps extends Omnibar.Props<any> {}
   interface VoiceState {
     value: string;
     isSpeaking: boolean;
   }
 
   return class VoiceOmnibar extends React.Component<VoiceProps, VoiceState> {
-    static defaultProps = {
-      height: 50,
-    };
-
     state: VoiceState = {
       value: '',
       isSpeaking: false,
@@ -61,7 +54,7 @@ export function withVoice(Component: any): React.ComponentClass<any> {
         top: 0,
         border: 0,
         backgroundColor: 'transparent',
-        lineHeight: `${this.props.height}px`,
+        lineHeight: '50px',
         fontSize: 24,
         paddingRight: 15,
         paddingTop: 0,
@@ -69,10 +62,10 @@ export function withVoice(Component: any): React.ComponentClass<any> {
         paddingLeft: 15,
       };
 
-      const inputStyle: React.CSSProperties = this.props.inputStyle || {};
+      const style: React.CSSProperties = this.props.style || {};
 
       if (this.state.isSpeaking) {
-        inputStyle.backgroundColor = 'rgba(0, 255, 0, 0.075)';
+        style.backgroundColor = 'rgba(0, 255, 0, 0.075)';
       }
 
       return (
@@ -80,7 +73,7 @@ export function withVoice(Component: any): React.ComponentClass<any> {
           <Component
             {...this.props}
             defaultValue={this.state.value}
-            inputStyle={inputStyle}
+            style={style}
           />
           <button onClick={this.speak} style={mic}>
             <Microphone width={24} height={24} active={this.state.isSpeaking} />

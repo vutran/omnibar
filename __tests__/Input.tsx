@@ -48,8 +48,7 @@ describe('Input', () => {
     const tree = renderer
       .create(
         <Input
-          width={200}
-          height={150}
+          style={{ width: 200, height: 150 }}
           onKeyDown={handleKeyDown}
           onChange={handleChange}
           onFocus={handleFocus}
