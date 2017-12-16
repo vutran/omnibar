@@ -4,12 +4,7 @@
   "description": "Extensible search component for React.",
   "main": "./dist/index.js",
   "types": "./typings/index.d.ts",
-  "files": [
-    "dist",
-    "typings",
-    "LICENSE",
-    "README.md"
-  ],
+  "files": ["dist", "typings", "LICENSE", "README.md"],
   "repository": {
     "type": "git",
     "url": "https://github.com/vutran/omnibar.git"
@@ -17,7 +12,8 @@
   "scripts": {
     "build": "rollup -c",
     "format": "npm run format:js && npm run format:md",
-    "format:js": "prettier --write '{*.js,*.json,{src,__tests__,typings}/**/*.ts{,x}}'",
+    "format:js":
+      "prettier --write '{*.js,*.json,{src,__tests__,typings}/**/*.ts{,x}}'",
     "format:md": "prettier --parser markdown --write '*.md'",
     "precommit": "lint-staged",
     "prepublish": "npm run build",
@@ -30,11 +26,7 @@
       "git add"
     ]
   },
-  "keywords": [
-    "omnibar",
-    "search",
-    "navigator"
-  ],
+  "keywords": ["omnibar", "search", "navigator"],
   "author": "Vu Tran <vu@vu-tran.com>",
   "license": "MIT",
   "peerDependencies": {
@@ -66,11 +58,7 @@
     "typescript": "^2.5.3"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
