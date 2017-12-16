@@ -73,7 +73,7 @@ export default class ResultRenderer<T> extends React.PureComponent<
 
     const renderer = this.props.children
       ? this.props.children
-      : AnchorRenderer as Omnibar.ResultRenderer<T>;
+      : (AnchorRenderer as Omnibar.ResultRenderer<T>);
 
     return (
       <li
