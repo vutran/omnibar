@@ -36,14 +36,12 @@ Render it in your component
 
 ```jsx
 export default function MyComponent() {
-    return (
-        <Omnibar
-            placeholder="Enter keyword"
-            extensions={[
-                FooExtension,
-                BarExtension,
-            ]} />
-    );
+  return (
+    <Omnibar
+      placeholder="Enter keyword"
+      extensions={[FooExtension, BarExtension]}
+    />
+  );
 }
 ```
 
@@ -56,18 +54,18 @@ render an anchor item with the default result item schema.
 
 ```typescript
 {
-    title: string;
-    url: string;
+  title: string;
+  url: string;
 }
 ```
 
 ```jsx
 export default function FooExtension() {
-    return [
-        { title: 'Dropbox', url: 'https://dropbox.com' },
-        { title: 'GitHub', url: 'https://google.com' },
-        { title: 'Facebook', url: 'https://facebook.com' },
-    ];
+  return [
+    { title: 'Dropbox', url: 'https://dropbox.com' },
+    { title: 'GitHub', url: 'https://google.com' },
+    { title: 'Facebook', url: 'https://facebook.com' },
+  ];
 }
 ```
 
@@ -80,10 +78,10 @@ a request parameter `q`, it will return a JSON response like so:
 
 ```json
 {
-    "items": [
-        { "name": "foo", "website": "foo.com" },
-        { "name": "bar", "website": "bar.com" },
-    ]
+  "items": [
+    { "name": "foo", "website": "foo.com" },
+    { "name": "bar", "website": "bar.com" }
+  ]
 }
 ```
 
@@ -109,11 +107,11 @@ The example below changes our result item schema to be in the shape of:
 
 ```typescript
 {
-    owner: {
-        avatar_url: string;
-    };
-    html_url: string;
-    full_name: string;
+  owner: {
+    avatar_url: string;
+  }
+  html_url: string;
+  full_name: string;
 }
 ```
 
@@ -189,22 +187,22 @@ const VoiceBar = withVoice(Omnibar);
 
 ## Props API
 
-| Prop | Type | Required? | Description |
-| :-- | :-- | :-- | :-- |
-| `children` | `Function` | | Optional rendering function for each result item. Arguments: `{ item }` |
-| `extensions` | `Array<Extension>` | * | An array of extensions to be loaded. |
-| `placeholder` | `string` | | Input placeholder |
-| `maxResults` | `number` | | The maximum amount of results to display overall. |
-| `maxViewableResults` | `number` | | The maximum amount of results to display in the viewable container (before scrolling). |
-| `width` | `number` | | The width of the omnibar |
-| `height` | `number` | | The height of the omnibar |
-| `inputStyle` | `object` | | Style object override for the input element |
-| `rowHeight` | `number` | | The height for each result row item |
-| `rowStyle` | `object` | | Style object override for each result row item |
-| `resultStyle` | `object` | | Style object override for the result container |
-| `onAction` | `Function` | | Override the defaut action callback when an item is executed. Arguments: `item` |
-| `inputDelay` | `number` | | Override the default input delay used for querying extensions (Default: 100ms) |
-| `defaultValue` | `string` | | Optional value to send to the Omnibar. |
+| Prop                 | Type               | Required? | Description                                                                            |
+| :------------------- | :----------------- | :-------- | :------------------------------------------------------------------------------------- |
+| `children`           | `Function`         |           | Optional rendering function for each result item. Arguments: `{ item }`                |
+| `extensions`         | `Array<Extension>` | \*        | An array of extensions to be loaded.                                                   |
+| `placeholder`        | `string`           |           | Input placeholder                                                                      |
+| `maxResults`         | `number`           |           | The maximum amount of results to display overall.                                      |
+| `maxViewableResults` | `number`           |           | The maximum amount of results to display in the viewable container (before scrolling). |
+| `width`              | `number`           |           | The width of the omnibar                                                               |
+| `height`             | `number`           |           | The height of the omnibar                                                              |
+| `inputStyle`         | `object`           |           | Style object override for the input element                                            |
+| `rowHeight`          | `number`           |           | The height for each result row item                                                    |
+| `rowStyle`           | `object`           |           | Style object override for each result row item                                         |
+| `resultStyle`        | `object`           |           | Style object override for the result container                                         |
+| `onAction`           | `Function`         |           | Override the defaut action callback when an item is executed. Arguments: `item`        |
+| `inputDelay`         | `number`           |           | Override the default input delay used for querying extensions (Default: 100ms)         |
+| `defaultValue`       | `string`           |           | Optional value to send to the Omnibar.                                                 |
 
 ## Contributing
 

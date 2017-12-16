@@ -4,19 +4,17 @@
   "description": "Extensible search component for React.",
   "main": "./dist/index.js",
   "types": "./typings/index.d.ts",
-  "files": [
-    "dist",
-    "typings",
-    "LICENSE",
-    "README.md"
-  ],
+  "files": ["dist", "typings", "LICENSE", "README.md"],
   "repository": {
     "type": "git",
     "url": "https://github.com/vutran/omnibar.git"
   },
   "scripts": {
     "build": "rollup -c",
-    "fmt": "prettier --write '{*.js,{src,__tests__,typings}/**/*.ts{,x}}'",
+    "format": "npm run format:js && npm run format:md",
+    "format:js":
+      "prettier --write '{*.js,*.json,{src,__tests__,typings}/**/*.ts{,x}}'",
+    "format:md": "prettier --parser markdown --write '*.md'",
     "precommit": "lint-staged",
     "prepublish": "npm run build",
     "jest": "jest --coverage --verbose",
@@ -28,11 +26,7 @@
       "git add"
     ]
   },
-  "keywords": [
-    "omnibar",
-    "search",
-    "navigator"
-  ],
+  "keywords": ["omnibar", "search", "navigator"],
   "author": "Vu Tran <vu@vu-tran.com>",
   "license": "MIT",
   "peerDependencies": {
@@ -52,7 +46,7 @@
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "lint-staged": "^4.2.3",
-    "prettier": "^1.7.3",
+    "prettier": "^1.9.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
@@ -64,11 +58,7 @@
     "typescript": "^2.5.3"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
