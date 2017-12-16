@@ -13,6 +13,7 @@ declare namespace BareBones {
   interface Props<T> {
     children: <T>(e: T) => React.ReactNode;
     extensions: Array<BareBones.FunctionalExtensions<T>>;
+    maxResults?: number;
   }
 
   interface State<T> {
