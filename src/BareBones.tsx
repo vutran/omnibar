@@ -1,9 +1,5 @@
 import * as React from 'react';
-
-function search<T, U>(
-  value: T,
-  extensions: Array<BareBones.FunctionalExtensions<U>>
-): any {}
+import search from './search';
 
 interface QueryProps<T> {
   children: (x: any) => React.ReactNode;
@@ -11,18 +7,37 @@ interface QueryProps<T> {
   maxResults?: number;
 }
 
-interface QueryState {}
+interface QueryState<T> {
+  results: Array<BareBones.ResultItem>;
+}
 
 // Generic class to be used on the bare-bones version, and the "full package" version
-class Query<T> extends React.PureComponent<QueryProps<T>, QueryState> {
+class Query<T> extends React.PureComponent<QueryProps<T>, QueryState<T>> {
+  static defaultProps: QueryProps<T> = {
+    maxResults: 20,
+  };
+  state: QueryState<T> = {
+    results: [],
+  };
   query = (value: string) => {
-    search<string, T>(value, this.props.extensions).then((results: any) => {});
+    if (this.props.extensions.length > 0) {
+      search<T>(value, this.props.extensions).then(results => {
+        this.setState({
+          results:
+            this.props.maxResults > 0
+              ? results.slice(0, this.props.maxResults)
+              : results,
+          displayResults: results.length > 0,
+        });
+      });
+    }
   };
   render() {
     return (
       <div>
         {this.props.children({
           onChange: this.query,
+          results: this.state.results,
         })}
       </div>
     );
@@ -33,21 +48,23 @@ export default class BareBones<T> extends React.PureComponent<
   BareBones.Props<T>,
   BareBones.State<T>
 > {
-  state: BareBones.State<T> = {
-    results: [],
-  };
   render() {
     return (
       <Query
         extensions={this.props.extensions}
         maxResults={this.props.maxResults}
       >
-        {({ onChange }) => {
+        {({ onChange, results }) => {
           return (
             <div>
-              <input onChange={onChange} />
+              <input
+                onChange={e => {
+                  e.preventDefault();
+                  onChange(e.target.value);
+                }}
+              />
               {this.props.children({
-                results: [],
+                results,
               })}
             </div>
           );
@@ -56,15 +73,3 @@ export default class BareBones<T> extends React.PureComponent<
     );
   }
 }
-
-// <BareBones extensions={} onSelect={this.handleSelectedItem}>
-//   {({ Item, getItemProps, results }) => {
-//     return results.map((resultItem, index) => (
-//       <Item
-//         {...getItemProps({ index })}
-//         item={resultItem}
-//         key={resultItem.title}
-//       />
-//     ));
-//   }}
-// </BareBones>;
