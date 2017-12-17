@@ -6,7 +6,7 @@ describe('ResultsItem', () => {
   it('should render a <ResultsItem />', () => {
     const item = { title: 'Google', url: 'https://google.com' };
     const tree = renderer
-      .create(React.createElement(ResultsItem, { item }))
+      .create(React.createElement(ResultsItem, { item, children: null }))
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -14,7 +14,13 @@ describe('ResultsItem', () => {
   it('should render a highlighted <ResultsItem />', () => {
     const item = { title: 'Google', url: 'https://google.com' };
     const tree = renderer
-      .create(React.createElement(ResultsItem, { item, highlighted: true }))
+      .create(
+        React.createElement(ResultsItem, {
+          item,
+          highlighted: true,
+          children: null,
+        })
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
