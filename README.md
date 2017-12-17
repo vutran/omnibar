@@ -115,27 +115,24 @@ The example below changes our result item schema to be in the shape of:
 }
 ```
 
-```
-function ResultRenderer({ item }) => {
-    return (
-        <div>
-            <img src={item.owner.avatar_url} width={30} height={30} />
-            <a href={item.html_url}>{item.full_name}</a>
-        </div>
-    );
+```jsx
+function ResultRenderer({ item }) {
+  return (
+    <div>
+      <img src={item.owner.avatar_url} width={30} height={30} />
+      <a href={item.html_url}>{item.full_name}</a>
+    </div>
+  );
 }
 
 class MyComponent extends React.Component {
-    render() {
-        return (
-            <Omnibar
-                placeholder="Search GitHub"
-                extensions={[GitHubExtension]}
-            >
-                {({ item }) => <ResultRenderer item={item} />}
-            </Omnibar>
-        );
-    }
+  render() {
+    return (
+      <Omnibar placeholder="Search GitHub" extensions={[GitHubExtension]}>
+        {({ item }) => <ResultRenderer item={item} />}
+      </Omnibar>
+    );
+  }
 }
 ```
 
@@ -147,16 +144,16 @@ The `command()` helper will wrap your extension through a command prefix and wil
 
 **Example**:
 
-```
+```js
 import { command } from 'omnibar';
 
 function MyExtension() {
-    return [
-        // ...items
-    ];
+  return [
+    // ...items
+  ];
 }
 
-export default function command(MyExtension, 'foo');
+export default command(MyExtension, 'foo');
 ```
 
 In the above example, `MyExtension` will be queried only if the user starts their query with the keyword `foo`.
@@ -173,7 +170,7 @@ The `withVoice` is a HOC (higher-order component) factory method to create a voi
 
 **Example**
 
-```
+```js
 import Omnibar, { withVoice } from 'omnibar';
 
 const VoiceBar = withVoice(Omnibar);
@@ -185,21 +182,21 @@ const VoiceBar = withVoice(Omnibar);
 // <Omnibar />
 ```
 
-## Props API
+## Props
 
 | Prop                 | Type                  | Required? | Description                                                                            |
 | :------------------- | :-------------------- | :-------- | :------------------------------------------------------------------------------------- |
 | `children`           | `Function`            |           | Optional rendering function for each result item. Arguments: `{ item }`                |
 | `style`              | `React.CSSProperties` |           | Style object override for the `<input />` element                                      |
-| `extensions`         | `Array<Extension>`    | \*        | An array of extensions to be loaded.                                                   |
+| `extensions`         | `Array<Extension>`    | ✅        | An array of extensions to be loaded.                                                   |
 | `placeholder`        | `string`              |           | Input placeholder                                                                      |
 | `maxResults`         | `number`              |           | The maximum amount of results to display overall.                                      |
 | `maxViewableResults` | `number`              |           | The maximum amount of results to display in the viewable container (before scrolling). |
 | `rowHeight`          | `number`              |           | The height for each result row item                                                    |
 | `rowStyle`           | `object`              |           | Style object override for each result row item                                         |
 | `resultStyle`        | `object`              |           | Style object override for the result container                                         |
-| `onAction`           | `Function`            |           | Override the defaut action callback when an item is executed. Arguments: `item`        |
-| `inputDelay`         | `number`              |           | Override the default input delay used for querying extensions (Default: 100ms)         |
+| `onAction`           | `Function`            |           | Apply an action callback when an item is executed. Arguments: `item`                   |
+| `inputDelay`         | `number`              |           | Set an input delay used for querying extensions (Default: 100ms)                       |
 | `defaultValue`       | `string`              |           | Optional value to send to the Omnibar.                                                 |
 
 ## Contributing
@@ -207,8 +204,8 @@ const VoiceBar = withVoice(Omnibar);
 1. Clone this repository and the [website repository](https://github.com/vutran/omnibar-www).
 2. Run `npm i` or `yarn` on the `omnibar` directory.
 3. Run `npm link` on the `omnibar` directory.
-4. Run `npm link omnibar` on the `omnibar-www` directory.
-5. Run `npm i` or `yarn` on the `omnibar-www` directory.
+4. Run `npm i` or `yarn` on the `omnibar-www` directory.
+5. Run `npm link omnibar` on the `omnibar-www` directory.
 6. Run `npm run dev` on the `omnibar-www` directory.
 7. Open [https://localhost:8080](https://localhost:8080) in your browser.
 
