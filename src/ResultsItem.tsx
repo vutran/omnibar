@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { COLORS } from './constants';
+import { AnchorItem } from './modifiers/anchor';
 import AnchorRenderer from './modifiers/anchor/AnchorRenderer';
 
 interface Props<T> {
@@ -65,7 +66,7 @@ export default class ResultRenderer<T> extends React.PureComponent<
 
   render() {
     const item = this.props.item;
-    let style = { ...ITEM_STYLE, ...this.props.style };
+    let style: React.CSSProperties = { ...ITEM_STYLE, ...this.props.style };
 
     if (this.props.highlighted || this.state.hover) {
       style = { ...style, ...ITEM_HOVER_STYLE };
@@ -75,15 +76,12 @@ export default class ResultRenderer<T> extends React.PureComponent<
       ? this.props.children
       : (AnchorRenderer as Omnibar.ResultRenderer<T>);
 
-    return (
-      <li
-        style={style}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        onClick={this.props.onClickItem}
-      >
-        {renderer({ item })}
-      </li>
-    );
+    return renderer({
+      style,
+      item,
+      onMouseEnter: this.handleMouseEnter,
+      onMouseLeave: this.handleMouseLeave,
+      onClick: this.props.onClickItem,
+    });
   }
 }

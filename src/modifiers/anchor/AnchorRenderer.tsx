@@ -15,9 +15,14 @@ const ANCHOR_STYLE: React.CSSProperties = {
   paddingRight: 15,
 };
 
-export default function AnchorRenderer<T>(props: Props<T>) {
+export default function AnchorRenderer<T>(
+  props: Props<T> & React.HTMLAttributes<HTMLAnchorElement>
+) {
+  const { style, ...rest } = props;
+  const mergedStyle = { ...ANCHOR_STYLE, ...style };
+
   return (
-    <a href={props.item.url} style={ANCHOR_STYLE}>
+    <a href={props.item.url} style={mergedStyle} {...rest}>
       {props.item.title}
     </a>
   );

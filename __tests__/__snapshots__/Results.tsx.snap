@@ -16,7 +16,14 @@ exports[`Results should render a <Results /> 1`] = `
     }
   }
 >
-  <li
+  <a
+    href="https://google.com"
+    item={
+      Object {
+        "title": "Google",
+        "url": "https://google.com",
+      }
+    }
     onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -29,28 +36,27 @@ exports[`Results should render a <Results /> 1`] = `
         "borderStyle": "solid",
         "borderTopWidth": 0,
         "boxSizing": "border-box",
+        "color": "#000",
+        "display": "block",
         "fontSize": 24,
         "height": 50,
         "lineHeight": "50px",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
       }
     }
   >
-    <a
-      href="https://google.com"
-      style={
-        Object {
-          "color": "#000",
-          "display": "block",
-          "paddingLeft": 15,
-          "paddingRight": 15,
-          "textDecoration": "none",
-        }
+    Google
+  </a>
+  <a
+    href="https://dropbox.com"
+    item={
+      Object {
+        "title": "Dropbox",
+        "url": "https://dropbox.com",
       }
-    >
-      Google
-    </a>
-  </li>
-  <li
+    }
     onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -63,27 +69,19 @@ exports[`Results should render a <Results /> 1`] = `
         "borderStyle": "solid",
         "borderTopWidth": 0,
         "boxSizing": "border-box",
+        "color": "#000",
+        "display": "block",
         "fontSize": 24,
         "height": 50,
         "lineHeight": "50px",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
       }
     }
   >
-    <a
-      href="https://dropbox.com"
-      style={
-        Object {
-          "color": "#000",
-          "display": "block",
-          "paddingLeft": 15,
-          "paddingRight": 15,
-          "textDecoration": "none",
-        }
-      }
-    >
-      Dropbox
-    </a>
-  </li>
+    Dropbox
+  </a>
 </ul>
 `;
 
@@ -103,54 +101,14 @@ exports[`Results should render a <Results /> with a custom row renderer 1`] = `
     }
   }
 >
-  <li
-    onClick={undefined}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    style={
-      Object {
-        "borderBottomWidth": 1,
-        "borderColor": "#ddd",
-        "borderLeftWidth": 1,
-        "borderRightWidth": 1,
-        "borderStyle": "solid",
-        "borderTopWidth": 0,
-        "boxSizing": "border-box",
-        "fontSize": 24,
-        "height": 50,
-        "lineHeight": "50px",
-      }
-    }
-  >
-    <div>
-      Title: 
-      Google
-    </div>
-  </li>
-  <li
-    onClick={undefined}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    style={
-      Object {
-        "borderBottomWidth": 1,
-        "borderColor": "#ddd",
-        "borderLeftWidth": 1,
-        "borderRightWidth": 1,
-        "borderStyle": "solid",
-        "borderTopWidth": 0,
-        "boxSizing": "border-box",
-        "fontSize": 24,
-        "height": 50,
-        "lineHeight": "50px",
-      }
-    }
-  >
-    <div>
-      Title: 
-      Dropbox
-    </div>
-  </li>
+  <div>
+    Title: 
+    Google
+  </div>
+  <div>
+    Title: 
+    Dropbox
+  </div>
 </ul>
 `;
 
@@ -175,7 +133,14 @@ exports[`Results should render a <Results /> with a max height 1`] = `
     }
   }
 >
-  <li
+  <a
+    href="https://google.com"
+    item={
+      Object {
+        "title": "Google",
+        "url": "https://google.com",
+      }
+    }
     onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -188,28 +153,27 @@ exports[`Results should render a <Results /> with a max height 1`] = `
         "borderStyle": "solid",
         "borderTopWidth": 0,
         "boxSizing": "border-box",
+        "color": "#000",
+        "display": "block",
         "fontSize": 24,
         "height": 50,
         "lineHeight": "50px",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
       }
     }
   >
-    <a
-      href="https://google.com"
-      style={
-        Object {
-          "color": "#000",
-          "display": "block",
-          "paddingLeft": 15,
-          "paddingRight": 15,
-          "textDecoration": "none",
-        }
+    Google
+  </a>
+  <a
+    href="https://dropbox.com"
+    item={
+      Object {
+        "title": "Dropbox",
+        "url": "https://dropbox.com",
       }
-    >
-      Google
-    </a>
-  </li>
-  <li
+    }
     onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -222,27 +186,19 @@ exports[`Results should render a <Results /> with a max height 1`] = `
         "borderStyle": "solid",
         "borderTopWidth": 0,
         "boxSizing": "border-box",
+        "color": "#000",
+        "display": "block",
         "fontSize": 24,
         "height": 50,
         "lineHeight": "50px",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
       }
     }
   >
-    <a
-      href="https://dropbox.com"
-      style={
-        Object {
-          "color": "#000",
-          "display": "block",
-          "paddingLeft": 15,
-          "paddingRight": 15,
-          "textDecoration": "none",
-        }
-      }
-    >
-      Dropbox
-    </a>
-  </li>
+    Dropbox
+  </a>
 </ul>
 `;
 
@@ -267,7 +223,14 @@ exports[`Results should render a <Results /> with a row height 1`] = `
     }
   }
 >
-  <li
+  <a
+    href="https://google.com"
+    item={
+      Object {
+        "title": "Google",
+        "url": "https://google.com",
+      }
+    }
     onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -280,28 +243,27 @@ exports[`Results should render a <Results /> with a row height 1`] = `
         "borderStyle": "solid",
         "borderTopWidth": 0,
         "boxSizing": "border-box",
+        "color": "#000",
+        "display": "block",
         "fontSize": 24,
         "height": 50,
         "lineHeight": "50px",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
       }
     }
   >
-    <a
-      href="https://google.com"
-      style={
-        Object {
-          "color": "#000",
-          "display": "block",
-          "paddingLeft": 15,
-          "paddingRight": 15,
-          "textDecoration": "none",
-        }
+    Google
+  </a>
+  <a
+    href="https://dropbox.com"
+    item={
+      Object {
+        "title": "Dropbox",
+        "url": "https://dropbox.com",
       }
-    >
-      Google
-    </a>
-  </li>
-  <li
+    }
     onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -314,27 +276,19 @@ exports[`Results should render a <Results /> with a row height 1`] = `
         "borderStyle": "solid",
         "borderTopWidth": 0,
         "boxSizing": "border-box",
+        "color": "#000",
+        "display": "block",
         "fontSize": 24,
         "height": 50,
         "lineHeight": "50px",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
       }
     }
   >
-    <a
-      href="https://dropbox.com"
-      style={
-        Object {
-          "color": "#000",
-          "display": "block",
-          "paddingLeft": 15,
-          "paddingRight": 15,
-          "textDecoration": "none",
-        }
-      }
-    >
-      Dropbox
-    </a>
-  </li>
+    Dropbox
+  </a>
 </ul>
 `;
 
@@ -354,7 +308,14 @@ exports[`Results should render a <Results /> with a selected item 1`] = `
     }
   }
 >
-  <li
+  <a
+    href="https://google.com"
+    item={
+      Object {
+        "title": "Google",
+        "url": "https://google.com",
+      }
+    }
     onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -368,28 +329,27 @@ exports[`Results should render a <Results /> with a selected item 1`] = `
         "borderStyle": "solid",
         "borderTopWidth": 0,
         "boxSizing": "border-box",
+        "color": "#000",
+        "display": "block",
         "fontSize": 24,
         "height": 50,
         "lineHeight": "50px",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
       }
     }
   >
-    <a
-      href="https://google.com"
-      style={
-        Object {
-          "color": "#000",
-          "display": "block",
-          "paddingLeft": 15,
-          "paddingRight": 15,
-          "textDecoration": "none",
-        }
+    Google
+  </a>
+  <a
+    href="https://dropbox.com"
+    item={
+      Object {
+        "title": "Dropbox",
+        "url": "https://dropbox.com",
       }
-    >
-      Google
-    </a>
-  </li>
-  <li
+    }
     onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -402,26 +362,18 @@ exports[`Results should render a <Results /> with a selected item 1`] = `
         "borderStyle": "solid",
         "borderTopWidth": 0,
         "boxSizing": "border-box",
+        "color": "#000",
+        "display": "block",
         "fontSize": 24,
         "height": 50,
         "lineHeight": "50px",
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "textDecoration": "none",
       }
     }
   >
-    <a
-      href="https://dropbox.com"
-      style={
-        Object {
-          "color": "#000",
-          "display": "block",
-          "paddingLeft": 15,
-          "paddingRight": 15,
-          "textDecoration": "none",
-        }
-      }
-    >
-      Dropbox
-    </a>
-  </li>
+    Dropbox
+  </a>
 </ul>
 `;

@@ -8,8 +8,24 @@ declare namespace Omnibar {
   type FunctionalExtension<T> = (query: string) => Results<T>;
   type Extension<T> = FunctionalExtension<T>;
 
+  type MouseEvent = (evt: any) => void;
+
   // Renderers
-  type ResultRenderer<T> = ({ item }: { item: T }) => React.ReactNode;
+  type ResultRenderer<T> = (
+    {
+      item,
+      style,
+      onMouseEnter,
+      onMouseLeave,
+      onClick,
+    }: {
+      item: T;
+      style?: React.CSSProperties;
+      onMouseEnter?: MouseEvent;
+      onMouseLeave?: MouseEvent;
+      onClick?: MouseEvent;
+    }
+  ) => JSX.Element;
 
   interface Props<T> {
     // results renderer function
