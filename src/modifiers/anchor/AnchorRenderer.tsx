@@ -18,12 +18,12 @@ const ANCHOR_STYLE: React.CSSProperties = {
 export default function AnchorRenderer<T>(
   props: Props<T> & React.HTMLAttributes<HTMLAnchorElement>
 ) {
-  const { style, ...rest } = props;
+  const { item, style, ...rest } = props;
   const mergedStyle = { ...ANCHOR_STYLE, ...style };
 
   return (
-    <a href={props.item.url} style={mergedStyle} {...rest}>
-      {props.item.title}
+    <a href={item.url} style={mergedStyle} {...rest}>
+      {item.title}
     </a>
   );
 }

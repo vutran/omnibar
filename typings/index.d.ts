@@ -42,8 +42,6 @@ declare namespace Omnibar {
     placeholder?: string;
     // optional result item height
     rowHeight?: number;
-    // optional result item style override
-    rowStyle?: React.CSSProperties;
     // optional result list style override
     resultStyle?: React.CSSProperties;
     // options style on the root element

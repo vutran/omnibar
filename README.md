@@ -193,7 +193,6 @@ const VoiceBar = withVoice(Omnibar);
 | `maxResults`         | `number`              |           | The maximum amount of results to display overall.                                      |
 | `maxViewableResults` | `number`              |           | The maximum amount of results to display in the viewable container (before scrolling). |
 | `rowHeight`          | `number`              |           | The height for each result row item                                                    |
-| `rowStyle`           | `object`              |           | Style object override for each result row item                                         |
 | `resultStyle`        | `object`              |           | Style object override for the result container                                         |
 | `onAction`           | `Function`            |           | Apply an action callback when an item is executed. Arguments: `item`                   |
 | `inputDelay`         | `number`              |           | Set an input delay used for querying extensions (Default: 100ms)                       |

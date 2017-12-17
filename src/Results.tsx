@@ -25,8 +25,6 @@ interface Props<T> {
   rowHeight?: React.CSSLength;
   // optional override container style
   style?: React.CSSProperties;
-  // optional row override style
-  rowStyle?: React.CSSProperties;
 }
 
 const LIST_STYLE: React.CSSProperties = {
@@ -66,7 +64,6 @@ export default function Results<T>(props: Props<T>) {
           children: props.children,
           highlighted: props.selectedIndex === key,
           item,
-          style: props.rowStyle,
           onMouseEnter:
             props.onMouseEnterItem &&
             createHandler(props.onMouseEnterItem, key),
