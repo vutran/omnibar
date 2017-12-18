@@ -3,12 +3,6 @@
 exports[`ResultsItem should render a <ResultsItem /> 1`] = `
 <a
   href="https://google.com"
-  item={
-    Object {
-      "title": "Google",
-      "url": "https://google.com",
-    }
-  }
   onClick={undefined}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -39,12 +33,6 @@ exports[`ResultsItem should render a <ResultsItem /> 1`] = `
 exports[`ResultsItem should render a highlighted <ResultsItem /> 1`] = `
 <a
   href="https://google.com"
-  item={
-    Object {
-      "title": "Google",
-      "url": "https://google.com",
-    }
-  }
   onClick={undefined}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}

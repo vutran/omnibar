@@ -162,7 +162,6 @@ export default class Omnibar<T> extends React.PureComponent<
             rowHeight: this.props.rowHeight,
             maxHeight: maxHeight,
             style: this.props.resultStyle,
-            rowStyle: this.props.rowStyle,
             onMouseEnterItem: this.handleMouseEnterItem,
             onMouseLeave: this.handleMouseLeave,
             onClickItem: this.handleClickItem,

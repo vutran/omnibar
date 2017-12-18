@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
     "jsx": "react",
     "moduleResolution": "node",
     "noImplicitAny": true,
