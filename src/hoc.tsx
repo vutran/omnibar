@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { DEFAULT_HEIGHT } from './constants';
 import Microphone from './Microphone';
 
 /**
@@ -54,7 +55,7 @@ export function withVoice(Component: any): React.ComponentClass<any> {
         top: 0,
         border: 0,
         backgroundColor: 'transparent',
-        lineHeight: '50px',
+        lineHeight: `${DEFAULT_HEIGHT}px`,
         fontSize: 24,
         paddingRight: 15,
         paddingTop: 0,

@@ -21,8 +21,6 @@ interface Props<T> {
   onClickItem?: (e: any /* Event */) => void;
   // max container height
   maxHeight?: React.CSSLength;
-  // item row height
-  rowHeight?: React.CSSLength;
   // optional override container style
   style?: React.CSSProperties;
 }

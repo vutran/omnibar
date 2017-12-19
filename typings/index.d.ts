@@ -40,8 +40,6 @@ declare namespace Omnibar {
     maxViewableResults?: number;
     // optional input placeholder text
     placeholder?: string;
-    // optional result item height
-    rowHeight?: number;
     // optional result list style override
     resultStyle?: React.CSSProperties;
     // options style on the root element
