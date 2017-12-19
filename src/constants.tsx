@@ -19,3 +19,5 @@ export const KEYS = {
 };
 
 export const BLUR_DELAY = 200;
+
+export const DEFAULT_HEIGHT = 50;

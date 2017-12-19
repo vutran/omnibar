@@ -2,7 +2,7 @@ import * as React from 'react';
 import Input from './Input';
 import Results from './Results';
 import search from './search';
-import { KEYS, BLUR_DELAY } from './constants';
+import { KEYS, BLUR_DELAY, DEFAULT_HEIGHT } from './constants';
 import AnchorAction from './modifiers/anchor/AnchorAction';
 import { debounce } from './utils';
 
@@ -15,7 +15,6 @@ export default class Omnibar<T> extends React.PureComponent<
     children: null,
     extensions: [],
     maxViewableResults: null,
-    rowHeight: 50,
     inputDelay: 100,
 
     // style props
@@ -140,7 +139,7 @@ export default class Omnibar<T> extends React.PureComponent<
 
   render() {
     const maxHeight = this.props.maxViewableResults
-      ? this.props.maxViewableResults * this.props.rowHeight
+      ? this.props.maxViewableResults * DEFAULT_HEIGHT
       : null;
 
     return (
@@ -159,7 +158,6 @@ export default class Omnibar<T> extends React.PureComponent<
             children: this.props.children,
             selectedIndex: this.state.selectedIndex,
             items: this.state.results,
-            rowHeight: this.props.rowHeight,
             maxHeight: maxHeight,
             style: this.props.resultStyle,
             onMouseEnterItem: this.handleMouseEnterItem,

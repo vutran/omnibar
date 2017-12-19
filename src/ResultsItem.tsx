@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { COLORS } from './constants';
+import { COLORS, DEFAULT_HEIGHT } from './constants';
 import { AnchorItem } from './modifiers/anchor';
 import AnchorRenderer from './modifiers/anchor/AnchorRenderer';
 
@@ -26,8 +26,8 @@ interface State {
 }
 
 const ITEM_STYLE: React.CSSProperties = {
-  height: 50,
-  lineHeight: '50px',
+  height: DEFAULT_HEIGHT,
+  lineHeight: `${DEFAULT_HEIGHT}px`,
   fontSize: 24,
   borderStyle: 'solid',
   borderColor: COLORS.DARKGRAY,

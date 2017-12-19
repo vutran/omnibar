@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { COLORS } from './constants';
+import { COLORS, DEFAULT_HEIGHT } from './constants';
 
 interface Props {
   // callback method when the input value has changed
@@ -24,7 +24,7 @@ interface State {
 
 const INPUT_STYLE: React.CSSProperties = {
   width: '100%',
-  height: 50,
+  height: DEFAULT_HEIGHT,
   fontSize: 24,
   lineHeight: '24px',
   boxSizing: 'border-box',
