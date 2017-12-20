@@ -17,7 +17,7 @@ describe('ResultsItem', () => {
       .create(
         React.createElement(ResultsItem, {
           item,
-          highlighted: true,
+          selected: true,
           children: null,
         })
       )

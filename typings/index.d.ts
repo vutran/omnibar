@@ -14,17 +14,13 @@ declare namespace Omnibar {
   type ResultRenderer<T> = (
     {
       item,
-      style,
-      onMouseEnter,
-      onMouseLeave,
-      onClick,
+      isSelected,
+      isHighlighted,
     }: {
       item: T;
-      style?: React.CSSProperties;
-      onMouseEnter?: MouseEvent;
-      onMouseLeave?: MouseEvent;
-      onClick?: MouseEvent;
-    }
+      isSelected: boolean;
+      isHighlighted: boolean;
+    } & React.HTMLAttributes<HTMLElement>
   ) => JSX.Element;
 
   interface Props<T> {
