@@ -279,7 +279,6 @@ exports[`Results should render a <Results /> with a selected item 1`] = `
     onMouseLeave={[Function]}
     style={
       Object {
-        "backgroundColor": "#eee",
         "borderBottomWidth": 1,
         "borderColor": "#ddd",
         "borderLeftWidth": 1,
