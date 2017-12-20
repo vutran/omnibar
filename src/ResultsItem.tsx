@@ -14,14 +14,14 @@ interface Props<T> {
   // onClick callback
   onClickItem?: (e: any /* Event */) => void;
   // set to true if the item is currently selected
-  selected?: boolean;
+  isSelected?: boolean;
   // optional style override
   style?: React.CSSProperties;
 }
 
 interface State {
   // set to true to highlight
-  highlighted: boolean;
+  isHighlighted: boolean;
 }
 
 export default class ResultRenderer<T> extends React.PureComponent<
@@ -29,20 +29,20 @@ export default class ResultRenderer<T> extends React.PureComponent<
   State
 > {
   static defaultProps = {
-    selected: false,
+    isSelected: false,
   };
 
   state: State = {
-    highlighted: false,
+    isHighlighted: false,
   };
 
   handleMouseEnter = (evt: any /* Event */) => {
-    this.setState({ highlighted: true });
+    this.setState({ isHighlighted: true });
     this.props.onMouseEnter && this.props.onMouseEnter(evt);
   };
 
   handleMouseLeave = (evt: any /* Event */) => {
-    this.setState({ highlighted: false });
+    this.setState({ isHighlighted: false });
     this.props.onMouseLeave && this.props.onMouseLeave(evt);
   };
 
@@ -56,8 +56,8 @@ export default class ResultRenderer<T> extends React.PureComponent<
     return renderer({
       style: this.props.style,
       item,
-      isSelected: this.props.selected,
-      isHighlighted: this.state.highlighted,
+      isSelected: this.props.isSelected,
+      isHighlighted: this.state.isHighlighted,
       onMouseEnter: this.handleMouseEnter,
       onMouseLeave: this.handleMouseLeave,
       onClick: this.props.onClickItem,
