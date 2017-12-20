@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { COLORS, DEFAULT_HEIGHT } from './constants';
 import { AnchorItem } from './modifiers/anchor';
 import AnchorRenderer from './modifiers/anchor/AnchorRenderer';
 
@@ -14,71 +13,51 @@ interface Props<T> {
   onMouseLeave?: (e: any /* Event */) => void;
   // onClick callback
   onClickItem?: (e: any /* Event */) => void;
-  // set to true to highlight the given item
-  highlighted?: boolean;
+  // set to true if the item is currently selected
+  selected?: boolean;
   // optional style override
   style?: React.CSSProperties;
 }
 
 interface State {
   // set to true to highlight
-  hover: boolean;
+  highlighted: boolean;
 }
-
-const ITEM_STYLE: React.CSSProperties = {
-  height: DEFAULT_HEIGHT,
-  lineHeight: `${DEFAULT_HEIGHT}px`,
-  fontSize: 24,
-  borderStyle: 'solid',
-  borderColor: COLORS.DARKGRAY,
-  borderTopWidth: 0,
-  borderLeftWidth: 1,
-  borderRightWidth: 1,
-  borderBottomWidth: 1,
-  boxSizing: 'border-box',
-};
-
-const ITEM_HOVER_STYLE: React.CSSProperties = {
-  backgroundColor: COLORS.GRAY,
-};
 
 export default class ResultRenderer<T> extends React.PureComponent<
   Props<T>,
   State
 > {
   static defaultProps = {
-    highlighted: false,
+    selected: false,
   };
 
   state: State = {
-    hover: false,
+    highlighted: false,
   };
 
   handleMouseEnter = (evt: any /* Event */) => {
-    this.setState({ hover: true });
+    this.setState({ highlighted: true });
     this.props.onMouseEnter && this.props.onMouseEnter(evt);
   };
 
   handleMouseLeave = (evt: any /* Event */) => {
-    this.setState({ hover: false });
+    this.setState({ highlighted: false });
     this.props.onMouseLeave && this.props.onMouseLeave(evt);
   };
 
   render() {
     const item = this.props.item;
-    let style: React.CSSProperties = { ...ITEM_STYLE, ...this.props.style };
-
-    if (this.props.highlighted || this.state.hover) {
-      style = { ...style, ...ITEM_HOVER_STYLE };
-    }
 
     const renderer = this.props.children
       ? this.props.children
       : (AnchorRenderer as Omnibar.ResultRenderer<T>);
 
     return renderer({
-      style,
+      style: this.props.style,
       item,
+      isSelected: this.props.selected,
+      isHighlighted: this.state.highlighted,
       onMouseEnter: this.handleMouseEnter,
       onMouseLeave: this.handleMouseLeave,
       onClick: this.props.onClickItem,
