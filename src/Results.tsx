@@ -60,7 +60,7 @@ export default function Results<T>(props: Props<T>) {
         React.createElement(ResultsItem, {
           key,
           children: props.children,
-          selected: props.selectedIndex === key,
+          isSelected: props.selectedIndex === key,
           item,
           onMouseEnter:
             props.onMouseEnterItem &&
