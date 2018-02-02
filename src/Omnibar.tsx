@@ -13,6 +13,7 @@ export default class Omnibar<T> extends React.PureComponent<
   // TODO - fix generic container
   static defaultProps: Omnibar.Props<any> = {
     children: null,
+    render: null, // alias of children
     extensions: [],
     maxViewableResults: null,
     inputDelay: 100,
@@ -155,7 +156,7 @@ export default class Omnibar<T> extends React.PureComponent<
         })}
         {this.state.displayResults &&
           Results({
-            children: this.props.children,
+            children: this.props.render || this.props.children,
             selectedIndex: this.state.selectedIndex,
             items: this.state.results,
             maxHeight: maxHeight,

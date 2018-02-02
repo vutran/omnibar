@@ -136,6 +136,20 @@ class MyComponent extends React.Component {
 }
 ```
 
+Or you can use the `render` prop:
+
+````typescript
+class MyComponent extends React.Component {
+  render() {
+    return (
+      <Omnibar
+        placeholder="Search GitHub"
+        extensions={[GitHubExtension]}
+        render={ResultRenderer} />
+    );
+  }
+}
+
 ## Decorators
 
 ### `command()`
@@ -154,7 +168,7 @@ function MyExtension() {
 }
 
 export default command(MyExtension, 'foo');
-```
+````
 
 In the above example, `MyExtension` will be queried only if the user starts their query with the keyword `foo`.
 
@@ -184,18 +198,19 @@ const VoiceBar = withVoice(Omnibar);
 
 ## Props
 
-| Prop                 | Type                  | Required? | Description                                                                            |
-| :------------------- | :-------------------- | :-------- | :------------------------------------------------------------------------------------- |
-| `children`           | `Function`            |           | Optional rendering function for each result item. Arguments: `{ item }`                |
-| `style`              | `React.CSSProperties` |           | Style object override for the `<input />` element                                      |
-| `extensions`         | `Array<Extension>`    | ✅        | An array of extensions to be loaded.                                                   |
-| `placeholder`        | `string`              |           | Input placeholder                                                                      |
-| `maxResults`         | `number`              |           | The maximum amount of results to display overall.                                      |
-| `maxViewableResults` | `number`              |           | The maximum amount of results to display in the viewable container (before scrolling). |
-| `resultStyle`        | `object`              |           | Style object override for the result container                                         |
-| `onAction`           | `Function`            |           | Apply an action callback when an item is executed. Arguments: `item`                   |
-| `inputDelay`         | `number`              |           | Set an input delay used for querying extensions (Default: 100ms)                       |
-| `defaultValue`       | `string`              |           | Optional value to send to the Omnibar.                                                 |
+| Prop                 | Type                  | Required? | Description                                                                                        |
+| :------------------- | :-------------------- | :-------- | :------------------------------------------------------------------------------------------------- |
+| `children`           | `Function`            |           | Optional rendering function for each result item. Arguments: `{ item, isSelected, isHighlighted }` |
+| `render`             | `Function`            |           | Alias of `children`                                                                                |
+| `style`              | `React.CSSProperties` |           | Style object override for the `<input />` element                                                  |
+| `extensions`         | `Array<Extension>`    | ✅        | An array of extensions to be loaded.                                                               |
+| `placeholder`        | `string`              |           | Input placeholder                                                                                  |
+| `maxResults`         | `number`              |           | The maximum amount of results to display overall.                                                  |
+| `maxViewableResults` | `number`              |           | The maximum amount of results to display in the viewable container (before scrolling).             |
+| `resultStyle`        | `object`              |           | Style object override for the result container                                                     |
+| `onAction`           | `Function`            |           | Apply an action callback when an item is executed. Arguments: `item`                               |
+| `inputDelay`         | `number`              |           | Set an input delay used for querying extensions (Default: 100ms)                                   |
+| `defaultValue`       | `string`              |           | Optional value to send to the Omnibar.                                                             |
 
 ## Contributing
 

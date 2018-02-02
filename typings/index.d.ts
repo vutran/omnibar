@@ -26,6 +26,8 @@ declare namespace Omnibar {
   interface Props<T> {
     // results renderer function
     children?: ResultRenderer<T>;
+    // alias of children
+    render?: ResultRenderer<T>;
     // optional input bar style override
     style?: React.CSSProperties;
     // list of extensions
