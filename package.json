@@ -63,7 +63,6 @@
     "rollup-plugin-typescript": "^0.8.1",
     "ts-jest": "^21.0.1",
     "ts-loader": "^2.3.7",
-    "tslib": "^1.8.1",
     "typescript": "^2.5.3"
   },
   "jest": {
