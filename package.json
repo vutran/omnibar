@@ -76,5 +76,7 @@
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
   },
-  "dependencies": {}
+  "dependencies": {
+    "tslib": "^1.6.1"
+  }
 }
