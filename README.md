@@ -138,7 +138,7 @@ class MyComponent extends React.Component {
 
 Or you can use the `render` prop:
 
-````typescript
+```typescript
 class MyComponent extends React.Component {
   render() {
     return (
@@ -169,7 +169,7 @@ function MyExtension() {
 }
 
 export default command(MyExtension, 'foo');
-````
+```
 
 In the above example, `MyExtension` will be queried only if the user starts their query with the keyword `foo`.
 
