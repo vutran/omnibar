@@ -149,6 +149,7 @@ class MyComponent extends React.Component {
     );
   }
 }
+```
 
 ## Decorators
 
