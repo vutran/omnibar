@@ -223,6 +223,10 @@ const VoiceBar = withVoice(Omnibar);
 6. Run `npm run dev` on the `omnibar-www` directory.
 7. Open [https://localhost:8080](https://localhost:8080) in your browser.
 
+## Support
+
+Like what you see? [Become a Patron](https://www.patreon.com/vutran) and support me via a monthly donation.
+
 ## License
 
 MIT © [Vu Tran](https://github.com/vutran/)
