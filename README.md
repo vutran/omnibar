@@ -212,6 +212,7 @@ const VoiceBar = withVoice(Omnibar);
 | `onAction`           | `Function`            |           | Apply an action callback when an item is executed. Arguments: `item`                               |
 | `inputDelay`         | `number`              |           | Set an input delay used for querying extensions (Default: 100ms)                                   |
 | `defaultValue`       | `string`              |           | Optional value to send to the Omnibar.                                                             |
+| `autoFocus`          | `boolean`             |           | Optionally make the Omnibar autoFocus.                                                             |
 
 ## Contributing
 
