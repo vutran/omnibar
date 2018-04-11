@@ -48,6 +48,8 @@ declare namespace Omnibar {
     inputDelay?: number;
     // optional default value
     defaultValue?: string;
+    // optionally make the Omnibar autoFocus
+    autoFocus?: boolean;
   }
 
   interface State<T> {

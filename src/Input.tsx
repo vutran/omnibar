@@ -16,6 +16,8 @@ interface Props {
   style?: React.CSSProperties;
   // optional default value
   defaultValue?: string;
+  // optional autoFocus
+  autoFocus?: boolean;
 }
 
 interface State {
@@ -60,6 +62,7 @@ export default class Input extends React.PureComponent<Props, State> {
         onKeyDown={this.props.onKeyDown}
         onBlur={this.props.onBlur}
         onFocus={this.props.onFocus}
+        autoFocus={this.props.autoFocus}
       />
     );
   }
