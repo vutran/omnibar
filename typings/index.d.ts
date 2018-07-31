@@ -40,8 +40,10 @@ declare namespace Omnibar {
     placeholder?: string;
     // optional result list style override
     resultStyle?: React.CSSProperties;
-    // options style on the root element
+    // optional style on the root element
     rootStyle?: React.CSSProperties;
+    // optional style on the root element when no results are available
+    emptyStyle?: React.CSSProperties;
     // optional action override
     onAction?: <T>(item: T) => void;
     // optional input delay override
