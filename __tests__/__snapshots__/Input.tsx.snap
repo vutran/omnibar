@@ -2,6 +2,7 @@
 
 exports[`Input should render an <Input /> 1`] = `
 <input
+  autoFocus={undefined}
   onBlur={[Function]}
   onChange={[Function]}
   onFocus={[Function]}
@@ -29,6 +30,7 @@ exports[`Input should render an <Input /> 1`] = `
 
 exports[`Input should render an <Input /> with a placeholder 1`] = `
 <input
+  autoFocus={undefined}
   onBlur={[Function]}
   onChange={[Function]}
   onFocus={[Function]}
@@ -56,6 +58,7 @@ exports[`Input should render an <Input /> with a placeholder 1`] = `
 
 exports[`Input should render an <Input /> with a specified size 1`] = `
 <input
+  autoFocus={undefined}
   onBlur={[Function]}
   onChange={[Function]}
   onFocus={[Function]}
