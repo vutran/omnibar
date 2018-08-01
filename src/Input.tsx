@@ -1,28 +1,9 @@
 import * as React from 'react';
 import { COLORS, DEFAULT_HEIGHT } from './constants';
 
-interface Props {
-  // callback method when the input value has changed
-  onChange: (value: string) => void;
-  // callback method when a key is pressed
-  onKeyDown: (evt: any /* Event */) => void;
-  // callback method when the input element is blurred
-  onBlur: (evt: any /* Event */) => void;
-  // callback method when the input element is focused
-  onFocus: (evt: any /* Event */) => void;
-  // optional input placeholder text
-  placeholder?: string;
-  // optional style override
-  style?: React.CSSProperties;
-  // optional default value
-  defaultValue?: string;
-  // optional autoFocus
-  autoFocus?: boolean;
-}
+interface Props extends React.HTMLProps<HTMLInputElement> {}
 
-interface State {
-  value: string;
-}
+interface State {}
 
 const INPUT_STYLE: React.CSSProperties = {
   width: '100%',
@@ -39,31 +20,9 @@ const INPUT_STYLE: React.CSSProperties = {
 };
 
 export default class Input extends React.PureComponent<Props, State> {
-  state: State = {
-    value: '',
-  };
-
-  handleChange = (evt: any /* Event */) => {
-    const value = evt.target.value;
-    this.setState({ value });
-    this.props.onChange(value);
-  };
-
   render() {
-    const style = { ...INPUT_STYLE, ...this.props.style };
+    let { style, ...rest } = this.props;
 
-    return (
-      <input
-        type="text"
-        value={this.state.value || this.props.defaultValue}
-        placeholder={this.props.placeholder}
-        style={style}
-        onChange={this.handleChange}
-        onKeyDown={this.props.onKeyDown}
-        onBlur={this.props.onBlur}
-        onFocus={this.props.onFocus}
-        autoFocus={this.props.autoFocus}
-      />
-    );
+    return <input type="text" style={{ ...INPUT_STYLE, ...style }} {...rest} />;
   }
 }

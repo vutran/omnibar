@@ -89,7 +89,8 @@ export default class Omnibar<T> extends React.PureComponent<
     action.call(null, item);
   };
 
-  handleChange = (value: string) => {
+  handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const value = evt.target.value;
     if (value) {
       this.query(value);
     } else {
@@ -133,12 +134,6 @@ export default class Omnibar<T> extends React.PureComponent<
       this.action();
     }
   };
-
-  componentWillReceiveProps(nextProps: Omnibar.Props<T>) {
-    if (this.props.defaultValue !== nextProps.defaultValue) {
-      this.handleChange(nextProps.defaultValue);
-    }
-  }
 
   render() {
     let {

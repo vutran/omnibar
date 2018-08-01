@@ -250,18 +250,18 @@ const GitVoiceSearch = compose(
 
 | Prop                 | Type                  | Required? | Description                                                                                        |
 | :------------------- | :-------------------- | :-------- | :------------------------------------------------------------------------------------------------- |
+| `autoFocus`          | `boolean`             |           | Optionally make the Omnibar autoFocus.                                                             |
 | `children`           | `Function`            |           | Optional rendering function for each result item. Arguments: `{ item, isSelected, isHighlighted }` |
-| `render`             | `Function`            |           | Alias of `children`                                                                                |
-| `style`              | `React.CSSProperties` |           | Style object override for the `<input />` element                                                  |
-| `placeholder`        | `string`              |           | Input placeholder                                                                                  |
+| `inputDelay`         | `number`              |           | Set an input delay used for querying extensions (Default: 100ms)                                   |
 | `maxResults`         | `number`              |           | The maximum amount of results to display overall.                                                  |
 | `maxViewableResults` | `number`              |           | The maximum amount of results to display in the viewable container (before scrolling).             |
-| `resultStyle`        | `object`              |           | Style object override for the result container                                                     |
-| `onQuery`            | `Function`            |           | Triggered when a query is made                                                                     |
 | `onAction`           | `Function`            |           | Apply an action callback when an item is executed. Arguments: `item`                               |
-| `inputDelay`         | `number`              |           | Set an input delay used for querying extensions (Default: 100ms)                                   |
-| `defaultValue`       | `string`              |           | Optional value to send to the Omnibar.                                                             |
-| `autoFocus`          | `boolean`             |           | Optionally make the Omnibar autoFocus.                                                             |
+| `onQuery`            | `Function`            |           | Triggered when a query is made                                                                     |
+| `placeholder`        | `string`              |           | Input placeholder                                                                                  |
+| `render`             | `Function`            |           | Alias of `children`                                                                                |
+| `resultStyle`        | `object`              |           | Style object override for the result container                                                     |
+| `style`              | `React.CSSProperties` |           | Style object override for the `<input />` element                                                  |
+| `value`              | `string`              |           | Optional value to send to the Omnibar.                                                             |
 
 ## Contributing
 

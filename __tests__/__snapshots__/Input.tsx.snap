@@ -3,7 +3,7 @@
 exports[`Input should render an <Input /> 1`] = `
 <input
   onBlur={[MockFunction]}
-  onChange={[Function]}
+  onChange={[MockFunction]}
   onFocus={[MockFunction]}
   onKeyDown={[MockFunction]}
   style={
@@ -28,7 +28,7 @@ exports[`Input should render an <Input /> 1`] = `
 exports[`Input should render an <Input /> with a placeholder 1`] = `
 <input
   onBlur={[MockFunction]}
-  onChange={[Function]}
+  onChange={[MockFunction]}
   onFocus={[MockFunction]}
   onKeyDown={[MockFunction]}
   placeholder="this is a test"
@@ -54,7 +54,7 @@ exports[`Input should render an <Input /> with a placeholder 1`] = `
 exports[`Input should render an <Input /> with a specified size 1`] = `
 <input
   onBlur={[MockFunction]}
-  onChange={[Function]}
+  onChange={[MockFunction]}
   onFocus={[MockFunction]}
   onKeyDown={[MockFunction]}
   style={
