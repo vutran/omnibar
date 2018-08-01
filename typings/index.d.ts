@@ -75,5 +75,11 @@ declare module 'omnibar' {
     extension: Omnibar.Extension<T>,
     command: string
   ): Omnibar.Extension<T>;
+  export function compose<T>(
+    ...fns: Array<Function>
+  ): T;
   export function withVoice<T>(Component: T): T;
+  export function withExtensions<T>(
+    extensions: Array<Omnibar.Extension<T>>
+  ): (Component: T) => React.StatelessComponent<T>;
 }

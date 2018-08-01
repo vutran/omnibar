@@ -14,7 +14,7 @@ export default class Omnibar<T> extends React.PureComponent<
   static defaultProps: Omnibar.Props<any> = {
     children: null,
     render: null, // alias of children
-    extensions: [],
+    extensions: [], // @deprecated (refer to withEngines HOC)
     maxResults: null,
     maxViewableResults: null,
     inputDelay: 100,

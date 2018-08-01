@@ -30,3 +30,7 @@ export function debounce(fn: any, wait: number): any {
     timeout = setTimeout(later, wait);
   };
 }
+
+export function compose(...funcs: Array<Function>) {
+  return funcs.reduce((f, g) => (...args: Array<any>) => f(g(...args)));
+}

@@ -84,3 +84,15 @@ export function withVoice(Component: any): React.ComponentClass<any> {
     }
   };
 }
+
+/**
+ * Extend your Omnibar with extensions
+ */
+interface ExtProps extends Omnibar.Props<any> {}
+export function withExtensions(
+  extensions: Array<Omnibar.Extension<any>>
+): (Component: any) => React.StatelessComponent<ExtProps> {
+  return (Component: any) => (props: ExtProps) => (
+    <Component extensions={extensions} {...props} />
+  );
+}

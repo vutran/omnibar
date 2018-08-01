@@ -1,7 +1,8 @@
 import Omnibar from './Omnibar';
 import { command } from './decorators';
-import { withVoice } from './hoc';
+import { compose } from './utils';
+import { withExtensions, withVoice } from './hoc';
 
 export default Omnibar;
 
-export { command, withVoice };
+export { command, compose, withExtensions, withVoice };
