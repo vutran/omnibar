@@ -31,7 +31,7 @@ declare namespace Omnibar {
     // optional input bar style override
     style?: React.CSSProperties;
     // list of extensions
-    extensions: Array<Omnibar.Extension<T>>;
+    extensions?: Array<Omnibar.Extension<T>>;
     // max items
     maxResults?: number;
     // max items to display in view
@@ -75,11 +75,13 @@ declare module 'omnibar' {
     extension: Omnibar.Extension<T>,
     command: string
   ): Omnibar.Extension<T>;
-  export function compose<T>(
+  export function compose<T extends typeof Omnibar>(
     ...fns: Array<Function>
-  ): T;
-  export function withVoice<T>(Component: T): T;
-  export function withExtensions<T>(
+  ): (...args: Array<any>) => T;
+  export function withVoice<T extends typeof Omnibar>(
+    Component: T
+  ): React.ComponentClass<Omnibar.Props<T>>;
+  export function withExtensions<T extends typeof Omnibar>(
     extensions: Array<Omnibar.Extension<T>>
-  ): (Component: T) => React.StatelessComponent<T>;
+  ): (Component: T) => React.ComponentClass<Omnibar.Props<T>>;
 }

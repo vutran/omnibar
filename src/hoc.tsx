@@ -1,18 +1,22 @@
 import * as React from 'react';
 import { DEFAULT_HEIGHT } from './constants';
 import Microphone from './Microphone';
+import Omnibar from './Omnibar';
 
 /**
  * Adds voice commands to your Omnibar
  */
-export function withVoice(Component: any): React.ComponentClass<any> {
-  interface VoiceProps extends Omnibar.Props<any> {}
-  interface VoiceState {
-    value: string;
-    isSpeaking: boolean;
-  }
-
-  return class VoiceOmnibar extends React.Component<VoiceProps, VoiceState> {
+interface VoiceState {
+  value: string;
+  isSpeaking: boolean;
+}
+export function withVoice<T extends typeof Omnibar>(
+  Component: T
+): React.ComponentClass<Omnibar.Props<T>> {
+  return class VoiceOmnibar extends React.Component<
+    Omnibar.Props<T>,
+    VoiceState
+  > {
     state: VoiceState = {
       value: '',
       isSpeaking: false,
@@ -88,11 +92,13 @@ export function withVoice(Component: any): React.ComponentClass<any> {
 /**
  * Extend your Omnibar with extensions
  */
-interface ExtProps extends Omnibar.Props<any> {}
-export function withExtensions(
-  extensions: Array<Omnibar.Extension<any>>
-): (Component: any) => React.StatelessComponent<ExtProps> {
-  return (Component: any) => (props: ExtProps) => (
-    <Component extensions={extensions} {...props} />
-  );
+export function withExtensions<T extends typeof Omnibar>(
+  extensions: Array<Omnibar.Extension<T>>
+): (Component: T) => React.ComponentClass<Omnibar.Props<T>> {
+  return Component =>
+    class ExtendedOmnibar extends React.Component<Omnibar.Props<T>, {}> {
+      render() {
+        return <Component extensions={extensions} {...this.props} />;
+      }
+    };
 }
