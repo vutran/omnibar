@@ -22,20 +22,15 @@ Import the module and your extensions
 
 ```jsx
 import Omnibar from 'omnibar';
-import FooExtension from './FooExtension';
-import BarExtension from './BarExtension';
+import Foo from './Foo';
+import Bar from './Bar';
 ```
 
 Render it in your component
 
 ```jsx
 export default function MyComponent() {
-  return (
-    <Omnibar
-      placeholder="Enter keyword"
-      extensions={[FooExtension, BarExtension]}
-    />
-  );
+  return <Omnibar placeholder="Enter keyword" extensions={[Foo, Bar]} />;
 }
 ```
 
@@ -113,7 +108,7 @@ The example below changes our result item schema to be in the shape of:
 class MyComponent extends React.Component {
   render() {
     return (
-      <Omnibar placeholder="Search GitHub" extensions={[GitHubExtension]}>
+      <Omnibar placeholder="Search GitHub" extensions={[GitHub]}>
         {({ item }) => <div>{item.full_name}</div>}
       </Omnibar>
     );
@@ -138,7 +133,7 @@ class MyComponent extends React.Component {
     return (
       <Omnibar
         placeholder="Search GitHub"
-        extensions={[GitHubExtension]}
+        extensions={[GitHub]}
         render={ResultItem}
       />
     );
@@ -146,7 +141,7 @@ class MyComponent extends React.Component {
 }
 ```
 
-## Decorators
+## Extension Decorators
 
 ### `command()`
 
@@ -169,14 +164,51 @@ export default command(MyExtension, 'foo');
 In the above example, `MyExtension` will be queried only if the user starts their query with the keyword `foo`.
 
 ```
-foo test -> queries for results extensions
+foo test -> queries extensions
 footest -> doesn't query extension
 test -> doesn't query extension
 ```
 
-## Voice Commands HOC
+## Higher Order Components
 
-The `withVoice` is a HOC (higher-order component) factory method to create a voice-enabled Omnibar.
+### Extend Your Omnibar
+
+The `withExtensions` is a HOC factory method to enhance your Omnibar with your own extensions.
+
+**Example**
+
+```js
+import Omnibar, { withExtensions } from 'omnibar';
+
+const GitSearchBar = withExtensions([GitHub])(Omnibar);
+const NpmSearchBar = withExtensions([Npm])(Omnibar);
+const GlobalSearchBar = withExtensions([GitHub, Npm])(Omnibar);
+
+// renders a GitHub-only search bar
+// <GitSearchBar />
+
+// renders a Npm-only search bar
+// <NpmSearchBar />
+
+// renders the global search bar (includes GitHub, and Npm)
+// <GlobalSearchBar />
+```
+
+This will produce the results below:
+
+```js
+// <Omnibar extensions={[GitHub]} {...props} />
+
+// <Omnibar extensions={[Npm]} {...props} />
+
+// <Omnibar extensions={[GitHub, Npm]} {...props} />
+```
+
+### Voice Commands
+
+The `withVoice` is another HOC factory method to enhance your Omnibar with voice recognition using the [WebSpeech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API).
+
+**_Note that this is experimental._**
 
 **Example**
 
@@ -192,6 +224,28 @@ const VoiceBar = withVoice(Omnibar);
 // <Omnibar />
 ```
 
+### Composing Your Omnibar
+
+Included in the `omnibar` package is a `compose()` function that allows you to apply all these nifty features.
+
+#### Before
+
+```js
+const GitVoiceSearch = withVoice(withExtensions([GitHub]))(Omnibar);
+```
+
+#### After
+
+```js
+const GitVoiceSearch = compose(
+  withVoice,
+  withExtensions([GitHub])
+)(Omnibar);
+
+// render
+// <GitVoiceSearch />
+```
+
 ## Props
 
 | Prop                 | Type                  | Required? | Description                                                                                        |
@@ -199,7 +253,6 @@ const VoiceBar = withVoice(Omnibar);
 | `children`           | `Function`            |           | Optional rendering function for each result item. Arguments: `{ item, isSelected, isHighlighted }` |
 | `render`             | `Function`            |           | Alias of `children`                                                                                |
 | `style`              | `React.CSSProperties` |           | Style object override for the `<input />` element                                                  |
-| `extensions`         | `Array<Extension>`    | ✅        | An array of extensions to be loaded.                                                               |
 | `placeholder`        | `string`              |           | Input placeholder                                                                                  |
 | `maxResults`         | `number`              |           | The maximum amount of results to display overall.                                                  |
 | `maxViewableResults` | `number`              |           | The maximum amount of results to display in the viewable container (before scrolling).             |
