@@ -42,8 +42,8 @@ declare namespace Omnibar {
     resultStyle?: React.CSSProperties;
     // optional style on the root element
     rootStyle?: React.CSSProperties;
-    // optional style on the root element when no results are available
-    emptyStyle?: React.CSSProperties;
+    // triggered when a query is made
+    onQuery?: <T>(items: Array<T>) => void;
     // optional action override
     onAction?: <T>(item: T) => void;
     // optional input delay override

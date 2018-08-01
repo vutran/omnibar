@@ -22,7 +22,6 @@ export default class Omnibar<T> extends React.PureComponent<
     // style props
     resultStyle: {},
     rootStyle: { position: 'relative' },
-    emptyStyle: {},
   };
 
   state: Omnibar.State<T> = {
@@ -47,6 +46,7 @@ export default class Omnibar<T> extends React.PureComponent<
               : results,
           displayResults: results.length > 0,
         });
+        this.props.onQuery && this.props.onQuery(results);
       });
     }
   };
@@ -149,7 +149,6 @@ export default class Omnibar<T> extends React.PureComponent<
       extensions,
       inputDelay,
       rootStyle,
-      emptyStyle,
       resultStyle,
       ...rest
     } = this.props;
@@ -158,14 +157,12 @@ export default class Omnibar<T> extends React.PureComponent<
       ? maxViewableResults * DEFAULT_HEIGHT
       : null;
 
-    let style = { ...rootStyle, ...emptyStyle };
-
     if (!render) {
       render = children;
     }
 
     return (
-      <div style={style}>
+      <div style={rootStyle}>
         <Input
           {...rest}
           onChange={this.handleChange}
