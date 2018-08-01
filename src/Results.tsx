@@ -5,22 +5,22 @@ import { COLORS } from './constants';
 interface Props<T> {
   // results renderer function
   children?: Omnibar.ResultRenderer<T>;
-  // the currently selected index
-  selectedIndex: number;
   // list of result items
   items: Array<T>;
-  // onMouseEnter callback
-  onMouseEnter?: (e: any /* Event */) => void;
-  // onMouseLeave callback
-  onMouseLeave?: (e: any /* Event */) => void;
-  // onMouseEnter item callback
-  onMouseEnterItem?: (e: any /* Event */) => void;
-  // onMouseLeave item callback
-  onMouseLeaveItem?: (e: any /* Event */) => void;
-  // onClick callback
-  onClickItem?: (e: any /* Event */) => void;
   // max container height
   maxHeight?: React.CSSLength;
+  // onClick callback
+  onClickItem?: (e: any /* Event */) => void;
+  // onMouseEnter callback
+  onMouseEnter?: (e: any /* Event */) => void;
+  // onMouseEnter item callback
+  onMouseEnterItem?: (e: any /* Event */) => void;
+  // onMouseLeave callback
+  onMouseLeave?: (e: any /* Event */) => void;
+  // onMouseLeave item callback
+  onMouseLeaveItem?: (e: any /* Event */) => void;
+  // the currently selected index
+  selectedIndex: number;
   // optional override container style
   style?: React.CSSProperties;
 }

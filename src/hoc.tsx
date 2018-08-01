@@ -75,11 +75,7 @@ export function withVoice<T extends typeof Omnibar>(
 
       return (
         <div style={base}>
-          <Component
-            {...this.props}
-            defaultValue={this.state.value}
-            style={style}
-          />
+          <Component {...this.props} value={this.state.value} style={style} />
           <button onClick={this.speak} style={mic}>
             <Microphone width={24} height={24} active={this.state.isSpeaking} />
           </button>

@@ -24,34 +24,34 @@ declare namespace Omnibar {
   ) => JSX.Element;
 
   interface Props<T> {
+    // optionally make the Omnibar autoFocus
+    autoFocus?: boolean;
     // results renderer function
     children?: ResultRenderer<T>;
-    // alias of children
-    render?: ResultRenderer<T>;
-    // optional input bar style override
-    style?: React.CSSProperties;
+    // optional default value
+    value?: string;
     // list of extensions
     extensions?: Array<Omnibar.Extension<T>>;
+    // optional input delay override
+    inputDelay?: number;
     // max items
     maxResults?: number;
     // max items to display in view
     maxViewableResults?: number;
+    // optional action override
+    onAction?: <T>(item: T) => void;
+    // triggered when a query is made
+    onQuery?: <T>(items: Array<T>) => void;
     // optional input placeholder text
     placeholder?: string;
+    // alias of children
+    render?: ResultRenderer<T>;
     // optional result list style override
     resultStyle?: React.CSSProperties;
     // optional style on the root element
     rootStyle?: React.CSSProperties;
-    // triggered when a query is made
-    onQuery?: <T>(items: Array<T>) => void;
-    // optional action override
-    onAction?: <T>(item: T) => void;
-    // optional input delay override
-    inputDelay?: number;
-    // optional default value
-    defaultValue?: string;
-    // optionally make the Omnibar autoFocus
-    autoFocus?: boolean;
+    // optional input bar style override
+    style?: React.CSSProperties;
   }
 
   interface State<T> {

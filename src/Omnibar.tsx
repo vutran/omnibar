@@ -13,22 +13,20 @@ export default class Omnibar<T> extends React.PureComponent<
   // TODO - fix generic container
   static defaultProps: Omnibar.Props<any> = {
     children: null,
-    render: null, // alias of children
-    extensions: [], // @deprecated (refer to withEngines HOC)
+    extensions: [],
+    inputDelay: 100,
     maxResults: null,
     maxViewableResults: null,
-    inputDelay: 100,
-
-    // style props
+    render: null, // alias of children
     resultStyle: {},
     rootStyle: { position: 'relative' },
   };
 
   state: Omnibar.State<T> = {
+    displayResults: false,
+    hoveredIndex: -1,
     results: [],
     selectedIndex: 0,
-    hoveredIndex: -1,
-    displayResults: false,
   };
 
   constructor(props: Omnibar.Props<T>) {
@@ -162,21 +160,21 @@ export default class Omnibar<T> extends React.PureComponent<
       <div style={rootStyle}>
         <Input
           {...rest}
-          onChange={this.handleChange}
-          onKeyDown={this.handleKeyDown}
           onBlur={this.handleBlur}
+          onChange={this.handleChange}
           onFocus={this.handleFocus}
+          onKeyDown={this.handleKeyDown}
         />
         {this.state.displayResults && (
           <Results
             children={render}
-            selectedIndex={this.state.selectedIndex}
             items={this.state.results}
             maxHeight={maxHeight}
-            style={resultStyle}
+            onClickItem={this.handleClickItem}
             onMouseEnterItem={this.handleMouseEnterItem}
             onMouseLeave={this.handleMouseLeave}
-            onClickItem={this.handleClickItem}
+            selectedIndex={this.state.selectedIndex}
+            style={resultStyle}
           />
         )}
       </div>

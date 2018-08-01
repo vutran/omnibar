@@ -6,17 +6,17 @@ interface Props extends React.HTMLProps<HTMLInputElement> {}
 interface State {}
 
 const INPUT_STYLE: React.CSSProperties = {
-  width: '100%',
-  height: DEFAULT_HEIGHT,
-  fontSize: 24,
-  lineHeight: '24px',
-  boxSizing: 'border-box',
-  outline: 0,
-  borderWidth: 1,
-  borderStyle: 'solid',
   borderColor: COLORS.DARKGRAY,
+  borderStyle: 'solid',
+  borderWidth: 1,
+  boxSizing: 'border-box',
+  fontSize: 24,
+  height: DEFAULT_HEIGHT,
+  lineHeight: '24px',
+  outline: 0,
   paddingLeft: 15,
   paddingRight: 15,
+  width: '100%',
 };
 
 export default class Input extends React.PureComponent<Props, State> {
