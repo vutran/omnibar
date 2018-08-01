@@ -1,6 +1,6 @@
 import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 import Input from '../src/Input';
-import renderer from 'react-test-renderer';
 
 describe('Input', () => {
   it('should render an <Input />', () => {

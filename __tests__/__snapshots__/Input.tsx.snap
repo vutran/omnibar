@@ -2,12 +2,10 @@
 
 exports[`Input should render an <Input /> 1`] = `
 <input
-  autoFocus={undefined}
-  onBlur={[Function]}
+  onBlur={[MockFunction]}
   onChange={[Function]}
-  onFocus={[Function]}
-  onKeyDown={[Function]}
-  placeholder={undefined}
+  onFocus={[MockFunction]}
+  onKeyDown={[MockFunction]}
   style={
     Object {
       "borderColor": "#ddd",
@@ -24,17 +22,15 @@ exports[`Input should render an <Input /> 1`] = `
     }
   }
   type="text"
-  value={undefined}
 />
 `;
 
 exports[`Input should render an <Input /> with a placeholder 1`] = `
 <input
-  autoFocus={undefined}
-  onBlur={[Function]}
+  onBlur={[MockFunction]}
   onChange={[Function]}
-  onFocus={[Function]}
-  onKeyDown={[Function]}
+  onFocus={[MockFunction]}
+  onKeyDown={[MockFunction]}
   placeholder="this is a test"
   style={
     Object {
@@ -52,18 +48,15 @@ exports[`Input should render an <Input /> with a placeholder 1`] = `
     }
   }
   type="text"
-  value={undefined}
 />
 `;
 
 exports[`Input should render an <Input /> with a specified size 1`] = `
 <input
-  autoFocus={undefined}
-  onBlur={[Function]}
+  onBlur={[MockFunction]}
   onChange={[Function]}
-  onFocus={[Function]}
-  onKeyDown={[Function]}
-  placeholder={undefined}
+  onFocus={[MockFunction]}
+  onKeyDown={[MockFunction]}
   style={
     Object {
       "borderColor": "#ddd",
@@ -80,6 +73,5 @@ exports[`Input should render an <Input /> with a specified size 1`] = `
     }
   }
   type="text"
-  value={undefined}
 />
 `;

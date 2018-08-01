@@ -1,6 +1,6 @@
 import * as React from 'react';
+import * as renderer from 'react-test-renderer';
 import ResultsItem from '../src/ResultsItem';
-import renderer from 'react-test-renderer';
 
 describe('ResultsItem', () => {
   it('should render a <ResultsItem />', () => {

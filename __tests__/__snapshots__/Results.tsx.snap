@@ -2,8 +2,6 @@
 
 exports[`Results should render a <Results /> 1`] = `
 <ul
-  onMouseEnter={undefined}
-  onMouseLeave={undefined}
   style={
     Object {
       "backgroundColor": "#fff",
@@ -18,7 +16,6 @@ exports[`Results should render a <Results /> 1`] = `
 >
   <a
     href="https://google.com"
-    onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -45,7 +42,6 @@ exports[`Results should render a <Results /> 1`] = `
   </a>
   <a
     href="https://dropbox.com"
-    onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -75,8 +71,6 @@ exports[`Results should render a <Results /> 1`] = `
 
 exports[`Results should render a <Results /> with a custom row renderer 1`] = `
 <ul
-  onMouseEnter={undefined}
-  onMouseLeave={undefined}
   style={
     Object {
       "backgroundColor": "#fff",
@@ -102,8 +96,6 @@ exports[`Results should render a <Results /> with a custom row renderer 1`] = `
 
 exports[`Results should render a <Results /> with a max height 1`] = `
 <ul
-  onMouseEnter={undefined}
-  onMouseLeave={undefined}
   style={
     Object {
       "backgroundColor": "#fff",
@@ -123,7 +115,6 @@ exports[`Results should render a <Results /> with a max height 1`] = `
 >
   <a
     href="https://google.com"
-    onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -150,7 +141,6 @@ exports[`Results should render a <Results /> with a max height 1`] = `
   </a>
   <a
     href="https://dropbox.com"
-    onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -180,8 +170,6 @@ exports[`Results should render a <Results /> with a max height 1`] = `
 
 exports[`Results should render a <Results /> with a row height 1`] = `
 <ul
-  onMouseEnter={undefined}
-  onMouseLeave={undefined}
   style={
     Object {
       "backgroundColor": "#fff",
@@ -201,7 +189,6 @@ exports[`Results should render a <Results /> with a row height 1`] = `
 >
   <a
     href="https://google.com"
-    onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -228,7 +215,6 @@ exports[`Results should render a <Results /> with a row height 1`] = `
   </a>
   <a
     href="https://dropbox.com"
-    onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -258,8 +244,6 @@ exports[`Results should render a <Results /> with a row height 1`] = `
 
 exports[`Results should render a <Results /> with a selected item 1`] = `
 <ul
-  onMouseEnter={undefined}
-  onMouseLeave={undefined}
   style={
     Object {
       "backgroundColor": "#fff",
@@ -274,7 +258,6 @@ exports[`Results should render a <Results /> with a selected item 1`] = `
 >
   <a
     href="https://google.com"
-    onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
@@ -302,7 +285,6 @@ exports[`Results should render a <Results /> with a selected item 1`] = `
   </a>
   <a
     href="https://dropbox.com"
-    onClick={undefined}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     style={
