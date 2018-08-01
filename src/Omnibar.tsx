@@ -15,12 +15,14 @@ export default class Omnibar<T> extends React.PureComponent<
     children: null,
     render: null, // alias of children
     extensions: [],
+    maxResults: null,
     maxViewableResults: null,
     inputDelay: 100,
 
     // style props
     resultStyle: {},
     rootStyle: { position: 'relative' },
+    emptyStyle: {},
   };
 
   state: Omnibar.State<T> = {
@@ -139,37 +141,50 @@ export default class Omnibar<T> extends React.PureComponent<
   }
 
   render() {
-    const maxHeight = this.props.maxViewableResults
-      ? this.props.maxViewableResults * DEFAULT_HEIGHT
+    let {
+      children,
+      render,
+      maxResults,
+      maxViewableResults,
+      extensions,
+      inputDelay,
+      rootStyle,
+      emptyStyle,
+      resultStyle,
+      ...rest
+    } = this.props;
+
+    let maxHeight = maxViewableResults
+      ? maxViewableResults * DEFAULT_HEIGHT
       : null;
 
-    const style = this.state.displayResults
-      ? { ...this.props.rootStyle, ...this.props.emptyStyle }
-      : { ...this.props.rootStyle };
+    let style = { ...rootStyle, ...emptyStyle };
+
+    if (!render) {
+      render = children;
+    }
 
     return (
       <div style={style}>
-        {React.createElement(Input, {
-          defaultValue: this.props.defaultValue,
-          autoFocus: this.props.autoFocus,
-          style: this.props.style,
-          placeholder: this.props.placeholder,
-          onChange: this.handleChange,
-          onKeyDown: this.handleKeyDown,
-          onBlur: this.handleBlur,
-          onFocus: this.handleFocus,
-        })}
-        {this.state.displayResults &&
-          Results({
-            children: this.props.render || this.props.children,
-            selectedIndex: this.state.selectedIndex,
-            items: this.state.results,
-            maxHeight: maxHeight,
-            style: this.props.resultStyle,
-            onMouseEnterItem: this.handleMouseEnterItem,
-            onMouseLeave: this.handleMouseLeave,
-            onClickItem: this.handleClickItem,
-          })}
+        <Input
+          {...rest}
+          onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
+        />
+        {this.state.displayResults && (
+          <Results
+            children={render}
+            selectedIndex={this.state.selectedIndex}
+            items={this.state.results}
+            maxHeight={maxHeight}
+            style={resultStyle}
+            onMouseEnterItem={this.handleMouseEnterItem}
+            onMouseLeave={this.handleMouseLeave}
+            onClickItem={this.handleClickItem}
+          />
+        )}
       </div>
     );
   }
