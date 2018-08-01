@@ -95,7 +95,7 @@ export default function SearchExtension(query) {
 ### Custom Renderers
 
 If you would like to display additional data in your result listings such as a thumbnail, you can
-pass a rendering function to the `resultRenderer` prop in your `<Omnibar />` instance.
+pass a rendering function to the `render` prop in your `<Omnibar />` instance.
 
 The example below changes our result item schema to be in the shape of:
 
@@ -110,7 +110,21 @@ The example below changes our result item schema to be in the shape of:
 ```
 
 ```jsx
-function ResultRenderer({ item }) {
+class MyComponent extends React.Component {
+  render() {
+    return (
+      <Omnibar placeholder="Search GitHub" extensions={[GitHubExtension]}>
+        {({ item }) => <div>{item.full_name}</div>}
+      </Omnibar>
+    );
+  }
+}
+```
+
+Or you can use the `render` prop to specify your custom component:
+
+```typescript
+function ResultItem({ item }) {
   return (
     <div>
       <img src={item.owner.avatar_url} width={30} height={30} />
@@ -122,24 +136,10 @@ function ResultRenderer({ item }) {
 class MyComponent extends React.Component {
   render() {
     return (
-      <Omnibar placeholder="Search GitHub" extensions={[GitHubExtension]}>
-        {({ item }) => <ResultRenderer item={item} />}
-      </Omnibar>
-    );
-  }
-}
-```
-
-Or you can use the `render` prop:
-
-```typescript
-class MyComponent extends React.Component {
-  render() {
-    return (
       <Omnibar
         placeholder="Search GitHub"
         extensions={[GitHubExtension]}
-        render={ResultRenderer}
+        render={ResultItem}
       />
     );
   }
