@@ -56,18 +56,17 @@ export default function Results<T>(props: Props<T>) {
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}
     >
-      {props.items.map((item, key) =>
-        React.createElement(ResultsItem, {
-          key,
-          children: props.children,
-          isSelected: props.selectedIndex === key,
-          item,
-          onMouseEnter:
-            props.onMouseEnterItem &&
-            createHandler(props.onMouseEnterItem, key),
-          onClickItem: props.onClickItem,
-        })
-      )}
+      {props.items.map((item, key) => (
+        <ResultsItem
+          key={key}
+          children={props.children}
+          item={item}
+          onMouseEnter={
+            props.onMouseEnterItem && createHandler(props.onMouseEnterItem, key)
+          }
+          onClickItem={props.onClickItem}
+        />
+      ))}
     </ul>
   );
 }
