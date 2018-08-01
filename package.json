@@ -25,8 +25,8 @@
     "test": "npm run jest"
   },
   "lint-staged": {
-    "{*.js,{src,__tests__,typings}/**/*.ts{,x}}": [
-      "prettier --write",
+    "{*.js,*.md,{src,__tests__,typings}/**/*.ts{,x}}": [
+      "npm run format",
       "git add"
     ]
   },
