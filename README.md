@@ -16,12 +16,6 @@ The demo can be found in [this repository](https://github.com/vutran/omnibar-www
 $ npm i -S omnibar
 ```
 
-or with Yarn:
-
-```bash
-$ yarn add omnibar
-```
-
 ## Usage
 
 Import the module and your extensions
