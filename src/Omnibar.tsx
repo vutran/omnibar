@@ -150,6 +150,8 @@ export default class Omnibar<T> extends React.PureComponent<
       inputDelay,
       rootStyle,
       resultStyle,
+      onQuery,
+      onAction,
       ...rest
     } = this.props;
 
