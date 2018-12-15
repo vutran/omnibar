@@ -81,7 +81,7 @@ and maps it's data schema with the default anchor schema.
 ```jsx
 export default function SearchExtension(query) {
     return fetch(`https://myapi.com/?q=${query}`)
-        .then(resp => resp.items.map(item => ({
+        .then(resp => resp.json().items.map(item => ({
             title: item.name,
             url: item.website,
         });
