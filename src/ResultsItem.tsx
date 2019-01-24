@@ -24,7 +24,7 @@ interface State {
   isHighlighted: boolean;
 }
 
-export default class ResultRenderer<T> extends React.PureComponent<
+export default class ResultsItem<T> extends React.PureComponent<
   Props<T>,
   State
 > {

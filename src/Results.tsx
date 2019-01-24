@@ -61,8 +61,12 @@ export default function Results<T>(props: Props<T>) {
           key={key}
           children={props.children}
           item={item}
+          isSelected={props.selectedIndex === key}
           onMouseEnter={
             props.onMouseEnterItem && createHandler(props.onMouseEnterItem, key)
+          }
+          onMouseLeave={
+            props.onMouseLeaveItem && createHandler(props.onMouseLeaveItem, key)
           }
           onClickItem={props.onClickItem}
         />
