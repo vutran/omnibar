@@ -119,10 +119,16 @@ export default class Omnibar<T> extends React.PureComponent<
   };
 
   handleBlur = () => {
+    if(this.props.onBlur) {
+      this.props.onBlur.call();
+    }
     setTimeout(() => this.setState({ displayResults: false }), BLUR_DELAY);
   };
 
   handleFocus = () => {
+    if(this.props.onFocus) {
+      this.props.onFocus.call();
+    }
     this.setState({ displayResults: true });
   };
 
@@ -145,6 +151,8 @@ export default class Omnibar<T> extends React.PureComponent<
       resultStyle,
       onQuery,
       onAction,
+      onFocus,
+      onBlur,
       ...rest
     } = this.props;
 
