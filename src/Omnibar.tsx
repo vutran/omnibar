@@ -100,9 +100,11 @@ export default class Omnibar<T> extends React.PureComponent<
     switch (evt.keyCode) {
       case KEYS.UP:
         this.prev();
+        evt.preventDefault();
         break;
       case KEYS.DOWN:
         this.next();
+        evt.preventDefault();
         break;
       case KEYS.ENTER:
         this.action();
