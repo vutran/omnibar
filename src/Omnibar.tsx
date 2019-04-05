@@ -120,14 +120,14 @@ export default class Omnibar<T> extends React.PureComponent<
     this.setState({ hoveredIndex: -1 });
   };
 
-  handleBlur = (evt: React.FocusEventHandler<HTMLInputElement>) => {
+  handleBlur = (evt: React.FocusEvent<HTMLInputElement>) => {
     if (this.props.onBlur) {
       this.props.onBlur(evt);
     }
     setTimeout(() => this.setState({ displayResults: false }), BLUR_DELAY);
   };
 
-  handleFocus = (evt: React.FocusEventHandler<HTMLInputElement>) => {
+  handleFocus = (evt: React.FocusEvent<HTMLInputElement>) => {
     if (this.props.onFocus) {
       this.props.onFocus(evt);
     }

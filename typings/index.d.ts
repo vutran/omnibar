@@ -43,9 +43,9 @@ declare namespace Omnibar {
     // triggered when a query is made
     onQuery?: <T>(items: Array<T>) => void;
     // optional input placeholder text
-    onFocus?: <T>(evt: React.FocusEventHandler<HTMLInputElement>) => void;
+    onFocus?: (evt: React.FocusEvent<HTMLInputElement>) => void;
     // optional input placeholder text
-    onBlur?: <T>(evt: React.FocusEventHandler<HTMLInputElement>) => void;
+    onBlur?: (evt: React.FocusEvent<HTMLInputElement>) => void;
     // optional input placeholder text
     placeholder?: string;
     // alias of children
