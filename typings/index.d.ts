@@ -56,6 +56,8 @@ declare namespace Omnibar {
     rootStyle?: React.CSSProperties;
     // optional input bar style override
     style?: React.CSSProperties;
+    // optional call extension with empty input
+    showEmpty?: boolean;
   }
 
   interface State<T> {
