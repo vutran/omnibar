@@ -52,7 +52,7 @@ render an anchor item with the default result item schema.
 export default function FooExtension() {
   return [
     { title: 'Dropbox', url: 'https://dropbox.com' },
-    { title: 'GitHub', url: 'https://google.com' },
+    { title: 'GitHub', url: 'https://github.com' },
     { title: 'Facebook', url: 'https://facebook.com' },
   ];
 }
