@@ -1,6 +1,6 @@
 {
   "name": "omnibar",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Extensible search component for React.",
   "main": "./dist/index.js",
   "types": "./typings/index.d.ts",
@@ -38,8 +38,8 @@
   "author": "Vu Tran <vu@vu-tran.com>",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
